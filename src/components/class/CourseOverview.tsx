@@ -10,15 +10,15 @@ const CourseOverview = ({courseOverview}: CourseOverviewProps) => {
 
     return (
         <div>
-            <div className="flex items-center mb-2">
+            <div className="flex-wrap items-center mb-2">
                 <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4">Field</span>
                 <span className="flex-wrap">
                     {fields}
                 </span>
             </div>
-            <div className="flex items-center mb-2">
-                <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4">Target levels</span>
-                <span className="flex-wrap">
+            <div className="flex-wrap items-center mb-2">
+                <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4 whitespace-no-wrap">Target levels</span>
+                <span className="">
                     {targetLevels}
                 </span>
 
