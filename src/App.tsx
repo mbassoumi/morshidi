@@ -1,27 +1,19 @@
 import React from 'react';
 import Navbar from './components/navbar/Navbar';
-import TeacherProfile from './components/teacher/TeacherProfile';
+import StudentProfile from './components/student/StudentProfile';
 
-const teacher  = {
-    id: 142323432,
-    name: 'Jehad Bisoomi',
-    username: '@jbesoomi',
-    classes: 120,
-    sessions: 50,
-    followers: 400,
-    rating: {
-        count: 4329,
-        avg: 3.5
-    },
+
+const student = {
+    id: 31322233,
+    name: 'Majd Bassoumi',
+    username: '@mbassoumi',
     details: {
-        aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
-            '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
-        levels: ['tawjihi', 'first grade'],
+        interests: ['math', 'physics'],
+        level: 'tawjihi',
         contactInfo: {
             whatsapp: '(925)-332-9428',
-            phone: '0599-042378',
-            email: 'jbesoomi@gmail.com'
+            phone: '0598-569530',
+            email: 'mbbassoumi@gmail.com'
         }
     }
 };
@@ -34,7 +26,7 @@ const App: React.FC = () => {
       <Navbar/>
 
       <div className="">
-          <TeacherProfile teacher={teacher}/>
+          <StudentProfile student={student}/>
       </div>
     </div>
   );
