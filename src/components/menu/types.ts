@@ -1,4 +1,5 @@
 export interface MenuItemProps {
+    link: string,
     icon: any,
     text: string,
     closeMenu: () => void,

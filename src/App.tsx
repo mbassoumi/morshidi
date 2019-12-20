@@ -1,35 +1,38 @@
 import React from 'react';
 import Navbar from './components/navbar/Navbar';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import TeacherProfile from './components/teacher/TeacherProfile';
+import {classDetails, student, teacher} from './data';
 import StudentProfile from './components/student/StudentProfile';
-
-
-const student = {
-    id: 31322233,
-    name: 'Majd Bassoumi',
-    username: '@mbassoumi',
-    details: {
-        interests: ['math', 'physics'],
-        level: 'tawjihi',
-        contactInfo: {
-            whatsapp: '(925)-332-9428',
-            phone: '0598-569530',
-            email: 'mbbassoumi@gmail.com'
-        }
-    }
-};
+import Class from './components/class/Class';
 
 const App: React.FC = () => {
 
 
-  return (
-    <div className="App">
-      <Navbar/>
+    return (
+        <Router>
+            <div className="App">
+                <Navbar/>
 
-      <div className="">
-          <StudentProfile student={student}/>
-      </div>
-    </div>
-  );
+                <Route path="/" exact={true}>
+                    <Redirect to="/teacher/public-profile"/>
+                </Route>
+                <Route path="/teacher/public-profile" exact={true}>
+                    <TeacherProfile teacher={teacher}/>
+                </Route>
+                <Route path="/student/public-profile" exact={true}>
+                    <StudentProfile student={student}/>
+                </Route>
+                <Route path="/class/public" exact={true}>
+                    <Class classDetails={classDetails}/>
+                </Route>
+
+                <div className="">
+
+                </div>
+            </div>
+        </Router>
+    );
 };
 
 export default App;
