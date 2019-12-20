@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import ClassHeader from './ClassHeader';
-import ClassPreview from './ClassPreview';
 import TabButton from '../shared/TabButton';
 import CourseOverview from './CourseOverview';
 import CourseNotifications from './CourseNotifications';
 import {ClassProps} from './types';
+import Card from '../shared/Card';
 
 const COURSE_OVERVIEW = 'COURSE_OVERVIEW';
 const NOTIFICATIONS = 'NOTIFICATIONS';
@@ -24,8 +24,7 @@ const Class = ({classDetails}: ClassProps) => {
                 <TabButton text="Notifications" active={componentName === NOTIFICATIONS}
                            onClick={() => setComponentName(NOTIFICATIONS)}/>
             </div>
-
-            <ClassPreview>
+            <Card>
                 {
                     componentName === COURSE_OVERVIEW
                         ?
@@ -33,7 +32,7 @@ const Class = ({classDetails}: ClassProps) => {
                         :
                         <CourseNotifications/>
                 }
-            </ClassPreview>
+            </Card>
         </div>
     );
 };

@@ -21,7 +21,6 @@ const CourseOverview = ({courseOverview}: CourseOverviewProps) => {
                 <span className="">
                     {targetLevels}
                 </span>
-
             </div>
             <div className="items-center mb-2">
                 <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4">Description</span>

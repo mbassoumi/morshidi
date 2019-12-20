@@ -29,7 +29,7 @@ const Navbar = () => {
     );
 
     return (
-        <header className="relative sticky top-0">
+        <header className="relative sticky top-0 z-10">
             <div className=" relative bg-indigo-900 w-full h-10 flex justify-between items-center">
                 <div className="w-1/3 flex justify-start items-center px-3">
                     <button onClick={toggleMenu} className="focus:outline-none">
