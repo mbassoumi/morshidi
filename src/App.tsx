@@ -6,7 +6,7 @@ import {cities, classDetails, fields, interests, levels, student, teacher} from 
 import StudentProfile from './components/student/StudentProfile';
 import Class from './components/class/Class';
 import TeacherForm from './components/teacher/TeacherForm';
-import TestComponent from './components/TestComponent';
+// import TestComponent from './components/TestComponent';
 import StudentForm from './components/student/StudentForm';
 
 const App: React.FC = () => {
@@ -25,8 +25,10 @@ const App: React.FC = () => {
                 <Navbar/>
 
                 <Route path="/" exact={true}>
-                    <TestComponent/>
-                    {/*<Redirect to="/teacher/public-new"/>*/}
+                    {/*<TestComponent/>*/}
+                    <div className="h-screen flex flex-col text-5xl text-center mx-auto justify-center align-middle items-center">
+                        <div className="text-indigo-900">See menu and give me feedback about pages</div>
+                    </div>
                 </Route>
                 <Route path="/teacher/public-profile" exact={true}>
                     <TeacherProfile teacher={teacher}/>
