@@ -7,6 +7,7 @@ import SettingsMenu from '../menu/SettingsMenu';
 
 const Navbar = () => {
 
+
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [isSettingsOpen, setSettingsOpen] = useState(false);
 

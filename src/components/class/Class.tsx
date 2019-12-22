@@ -14,6 +14,7 @@ const Class = ({classDetails}: ClassProps) => {
     const [componentName, setComponentName] = useState(COURSE_OVERVIEW);
 
 
+
     return (
         <div>
             <ClassHeader name={classDetails.name} nickname={classDetails.nickname} id={classDetails.id}/>

@@ -44,3 +44,18 @@ export interface TeacherDetails {
     rating: Rating,
     details: TeacherProfileBodyDetails
 }
+
+export interface TeacherFormProps {
+    defaultValues: any,
+    serverErrors: any,
+    cities: SelectObject[],
+    fields: SelectObject[],
+    levels: SelectObject[],
+    onSubmit: (values: any, {setSubmitting}: any) => void
+}
+
+interface SelectObject {
+    value: string,
+    label: string,
+    __isNew?: boolean
+}
