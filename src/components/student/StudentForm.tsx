@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Yup from 'yup';
 import {Formik, Form} from 'formik';
-import {TeacherFormProps} from './types';
-import {InputField, TextAreaField, SelectField, StyledButton} from '../shared/FormikComponents';
+import {StudentFormProps} from './types';
+import {InputField, SelectField, StyledButton} from '../shared/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMale, faFemale} from '@fortawesome/free-solid-svg-icons';
@@ -31,7 +31,7 @@ const validate = Yup.object({
         .required('Required'),
     dateOfBirth: Yup.date()
         .required('Required'),
-    fields: Yup.array()
+    interests: Yup.array()
         .of(Yup.string())
         .required('Required'),
     levels: Yup.array()
@@ -47,23 +47,20 @@ const validate = Yup.object({
         .required('Required'),
     phone2: Yup.string()
         .notRequired(),
-    bio: Yup.string()
-        .required('Required'),
 });
 
-const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, levels}: TeacherFormProps) => {
+const StudentForm = ({defaultValues, serverErrors, onSubmit, cities, interests, levels}: StudentFormProps) => {
     const initialValues = {
         firstName: '',
         lastName: '',
         gender: '',
         dateOfBirth: '',
-        fields: '',
+        interests: '',
         levels: '',
         city: '',
         email: '',
         phone1: '',
         phone2: '',
-        bio: ''
     };
     const combinedInitialValues = Object.assign(initialValues, defaultValues);
 
@@ -94,6 +91,7 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
                     />
                 </div>
 
+
                 <div className="flex flex-wrap">
                     <SelectField
                         className="w-full sm:w-1/2"
@@ -120,14 +118,14 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
 
                     <SelectField
                         className="w-full sm:w-1/2"
-                        label='FIELDS'
-                        id='fields'
-                        name='fields'
-                        options={fields}
+                        label='INTERESTS'
+                        id='interests'
+                        name='interests'
+                        options={interests}
                         type={ReactSelectType.CREATABLE_SELECT}
                         isMulti={true}
                         isClearable={false}
-                        placeholder='select your fields'
+                        placeholder='select your interests'
                     />
 
                     <SelectField
@@ -183,16 +181,6 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
                         placeholder='enter your secondary phone'
                     />
                 </div>
-                <div>
-                    <TextAreaField
-                        className="w-full"
-                        rows={5}
-                        label='BIO'
-                        id='bio'
-                        name='bio'
-                        placeholder='enter a brief biography about yourself'
-                    />
-                </div>
 
                 <div className="flex flex-wrap px-4 pb-4">
                     <StyledButton type='submit' className="px-16 mb-4 mx-auto">
@@ -209,4 +197,4 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
     );
 };
 
-export default TeacherForm;
+export default StudentForm;

@@ -61,7 +61,7 @@ const TextAreaField = ({label, ...props}: any) => {
 };
 
 
-const SelectField = (props: ReactSelectProps & { name: string } & any) => {
+const SelectField = (props: ReactSelectProps & { name: string }) => {
     // @ts-ignore
     const [, meta] = useField(props);
     const errors = meta.touched && meta.error;

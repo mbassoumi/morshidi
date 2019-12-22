@@ -82,6 +82,14 @@ export const levels = [
     {label: 'MASTER', value: 'master'},
 ];
 
+export const interests = [
+    {label: 'SWIMMING', value: 'swimming'},
+    {label: 'WRITING', value: 'writing'},
+    {label: 'PLAYING', value: 'playing'},
+    {label: 'PROGRAMMING', value: 'programming'},
+    {label: 'DO NOTHING', value: 'do nothing'},
+];
+
 export const cities = [
     {value: 'ramallah', label: 'Ramallah'},
     {value: 'betonia', label: 'Betonia'},

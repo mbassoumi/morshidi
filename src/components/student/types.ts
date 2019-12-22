@@ -30,3 +30,18 @@ export interface Student {
 export interface StudentProfileBodyProps {
     details: StudentDetails
 }
+
+export interface StudentFormProps {
+    defaultValues: any,
+    serverErrors: any,
+    cities: SelectObject[],
+    interests: SelectObject[],
+    levels: SelectObject[],
+    onSubmit: (values: any, {setSubmitting}: any) => void
+}
+
+interface SelectObject {
+    value: string,
+    label: string,
+    __isNew?: boolean
+}
