@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import {Formik, Form} from 'formik';
 import {TeacherFormProps} from './types';
-import {InputField, TextAreaField, SelectField, StyledButton} from '../shared/FormikComponents';
+import {InputField, TextAreaField, SelectField, StyledButton, DatePickerField} from '../shared/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMale, faFemale} from '@fortawesome/free-solid-svg-icons';
@@ -106,12 +106,12 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
                         isClearable={true}
                         placeholder='select your gender'
                     />
-                    <InputField
+                    <DatePickerField
+                        isClearable={true}
                         className="w-full sm:w-1/2"
                         label='DATE OF BIRTH'
                         id='dateOfBirth'
                         name='dateOfBirth'
-                        type='text'
                         placeholder='select your birthday'
                     />
                 </div>

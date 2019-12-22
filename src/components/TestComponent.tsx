@@ -1,14 +1,17 @@
-import React, {SyntheticEvent} from 'react';
-import {ReactSelect, ReactSelectType} from './shared/ReactSelect';
+import React, {SyntheticEvent, useState} from 'react';
+// import {ReactSelect, ReactSelectType} from './shared/ReactSelect';
+import DatePicker from './shared/DatePicker';
+// import ReactDatePicker from 'react-datepicker';
 
 
 
-const options = [
-    {value: 'option 1', label: 'Option 1'},
-    {value: 'option 2', label: 'Option 2'},
-    {value: 'option 3', label: 'Option 3'},
-    {value: 'option 4', label: 'Option 4'}
-];
+
+// const options = [
+//     {value: 'option 1', label: 'Option 1'},
+//     {value: 'option 2', label: 'Option 2'},
+//     {value: 'option 3', label: 'Option 3'},
+//     {value: 'option 4', label: 'Option 4'}
+// ];
 const TestComponent = () => {
 
     const onSubmit = (e: SyntheticEvent) => {
@@ -19,20 +22,30 @@ const TestComponent = () => {
         // }, 400);
     };
 
+    const [startDate, setStartDate] = useState(new Date());
+
 
     return (
         <div>
             <form onSubmit={onSubmit}>
                 <div className="px-4 py-4">
-                    <ReactSelect
-                        type={ReactSelectType.SELECT}
-                        options={options}
-                        name='mySelect'
-                        isMulti={true}
-                        placeholder="Select hahahah .."
-                        animated={true}
-                        error={false}
+                    {/*<ReactSelect*/}
+                    {/*    type={ReactSelectType.SELECT}*/}
+                    {/*    options={options}*/}
+                    {/*    name='mySelect'*/}
+                    {/*    isMulti={true}*/}
+                    {/*    placeholder="Select hahahah .."*/}
+                    {/*    animated={true}*/}
+                    {/*    error={false}*/}
+                    {/*/>*/}
+
+                    <DatePicker
+                        selected={startDate}
+                        // @ts-ignore
+                        onChange={date => setStartDate(date)}
                     />
+
+
                 </div>
                 <button type="submit">Submit</button>
             </form>

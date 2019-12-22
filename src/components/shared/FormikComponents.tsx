@@ -5,6 +5,7 @@ import {OptionTypeBase, Props as ReactSelectProps} from 'react-select';
 import {ErrorMessage, Field, useField} from 'formik';
 import classNames from 'classnames';
 import {ReactSelect} from './ReactSelect';
+import DatePicker from './DatePicker';
 
 const InputField = ({label, className, ...props}: any) => {
 
@@ -83,6 +84,7 @@ const SelectField = (props: ReactSelectProps & { name: string }) => {
         </div>
     );
 };
+
 const FormikReactSelect = ({field, form, error, ...props}: any) => {
 
     let value: any;
@@ -98,13 +100,13 @@ const FormikReactSelect = ({field, form, error, ...props}: any) => {
 
 
         onChange = (options: OptionTypeBase) => {
-            const newValue = options === null  ? "" : options.map((option: OptionTypeBase) => {
+            const newValue = options === null ? '' : options.map((option: OptionTypeBase) => {
                 return option.value;
             });
             form.setFieldValue(
                 field.name,
                 newValue
-            )
+            );
         };
 
     } else {
@@ -130,6 +132,51 @@ const FormikReactSelect = ({field, form, error, ...props}: any) => {
         />
     );
 };
+
+const DatePickerField = (props: any) => {
+    // @ts-ignore
+    const [, meta] = useField(props);
+    const errors = meta.touched && meta.error;
+    const divStyle = classNames('field-container px-4 pb-4', props.className);
+
+
+    const classes = classNames(
+        'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+        {'border-red-500': errors},
+        {'border-gray-500': !errors}
+    );
+
+    return (
+
+        <div className={divStyle}>
+            <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{props.label} </label>
+
+            <Field component={FormikDatePicker} {...props} error={errors} className={classes}/>
+            <div className="text-red-500 text-xs italic">
+                <ErrorMessage name={props.name}/>
+            </div>
+        </div>
+    );
+};
+
+const FormikDatePicker = ({field, form, error, ...props}: any) => {
+    return (
+        <DatePicker
+            placeholderText={props.placeholder}
+            dateFormat="dd/MM/yyyy"
+            {...props}
+            name={field.name}
+            selected={field.value}
+            onChange={date => {
+                form.setFieldValue(field.name, date ?? '');
+            }}
+        />
+
+
+    );
+};
+
+
 const CheckboxField = ({children, ...props}: any) => {
     // We need to tell useField what type of input this is
     // since React treats radios and checkboxes differently
@@ -172,4 +219,4 @@ const StyledButton = ({className, ...props}: any) => {
     );
 };
 
-export {InputField, TextAreaField, SelectField, CheckboxField, StyledButton};
+export {InputField, TextAreaField, SelectField, DatePickerField, CheckboxField, StyledButton};

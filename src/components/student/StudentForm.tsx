@@ -2,14 +2,13 @@ import React from 'react';
 import * as Yup from 'yup';
 import {Formik, Form} from 'formik';
 import {StudentFormProps} from './types';
-import {InputField, SelectField, StyledButton} from '../shared/FormikComponents';
+import {DatePickerField, InputField, SelectField, StyledButton} from '../shared/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMale, faFemale} from '@fortawesome/free-solid-svg-icons';
 
 
-
-const CustomOption = ({icon, text}: {icon: any, text: string}) => (
+const CustomOption = ({icon, text}: { icon: any, text: string }) => (
     <div className="flex">
         <FontAwesomeIcon icon={icon} size="lg"/>
         <span className="ml-2">{text}</span>
@@ -104,14 +103,16 @@ const StudentForm = ({defaultValues, serverErrors, onSubmit, cities, interests, 
                         isClearable={true}
                         placeholder='select your gender'
                     />
-                    <InputField
+
+                    <DatePickerField
+                        isClearable={true}
                         className="w-full sm:w-1/2"
                         label='DATE OF BIRTH'
                         id='dateOfBirth'
                         name='dateOfBirth'
-                        type='text'
                         placeholder='select your birthday'
                     />
+
                 </div>
 
                 <div className="flex flex-wrap">
