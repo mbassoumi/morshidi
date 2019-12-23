@@ -18,11 +18,15 @@ const InputField = ({label, className, ...props}: any) => {
         {'border-gray-500': !errors}
     );
 
-    const divStyle = classNames('field-container px-4 pb-4', className);
+    const divStyle = classNames('field-container px-4', className, {
+        'pb-4': label,
+        'py-2': !label,
+
+    });
 
     return (
         <div className={divStyle}>
-            <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{label} </label>
+            { label && <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{label} </label>}
             <Field name={props.name}
                    {...props}
                    className={classes}/>

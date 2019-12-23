@@ -96,3 +96,28 @@ export const cities = [
     {value: 'nablus', label: 'Nablus'},
     {value: 'al-bireh', label: 'Al-Bireh'},
 ];
+
+export const keywords = [
+    {value: 'online', label: 'Online'},
+    {value: 'physical', label: 'Physical'},
+];
+
+
+export const initialCourseFormValues = {
+    courseName: 'Math',
+    fields: ["math", "engineer"],
+    levels: ["university", "bachelor"],
+    keywords: ["online"],
+    description: 'some description',
+    requirements: [
+        'tawjihi + 95%',
+        'stupid',
+    ],
+    isOnline: true,
+    city: '',
+    physicalAddress: '',
+    minStudentPerClass: 1,
+    maxStudentPerClass: 20,
+    pricePerStudent: 21,
+    studentReferralIncentive: 23,
+};
