@@ -102,6 +102,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                                 name='fields'
                                 type={ReactSelectType.CREATABLE_SELECT}
                                 isMulti={true}
+                                isClearable={false}
                                 options={fields}
                                 placeholder='enter your last name'
                             />
@@ -114,6 +115,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                                 name='levels'
                                 type={ReactSelectType.CREATABLE_SELECT}
                                 isMulti={true}
+                                isClearable={false}
                                 options={levels}
                                 placeholder='enter course target levels'
                             />
@@ -124,6 +126,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                                 name='keywords'
                                 type={ReactSelectType.CREATABLE_SELECT}
                                 isMulti={true}
+                                isClearable={false}
                                 options={keywords}
                                 placeholder='enter some keywords for search'
                             />
