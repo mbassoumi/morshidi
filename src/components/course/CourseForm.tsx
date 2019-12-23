@@ -221,7 +221,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                                                             id='city'
                                                             name='city'
                                                             type={ReactSelectType.SELECT}
-                                                            options={levels}
+                                                            options={cities}
                                                             placeholder='enter course city'
                                                         />
                                                     </div>
