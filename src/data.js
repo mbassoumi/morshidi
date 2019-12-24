@@ -111,13 +111,16 @@ export const initialCourseFormValues = {
     description: 'some description',
     requirements: [
         'tawjihi + 95%',
-        'stupid',
+        ' feda is stupid',
     ],
     isOnline: true,
-    city: '',
-    physicalAddress: '',
-    minStudentPerClass: 1,
-    maxStudentPerClass: 20,
-    pricePerStudent: 21,
-    studentReferralIncentive: 23,
+    city: 'ramallah',
+    physicalAddress: 'Irsal street',
+    minStudentPerPhysicalClass: 1,
+    maxStudentPerPhysicalClass: 20,
+    pricePerPhysicalStudent: 21,
+    minStudentPerOnlineClass: 1,
+    maxStudentPerOnlineClass: 20,
+    pricePerOnlineStudent: 21,
+
 };

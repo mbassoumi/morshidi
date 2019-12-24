@@ -13,3 +13,8 @@ interface SelectObject {
     label: string,
     __isNew?: boolean
 }
+
+export interface DefaultPhysicalClassSettingProps {
+    values: object,
+    cities: SelectObject[],
+}

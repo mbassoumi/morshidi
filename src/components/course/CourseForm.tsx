@@ -2,11 +2,13 @@ import React from 'react';
 import * as Yup from 'yup';
 import {CourseFormProps} from './types';
 import {FieldArray, Form, Formik} from 'formik';
-import {CheckboxField, InputField, SelectField, StyledButton, TextAreaField} from '../shared/FormikComponents';
+import {InputField, SelectField, StyledButton, TextAreaField} from '../shared/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare, faTrash} from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import DefaultOnlineClassSetting from './partial/DefaultOnlineClassSetting';
+import DefaultPhysicalClassSetting from './partial/DefaultPhysicalClassSetting';
 
 
 const validate = Yup.object({
@@ -30,30 +32,31 @@ const validate = Yup.object({
                 .required('Required')
         )
         .required('Required'),
-    isOnline: Yup.boolean(),
     city: Yup.string()
-        .when('isOnline', {
-            is: false,
-            then: Yup.string().required('Required'),
-        }),
+        .notRequired(),
     physicalAddress: Yup.string()
-        .when('isOnline', {
-            is: false,
-            then: Yup.string().required('Required'),
-        }),
-    minStudentPerClass: Yup.number()
+        .notRequired(),
+    minStudentPerPhysicalClass: Yup.number()
         .min(1, 'wrong min value')
-        .max(Yup.ref('maxStudentPerClass'), 'min value can\'t be larger than max value')
-        .required('Required'),
-    maxStudentPerClass: Yup.number()
-        .min(Yup.ref('minStudentPerClass'), 'max value can\'t be less than min value')
-        .required('Required'),
-    pricePerStudent: Yup.number()
+        .max(Yup.ref('maxStudentPerPhysicalClass'), 'min value can\'t be larger than max value')
+        .notRequired(),
+    maxStudentPerPhysicalClass: Yup.number()
+        .min(Yup.ref('minStudentPerPhysicalClass'), 'max value can\'t be less than min value')
+        .notRequired(),
+    pricePerPhysicalStudent: Yup.number()
         .min(0, 'can\'t be negative')
-        .required('Required'),
-    studentReferralIncentive: Yup.number()
+        .notRequired(),
+    minStudentPerOnlineClass: Yup.number()
+        .min(1, 'wrong min value')
+        .max(Yup.ref('maxStudentPerOnlineClass'), 'min value can\'t be larger than max value')
+        .notRequired(),
+    maxStudentPerOnlineClass: Yup.number()
+        .min(Yup.ref('minStudentPerOnlineClass'), 'max value can\'t be less than min value')
+        .notRequired(),
+    pricePerOnlineStudent: Yup.number()
         .min(0, 'can\'t be negative')
-        .required('Required'),
+        .notRequired(),
+
 });
 
 const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, cities, levels}: CourseFormProps) => {
@@ -67,13 +70,15 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
         requirements: [
             ''
         ],
-        isOnline: false,
         city: '',
         physicalAddress: '',
-        minStudentPerClass: '',
-        maxStudentPerClass: '',
-        pricePerStudent: '',
-        studentReferralIncentive: '',
+        minStudentPerPhysicalClass: '',
+        maxStudentPerPhysicalClass: '',
+        pricePerPhysicalStudent: '',
+        minStudentPerOnlineClass: '',
+        maxStudentPerOnlineClass: '',
+        pricePerOnlineStudent: '',
+
     };
     const combinedInitialValues = Object.assign(initialValues, defaultValues);
 
@@ -143,7 +148,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                             />
                         </div>
 
-                        <div className="px-4">
+                        <div className="px-4 pb-4">
                             <div>
                                 <FieldArray
                                     name="requirements"
@@ -197,99 +202,9 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                             </div>
 
                         </div>
-                        <div className="p-4 ">
-                            <label className='text-sm block font-bold'>DEAFULT CLASS SETTINGS</label>
-                            <div className="p-4">
 
-                                <div className="block sm:flex">
-                                    <label className='text-sm block font-bold  pb-2  sm:w-1/5'>LOCATION</label>
-
-                                    <div className="ml-4 w-4/5">
-                                        <CheckboxField
-                                            id="isOnline"
-                                            name="isOnline"
-                                        >
-                                            Online course
-                                        </CheckboxField>
-                                        {
-                                            !values.isOnline && (
-                                                <div className="flex flex-wrap">
-                                                    <div className="w-full sm:w-1/2 lg:w-1/3">
-                                                        <SelectField
-                                                            className="w-full"
-                                                            label='CITY'
-                                                            id='city'
-                                                            name='city'
-                                                            type={ReactSelectType.SELECT}
-                                                            options={cities}
-                                                            placeholder='enter course city'
-                                                        />
-                                                    </div>
-                                                    <div className="w-full sm:w-1/2 lg:w-2/3">
-                                                        <InputField
-                                                            className="w-full"
-                                                            label="PHYSICAL ADDRESS"
-                                                            id="physicalAddress"
-                                                            name="physicalAddress"
-                                                            type='text'
-                                                            placeholder='Physical Address'
-                                                        />
-                                                    </div>
-                                                </div>
-                                            )
-                                        }
-                                    </div>
-                                </div>
-
-                                <div className="block sm:flex items-center">
-                                    <label className='text-sm block font-bold  pb-2  sm:w-1/5'>STUDENTS PER
-                                        CLASS</label>
-                                    <div className="block sm:flex sm:ml-4 items-center">
-                                        <InputField
-                                            label="MIN"
-                                            id="minStudentPerClass"
-                                            name="minStudentPerClass"
-                                            type='number'
-                                            placeholder='MIN'
-                                        />
-                                        <InputField
-                                            label="MAX"
-                                            id="maxStudentPerClass"
-                                            name="maxStudentPerClass"
-                                            type='number'
-                                            placeholder='MIN'
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="block sm:flex items-center">
-                                    <label className='text-sm block font-bold  pb-2  sm:w-1/5'>PRICE PER STUDENT</label>
-                                    <div className="flex sm:ml-4 items-center">
-                                        <InputField
-                                            id="pricePerStudent"
-                                            name="pricePerStudent"
-                                            type='number'
-                                            placeholder='price per student'
-                                        />
-                                        <span>NIS</span>
-                                    </div>
-                                </div>
-
-                                <div className="block sm:flex items-center">
-                                    <label className='text-sm block font-bold  pb-2  sm:w-1/5'>STUDENT REFERRAL
-                                        INCENTIVE</label>
-                                    <div className="flex sm:ml-4 items-center">
-                                        <InputField
-                                            id="studentReferralIncentive"
-                                            name="studentReferralIncentive"
-                                            type='number'
-                                            placeholder='student referral incentive'
-                                        />
-                                        <span>NIS</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <DefaultOnlineClassSetting/>
+                        <DefaultPhysicalClassSetting cities={cities} values={values}/>
 
 
                         <div className="flex flex-wrap px-4 pb-4">
