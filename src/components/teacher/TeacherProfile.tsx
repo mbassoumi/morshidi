@@ -13,6 +13,7 @@ const TeacherProfile = ({teacher}: TeacherProfileProps) => {
                 id={teacher.id}
                 name={teacher.name}
                 username={teacher.username}
+                from={teacher.from}
                 classes={teacher.classes}
                 sessions={teacher.sessions}
                 followers={teacher.followers}

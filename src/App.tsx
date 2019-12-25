@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import TeacherProfile from './components/teacher/TeacherProfile';
 import {
     cities,
-    classDetails,
+    classDetails, course,
     fields,
     initialCourseFormValues,
     interests,
@@ -21,6 +21,7 @@ import StudentForm from './components/student/StudentForm';
 import CourseForm from './components/course/CourseForm';
 import ClassForm from './components/class/ClassForm';
 import TestComponent from './components/TestComponent';
+import Course from './components/course/Course';
 
 const App: React.FC = () => {
 
@@ -54,6 +55,9 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/student/public-profile" exact={true}>
                     <StudentProfile student={student}/>
+                </Route>
+                <Route path="/course/public" exact={true}>
+                    <Course course={course}/>
                 </Route>
                 <Route path="/course/new" exact={true}>
                     <CourseForm defaultValues={initialCourseFormValues} serverErrors={{}} onSubmit={onSubmit} cities={cities} fields={fields} keywords={keywords} levels={levels}/>

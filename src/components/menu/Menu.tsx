@@ -13,10 +13,11 @@ const Menu = ({closeMenu}: MenuProps) => {
             <MenuItem link='/teacher/public-profile' icon={faUserTie} text="Teacher Public Profile" closeMenu={closeMenu}/>
             <MenuItem link='/student/public-profile' icon={faUserGraduate} text="Student Public Profile" closeMenu={closeMenu}/>
             <MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>
+            <MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>
             <MenuItem link='/teacher/profile-new' icon={faSchool} text="New teacher profile" closeMenu={closeMenu}/>
             <MenuItem link='/student/profile-new' icon={faSchool} text="New student profile" closeMenu={closeMenu}/>
+            <MenuItem link='/course/public' icon={faCoffee} text="Course Public" closeMenu={closeMenu}/>
             <MenuItem link='/course/new' icon={faBook} text="New Course" closeMenu={closeMenu}/>
-            <MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>
         </div>
     )
 };

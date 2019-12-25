@@ -6,7 +6,7 @@ import Rating from 'react-rating';
 import CircleImg from '../shared/CircleImg';
 import {TeacherProfileHeaderProps} from './types';
 
-const TeacherProfileHeader = ({id, name, username, classes, sessions, followers, rating}: TeacherProfileHeaderProps) => {
+const TeacherProfileHeader = ({id, name, username, from, classes, sessions, followers, rating}: TeacherProfileHeaderProps) => {
     return (
         <div>
             <div className="bg-indigo-800 w-full justify-center text-center">
@@ -21,7 +21,7 @@ const TeacherProfileHeader = ({id, name, username, classes, sessions, followers,
                     </button>
                 </div>
                 <div className="text-white font-bold tracking-wide text-2xl">{name}</div>
-                <div className="text-white tracking-wide text-lg">Ramallah</div>
+                <div className="text-white tracking-wide text-lg">{from}</div>
                 <div className="flex mt-3">
                     <div className="flex mx-auto justify-between items-center sm:w-1/3">
                         <div className="flex justify-start text-white mx-4 sm:w-1/3">{username}</div>

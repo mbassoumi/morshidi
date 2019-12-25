@@ -1,7 +1,9 @@
+
 export const teacher = {
     id       : 142323432,
     name     : 'Jehad Bisoomi',
     username : '@jbesoomi',
+    from: 'Ramallah',
     classes  : 120,
     sessions : 50,
     followers: 400,
@@ -123,4 +125,30 @@ export const initialCourseFormValues = {
     maxStudentPerOnlineClass: 20,
     pricePerOnlineStudent: 21,
 
+};
+
+export const course = {
+    id       : 142323432,
+    name     : 'Advanced Equations',
+    classes  : 120,
+    students : 50,
+    rating   : {
+        count: 4329,
+        avg  : 3.5
+    },
+    fields     : ['math'],
+    levels     : ['tawjihi', 'first grade'],
+    description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
+        'asdasdas\n' +
+        'asdad\n' +
+        'asdasda\n' +
+        'asddsadasdd\n' +
+        'asdasdasdsad\n',
+    requirements: [
+        'A laptop',
+        'Knowledge with Triangles and calculators',
+        'Test 123',
+        'More requirements'
+    ],
+    teacher: teacher,
 };
