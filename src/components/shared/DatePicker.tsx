@@ -1,5 +1,4 @@
 import React from 'react';
-import {subYears} from 'date-fns';
 import ReactDatePicker, {ReactDatePickerProps} from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -10,9 +9,9 @@ const DatePicker = (props: ReactDatePickerProps) => {
             peekNextMonth
             showMonthDropdown
             showYearDropdown
-            openToDate={subYears(new Date(), 15)}
             dropdownMode="select"
             placeholderText="pick a date ..."
+            autoComplete="off"
             {...props}
             // customInput={<CustomDatePickerInput/>}
         />

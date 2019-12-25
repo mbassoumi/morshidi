@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItem from './MenuItem';
 // import {faHome, faBookOpen, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-import {faBook, faBookOpen, faSchool, faUserGraduate, faUserTie} from '@fortawesome/free-solid-svg-icons';
+import {faBook, faBookOpen, faCoffee, faSchool, faUserGraduate, faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
 
 const Menu = ({closeMenu}: MenuProps) => {
@@ -16,6 +16,7 @@ const Menu = ({closeMenu}: MenuProps) => {
             <MenuItem link='/teacher/profile-new' icon={faSchool} text="New teacher profile" closeMenu={closeMenu}/>
             <MenuItem link='/student/profile-new' icon={faSchool} text="New student profile" closeMenu={closeMenu}/>
             <MenuItem link='/course/new' icon={faBook} text="New Course" closeMenu={closeMenu}/>
+            <MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>
         </div>
     )
 };

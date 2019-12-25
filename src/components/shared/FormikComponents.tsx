@@ -6,6 +6,8 @@ import {ErrorMessage, Field, useField} from 'formik';
 import classNames from 'classnames';
 import {ReactSelect} from './ReactSelect';
 import DatePicker from './DatePicker';
+import {ReactDatePickerProps} from 'react-datepicker';
+
 
 const InputField = ({label, className, ...props}: any) => {
 
@@ -14,8 +16,11 @@ const InputField = ({label, className, ...props}: any) => {
     const errors = meta.touched && meta.error;
     const classes = classNames(
         'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-        {'border-red-500': errors},
-        {'border-gray-500': !errors}
+        {
+            'border-red-500': errors,
+            'border-gray-500': !errors,
+            'bg-gray-400': props.disabled,
+        },
     );
 
     const divStyle = classNames('field-container px-4', className, {
@@ -26,7 +31,7 @@ const InputField = ({label, className, ...props}: any) => {
 
     return (
         <div className={divStyle}>
-            { label && <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{label} </label>}
+            {label && <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{label} </label>}
             <Field name={props.name}
                    {...props}
                    className={classes}/>
@@ -137,23 +142,31 @@ const FormikReactSelect = ({field, form, error, ...props}: any) => {
     );
 };
 
-const DatePickerField = (props: any) => {
+// @ts-ignore
+const DatePickerField = (props: ReactDatePickerProps & { name: string, label: string, placeholder: string } = {onChange: ''}) => {
     // @ts-ignore
     const [, meta] = useField(props);
     const errors = meta.touched && meta.error;
-    const divStyle = classNames('field-container px-4 pb-4', props.className);
+    const divStyle = classNames('field-container px-4', props.className,
+        {
+            'pb-4': props.label,
+            'py-2': !props.label,
+        });
 
 
     const classes = classNames(
         'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-        {'border-red-500': errors},
-        {'border-gray-500': !errors}
+        {
+            'border-red-500': errors,
+            'border-gray-500': !errors,
+            'bg-gray-400': props.disabled,
+        }
     );
 
     return (
 
         <div className={divStyle}>
-            <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{props.label} </label>
+            {props.label && <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{props.label} </label>}
 
             <Field component={FormikDatePicker} {...props} error={errors} className={classes}/>
             <div className="text-red-500 text-xs italic">
@@ -188,13 +201,13 @@ const CheckboxField = ({children, ...props}: any) => {
     const [field, meta] = useField({...props, type: 'checkbox'});
     const errors = meta.touched && meta.error;
     const classes = classNames(
-        'shadow   rounded mr-3  py-2 px-3 focus:outline-none focus:shadow-outline',
+        'shadow   rounded mr-3  py-2 px-3 focus:outline-none focus:shadow-outline cursor-pointer',
         {'border-red-500': errors},
         {'border-gray-500': !errors}
     );
 
     return (
-        <div className='field-container px-4 pb-4'>
+        <div className='field-container px-4'>
             <label className="checkbox">
                 <input type="checkbox" {...field} {...props} className={classes}/>
                 {children}

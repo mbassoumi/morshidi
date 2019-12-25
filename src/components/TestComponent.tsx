@@ -1,6 +1,8 @@
 import React, {SyntheticEvent, useState} from 'react';
 // import {ReactSelect, ReactSelectType} from './shared/ReactSelect';
 import DatePicker from './shared/DatePicker';
+import {setHours, setMinutes} from 'date-fns';
+import {DatePickerField} from './shared/FormikComponents';
 // import ReactDatePicker from 'react-datepicker';
 
 
@@ -22,7 +24,11 @@ const TestComponent = () => {
         // }, 400);
     };
 
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(
+        setHours(setMinutes(new Date(), 0), 17)
+    );
+
+    console.log(setHours(setMinutes(new Date(), 0), 17));
 
 
     return (
@@ -41,8 +47,14 @@ const TestComponent = () => {
 
                     <DatePicker
                         selected={startDate}
-                        // @ts-ignore
+                        //@ts-ignore
                         onChange={date => setStartDate(date)}
+                        showTimeSelect
+                        showTimeSelectOnly
+                        // minTime={setHours(setMinutes(new Date(), 0), 17)}
+                        minTime={startDate}
+                        maxTime={setHours(setMinutes(new Date(), 30), 20)}
+                        dateFormat="h:mm aa"
                     />
 
 

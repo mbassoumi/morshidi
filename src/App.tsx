@@ -19,6 +19,8 @@ import TeacherForm from './components/teacher/TeacherForm';
 // import TestComponent from './components/TestComponent';
 import StudentForm from './components/student/StudentForm';
 import CourseForm from './components/course/CourseForm';
+import ClassForm from './components/class/ClassForm';
+import TestComponent from './components/TestComponent';
 
 const App: React.FC = () => {
 
@@ -58,6 +60,12 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/class/public" exact={true}>
                     <Class classDetails={classDetails}/>
+                </Route>
+                <Route path="/class/new" exact={true}>
+                    <ClassForm courseName="Grammar - 101" defaultValues={{}} serverErrors={{}} onSubmit={onSubmit} cities={cities} fields={fields} keywords={keywords} levels={levels}/>
+                </Route>
+                <Route path="/test" exact={true}>
+                    <TestComponent/>
                 </Route>
 
                 <div className="">

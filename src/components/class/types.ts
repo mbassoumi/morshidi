@@ -29,3 +29,20 @@ export interface ClassDetails {
 export interface ClassProps {
     classDetails: ClassDetails
 }
+
+export interface ClassFormProps {
+    defaultValues: any,
+    serverErrors: any,
+    courseName: string,
+    fields: SelectObject[],
+    levels: SelectObject[],
+    keywords: SelectObject[],
+    cities: SelectObject[],
+    onSubmit: (values: any, {setSubmitting}: any) => void
+}
+
+interface SelectObject {
+    value: string,
+    label: string,
+    __isNew?: boolean
+}
