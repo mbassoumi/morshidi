@@ -6,10 +6,9 @@ import {InputField, TextAreaField, SelectField, StyledButton, DatePickerField} f
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMale, faFemale} from '@fortawesome/free-solid-svg-icons';
-import {subYears} from "date-fns";
+import {subYears} from 'date-fns';
 
-
-const CustomOption = ({icon, text}: { icon: any, text: string }) => (
+const CustomOption = ({icon, text}: { icon: any, text: string }) : any => (
     <div className="flex">
         <FontAwesomeIcon icon={icon} size="lg"/>
         <span className="ml-2">{text}</span>
@@ -100,14 +99,13 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
                         label='GENDER'
                         id='gender'
                         name='gender'
-                        // @ts-ignore
+                        //@ts-ignore
                         options={genders}
                         type={ReactSelectType.SELECT}
                         isClearable={true}
                         placeholder='select your gender'
                     />
                     {
-                        //@ts-ignore
                         <DatePickerField
                             isClearable={true}
                             className="w-full sm:w-1/2"
@@ -115,6 +113,7 @@ const TeacherForm = ({defaultValues, serverErrors, onSubmit, cities, fields, lev
                             openToDate={subYears(new Date(), 15)}
                             id='dateOfBirth'
                             name='dateOfBirth'
+                            // onChange={() => {console.log('sss')}}
                             placeholder='select your birthday'
                         />
                     }

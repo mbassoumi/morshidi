@@ -1,5 +1,5 @@
 import React from 'react';
-import {OptionTypeBase, Props as ReactSelectProps} from 'react-select';
+import {OptionTypeBase} from 'react-select';
 
 
 import {ErrorMessage, Field, useField} from 'formik';
@@ -7,9 +7,10 @@ import classNames from 'classnames';
 import {ReactSelect} from './ReactSelect';
 import DatePicker from './DatePicker';
 import {ReactDatePickerProps} from 'react-datepicker';
+import {CheckboxFieldProps, InputFieldProps, SelectFieldProps, TextAreaFieldProps} from './types';
 
 
-const InputField = ({label, className, ...props}: any) => {
+const InputField = ({label, className, ...props}: InputFieldProps) => {
 
 
     const [, meta] = useField(props);
@@ -43,7 +44,7 @@ const InputField = ({label, className, ...props}: any) => {
     );
 };
 
-const TextAreaField = ({label, ...props}: any) => {
+const TextAreaField = ({label, ...props}: TextAreaFieldProps) => {
 
 
     const [, meta] = useField(props);
@@ -71,8 +72,7 @@ const TextAreaField = ({label, ...props}: any) => {
 };
 
 
-const SelectField = (props: ReactSelectProps & { name: string }) => {
-    // @ts-ignore
+const SelectField = (props: SelectFieldProps) => {
     const [, meta] = useField(props);
     const errors = meta.touched && meta.error;
     const divStyle = classNames('field-container px-4 pb-4', props.className);
@@ -142,9 +142,7 @@ const FormikReactSelect = ({field, form, error, ...props}: any) => {
     );
 };
 
-// @ts-ignore
-const DatePickerField = (props: ReactDatePickerProps & { name: string, label: string, placeholder: string } = {onChange: ''}) => {
-    // @ts-ignore
+const DatePickerField = (props: ReactDatePickerProps & { name: string, label?: string, placeholder: string }) => {
     const [, meta] = useField(props);
     const errors = meta.touched && meta.error;
     const divStyle = classNames('field-container px-4', props.className,
@@ -176,6 +174,12 @@ const DatePickerField = (props: ReactDatePickerProps & { name: string, label: st
     );
 };
 
+DatePickerField.defaultProps = {
+    onChange: () => {
+        console.log('onChange');
+    }
+};
+
 const FormikDatePicker = ({field, form, error, ...props}: any) => {
     return (
         <DatePicker
@@ -194,7 +198,7 @@ const FormikDatePicker = ({field, form, error, ...props}: any) => {
 };
 
 
-const CheckboxField = ({children, ...props}: any) => {
+const CheckboxField = ({children, ...props}: CheckboxFieldProps) => {
     // We need to tell useField what type of input this is
     // since React treats radios and checkboxes differently
     // than inputs/select/textarea.
@@ -209,7 +213,10 @@ const CheckboxField = ({children, ...props}: any) => {
     return (
         <div className='field-container px-4'>
             <label className="checkbox">
-                <input type="checkbox" {...field} {...props} className={classes}/>
+                {
+                    //@ts-ignore
+                    <input type="checkbox" {...field} {...props} className={classes}/>
+                }
                 {children}
             </label>
             <div className="text-red-500 text-xs italic">

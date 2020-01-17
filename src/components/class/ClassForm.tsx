@@ -172,45 +172,38 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
                     name={`schedule.${key}.on`}
                 />
                 <div className="flex flex-wrap items-center">
-                    {
-                        //@ts-ignore
-                        <DatePickerField
-                            selected={values.schedule[key].from}
-                            isClearable={values.schedule[key].on}
-                            className="w-48"
-                            id={`schedule.${key}.from`}
-                            name={`schedule.${key}.from`}
-                            placeholder='from time'
-                            disabled={!values.schedule[key].on}
-                            showTimeSelect
-                            showTimeSelectOnly
-                            timeIntervals={15}
-                            timeCaption="Time"
-                            dateFormat="h:mm aa"
-                        />
+                    <DatePickerField
+                        selected={values.schedule[key].from}
+                        isClearable={values.schedule[key].on}
+                        className="w-48"
+                        id={`schedule.${key}.from`}
+                        name={`schedule.${key}.from`}
+                        placeholder='from time'
+                        disabled={!values.schedule[key].on}
+                        showTimeSelect
+                        showTimeSelectOnly
+                        timeIntervals={15}
+                        timeCaption="Time"
+                        dateFormat="h:mm aa"
+                    />
+                    <DatePickerField
+                        selected={values.schedule[key].to}
+                        isClearable={values.schedule[key].on}
+                        className="w-48"
+                        id={`schedule.${key}.to`}
+                        name={`schedule.${key}.to`}
+                        placeholder='to time'
+                        peekNextMonth={false}
+                        showMonthDropdown={false}
+                        showYearDropdown={false}
+                        disabled={!values.schedule[key].on}
+                        showTimeSelect
+                        showTimeSelectOnly
+                        timeIntervals={15}
+                        timeCaption="Time"
+                        dateFormat="h:mm aa"
+                    />
 
-                    }
-                    {
-                        // @ts-ignore
-                        <DatePickerField
-                            selected={values.schedule[key].to}
-                            isClearable={values.schedule[key].on}
-                            className="w-48"
-                            id={`schedule.${key}.to`}
-                            name={`schedule.${key}.to`}
-                            placeholder='to time'
-                            peekNextMonth={false}
-                            showMonthDropdown={false}
-                            showYearDropdown={false}
-                            disabled={!values.schedule[key].on}
-                            showTimeSelect
-                            showTimeSelectOnly
-                            timeIntervals={15}
-                            timeCaption="Time"
-                            dateFormat="h:mm aa"
-                        />
-
-                    }
                 </div>
             </div>
         );
@@ -246,47 +239,40 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
                             />
                         </div>
                         <div className="flex flex-wrap">
-                            {
-                                //@ts-ignore
-                                <DatePickerField
-                                    selected={values.startDate}
-                                    isClearable={true}
-                                    className="w-full sm:w-1/2"
-                                    label='START DATE'
-                                    id='startDate'
-                                    name='startDate'
-                                    placeholder='enter start date'
-                                    selectsStart={true}
-                                    startDate={values.startDate}
-                                    endDate={values.endDate}
-                                    minDate={new Date()}
-                                    maxDate={values.endDate}
-                                    peekNextMonth={false}
-                                    showMonthDropdown={false}
-                                    showYearDropdown={false}
-                                />
+                            <DatePickerField
+                                selected={values.startDate}
+                                isClearable={true}
+                                className="w-full sm:w-1/2"
+                                label='START DATE'
+                                id='startDate'
+                                name='startDate'
+                                placeholder='enter start date'
+                                selectsStart={true}
+                                startDate={values.startDate}
+                                endDate={values.endDate}
+                                minDate={new Date()}
+                                maxDate={values.endDate}
+                                peekNextMonth={false}
+                                showMonthDropdown={false}
+                                showYearDropdown={false}
+                            />
 
-                            }
-                            {
-                                //@ts-ignore
-                                <DatePickerField
-                                    selected={values.endDate}
-                                    isClearable={true}
-                                    className="w-full sm:w-1/2"
-                                    label='END DATE'
-                                    id='endDate'
-                                    name='endDate'
-                                    placeholder='enter end date'
-                                    selectsEnd={true}
-                                    startDate={values.startDate}
-                                    endDate={values.endDate}
-                                    minDate={values.startDate}
-                                    peekNextMonth={false}
-                                    showMonthDropdown={false}
-                                    showYearDropdown={false}
-                                />
-
-                            }
+                            <DatePickerField
+                                selected={values.endDate}
+                                isClearable={true}
+                                className="w-full sm:w-1/2"
+                                label='END DATE'
+                                id='endDate'
+                                name='endDate'
+                                placeholder='enter end date'
+                                selectsEnd={true}
+                                startDate={values.startDate}
+                                endDate={values.endDate}
+                                minDate={values.startDate}
+                                peekNextMonth={false}
+                                showMonthDropdown={false}
+                                showYearDropdown={false}
+                            />
 
                         </div>
 
