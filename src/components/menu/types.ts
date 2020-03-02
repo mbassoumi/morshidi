@@ -7,6 +7,7 @@ export interface MenuItemProps {
 
 export interface MenuProps {
     closeMenu: () => void,
+    style: any
 }
 
 export interface SettingMenuItemProps {

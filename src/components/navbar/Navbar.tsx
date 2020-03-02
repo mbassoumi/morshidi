@@ -4,6 +4,7 @@ import {faEllipsisV, faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 import Menu from '../menu/Menu';
 import classNames from 'classnames';
 import SettingsMenu from '../menu/SettingsMenu';
+import {Motion, spring} from 'react-motion';
 
 const Navbar = () => {
 
@@ -52,7 +53,20 @@ const Navbar = () => {
                     onClick={() => {setMenuOpen(false); setSettingsOpen(false); }}
                 />
             }
-            {isMenuOpen && <Menu closeMenu={() => setMenuOpen(false)}/>}
+
+            <Motion style={{x: spring(isMenuOpen ? 0 : -400)}}>
+                {({x}) =>
+                    // children is a callback which should accept the current value of
+                    // `style`
+                    <Menu closeMenu={() => setMenuOpen(false)} style={{
+                        WebkitTransform: `translate3d(${x}px, 0, 0)`,
+                        transform: `translate3d(${x}px, 0, 0)`,
+                    }}/>
+                    //
+
+                }
+            </Motion>
+            {/*{isMenuOpen && <Menu closeMenu={() => setMenuOpen(false)}/>}*/}
             {isSettingsOpen && <SettingsMenu closeSettingsMenu={() => setSettingsOpen(false)}/>}
 
         </header>

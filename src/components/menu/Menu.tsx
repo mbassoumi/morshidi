@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MenuItem from './MenuItem';
-// import {faHome, faBookOpen, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import {
     faBook,
     faBookOpen,
@@ -9,17 +8,17 @@ import {
     faUserGraduate,
     faUserTie,
     faCog,
-    faPowerOff, faTimes, faBars
+    faPowerOff, faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
 import CircleImg from '../shared/CircleImg';
 import Majd from '../../img/Majd.jpg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-const Menu = ({closeMenu}: MenuProps) => {
+const Menu = ({closeMenu, style}: MenuProps) => {
 
     return (
-        <div className="absolute p-2 top-0 left-0 h-full min-h-screen bg-indigo-900 overflow-scroll">
+        <div className="absolute p-2 top-0 left-0 h-full min-h-screen bg-indigo-900 overflow-scroll" style={style}>
 
             <div className="flex">
                 <div className="mx-auto mt-10">
