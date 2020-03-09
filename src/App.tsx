@@ -22,6 +22,7 @@ import CourseForm from './components/course/CourseForm';
 import ClassForm from './components/class/ClassForm';
 import TestComponent from './components/TestComponent';
 import Course from './components/course/Course';
+import ExchangeRates from './components/ExchangeRates';
 
 
 
@@ -45,6 +46,7 @@ const App: React.FC = () => {
                     {/*<TestComponent/>*/}
                     <div className="h-screen flex flex-col text-5xl text-center mx-auto justify-center align-middle items-center">
                         <div className="text-indigo-900">See menu and give me feedback about pages</div>
+                        <ExchangeRates/>
                     </div>
                 </Route>
                 <Route path="/teacher/public-profile" exact={true}>

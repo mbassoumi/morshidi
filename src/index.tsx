@@ -12,14 +12,17 @@ import 'react-notifications-component/dist/theme.css'
 
 import 'animate.css/animate.min.css'
 
+import {client} from './graphql/client';
+
+import { ApolloProvider } from '@apollo/react-hooks';
+
 
 const Index: React.FC = () => {
     return (
-        <>
+        <ApolloProvider client={client}>
             <ReactNotification/>
             <App/>
-            {/*<AppClass/>*/}
-        </>
+        </ApolloProvider>
     );
 };
 
