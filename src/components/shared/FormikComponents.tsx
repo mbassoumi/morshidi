@@ -2,7 +2,7 @@ import React from 'react';
 import {OptionTypeBase} from 'react-select';
 
 
-import {ErrorMessage, Field, useField} from 'formik';
+import {Field, useField} from 'formik';
 import classNames from 'classnames';
 import {ReactSelect} from './ReactSelect';
 import DatePicker from './DatePicker';
@@ -36,10 +36,9 @@ const InputField = ({label, className, ...props}: InputFieldProps) => {
             <Field name={props.name}
                    {...props}
                    className={classes}/>
-
-            <div className="text-red-500 text-xs italic">
-                <ErrorMessage name={props.name}/>
-            </div>
+            {/*<div className="text-red-500 text-xs italic">*/}
+            {/*    <ErrorMessage name={props.name}/>*/}
+            {/*</div>*/}
         </div>
     );
 };
@@ -64,9 +63,9 @@ const TextAreaField = ({label, ...props}: TextAreaFieldProps) => {
                    {...props}
                    className={classes}/>
 
-            <div className="text-red-500 text-xs italic">
-                <ErrorMessage name={props.name}/>
-            </div>
+            {/*<div className="text-red-500 text-xs italic">*/}
+            {/*    <ErrorMessage name={props.name}/>*/}
+            {/*</div>*/}
         </div>
     );
 };
@@ -87,9 +86,9 @@ const SelectField = (props: SelectFieldProps) => {
             <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{props.label} </label>
 
             <Field component={FormikReactSelect} {...props} error={errors} className={classes}/>
-            <div className="text-red-500 text-xs italic">
-                <ErrorMessage name={props.name}/>
-            </div>
+            {/*<div className="text-red-500 text-xs italic">*/}
+            {/*    <ErrorMessage name={props.name}/>*/}
+            {/*</div>*/}
         </div>
     );
 };
@@ -167,9 +166,9 @@ const DatePickerField = (props: ReactDatePickerProps & { name: string, label?: s
             {props.label && <label htmlFor={props.id} className='text-sm block font-bold  pb-2'>{props.label} </label>}
 
             <Field component={FormikDatePicker} {...props} error={errors} className={classes}/>
-            <div className="text-red-500 text-xs italic">
-                <ErrorMessage name={props.name}/>
-            </div>
+            {/*<div className="text-red-500 text-xs italic">*/}
+            {/*    <ErrorMessage name={props.name}/>*/}
+            {/*</div>*/}
         </div>
     );
 };
@@ -219,9 +218,9 @@ const CheckboxField = ({children, ...props}: CheckboxFieldProps) => {
                 }
                 {children}
             </label>
-            <div className="text-red-500 text-xs italic">
-                <ErrorMessage name={props.name}/>
-            </div>
+            {/*<div className="text-red-500 text-xs italic">*/}
+            {/*    <ErrorMessage name={props.name}/>*/}
+            {/*</div>*/}
         </div>
     );
 };

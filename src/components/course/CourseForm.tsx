@@ -9,52 +9,53 @@ import {faPlusSquare, faTrash} from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import DefaultOnlineClassSetting from './partial/DefaultOnlineClassSetting';
 import DefaultPhysicalClassSetting from './partial/DefaultPhysicalClassSetting';
+import {showAlertNotification} from '../../api/alerts/alerts';
 
 
 const validate = Yup.object({
     courseName: Yup.string()
-        .required('Required'),
+        .required('Course name is required'),
     fields: Yup.array()
         .of(Yup.string())
-        .required('Required'),
+        .required('Fields are required'),
     levels: Yup.array()
         .of(Yup.string())
-        .required('Required'),
+        .required('Levels are required'),
     keywords: Yup.array()
         .of(Yup.string())
-        .required('Required'),
+        .required('Keywords are required'),
     description: Yup.string()
-        .required('Required'),
+        .required('Description is required'),
     requirements: Yup.array()
         .of(
             Yup.string()
-                .min(1, 'Shouldn\'t be empty!')
-                .required('Required')
+                .min(1, "Requirements shouldn't can`t be empty!")
+                .required('Requirements are required')
         )
-        .required('Required'),
+        .required('Requirements are required'),
     city: Yup.string()
         .notRequired(),
     physicalAddress: Yup.string()
         .notRequired(),
     minStudentPerPhysicalClass: Yup.number()
-        .min(1, 'wrong min value')
-        .max(Yup.ref('maxStudentPerPhysicalClass'), 'min value can\'t be larger than max value')
+        .min(1, 'wrong min value for min student per physical class')
+        .max(Yup.ref('maxStudentPerPhysicalClass'), 'min student per physical class value can\'t be larger than max value')
         .notRequired(),
     maxStudentPerPhysicalClass: Yup.number()
-        .min(Yup.ref('minStudentPerPhysicalClass'), 'max value can\'t be less than min value')
+        .min(Yup.ref('minStudentPerPhysicalClass'), 'max student per physical class value can\'t be less than min value')
         .notRequired(),
     pricePerPhysicalStudent: Yup.number()
-        .min(0, 'can\'t be negative')
+        .min(0, 'Price per physical student can\'t be negative')
         .notRequired(),
     minStudentPerOnlineClass: Yup.number()
-        .min(1, 'wrong min value')
-        .max(Yup.ref('maxStudentPerOnlineClass'), 'min value can\'t be larger than max value')
+        .min(1, 'wrong min value for min student per online class')
+        .max(Yup.ref('maxStudentPerOnlineClass'), 'min student per online class value can\'t be larger than max value')
         .notRequired(),
     maxStudentPerOnlineClass: Yup.number()
-        .min(Yup.ref('minStudentPerOnlineClass'), 'max value can\'t be less than min value')
+        .min(Yup.ref('minStudentPerOnlineClass'), 'max student per online class value can\'t be less than min value')
         .notRequired(),
     pricePerOnlineStudent: Yup.number()
-        .min(0, 'can\'t be negative')
+        .min(0, 'Price per online student can\'t be negative')
         .notRequired(),
 
 });
@@ -87,7 +88,10 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
             initialValues={combinedInitialValues}
             validationSchema={validate}
             onSubmit={onSubmit}
-            render={({values}) => {
+            validateOnChange={true}
+            validateOnBlur={false}
+            validateOnMount={true}
+            render={({values, errors, isValid}) => {
                 return (
                     <Form className="px-8 py-8 py-8">
 
@@ -208,7 +212,9 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
 
 
                         <div className="flex flex-wrap px-4 pb-4">
-                            <StyledButton type='submit' className="px-16 mb-4 mx-auto">
+                            <StyledButton type='submit' className="px-16 mb-4 mx-auto"
+                                          // onClick={() => console.log('isValid', isValid)}>
+                                          onClick={() => !isValid && showAlertNotification('Validation errors', errors, 'danger')}>
                                 Save
                             </StyledButton>
 
