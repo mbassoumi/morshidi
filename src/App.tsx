@@ -22,17 +22,10 @@ import CourseForm from './components/course/CourseForm';
 import ClassForm from './components/class/ClassForm';
 import TestComponent from './components/TestComponent';
 import Course from './components/course/Course';
-import {showAlertNotification} from './api/alerts/alerts';
 
 
 
 const App: React.FC = () => {
-
-    const showFuck = (e: any) => {
-        showAlertNotification('Validation Error', 'wrong date format', 'danger');
-    };
-
-
 
     const onSubmit = (values: any, {setSubmitting}: any) => {
         console.log('values => ', values);
@@ -52,7 +45,6 @@ const App: React.FC = () => {
                     {/*<TestComponent/>*/}
                     <div className="h-screen flex flex-col text-5xl text-center mx-auto justify-center align-middle items-center">
                         <div className="text-indigo-900">See menu and give me feedback about pages</div>
-                        <button onClick={showFuck}> Fuck </button>
                     </div>
                 </Route>
                 <Route path="/teacher/public-profile" exact={true}>
