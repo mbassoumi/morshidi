@@ -4,86 +4,92 @@ import {ClassFormProps} from './types';
 import {Form, Formik} from 'formik';
 import {CheckboxField, DatePickerField, InputField, SelectField, StyledButton} from '../shared/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
+import {showAlertNotification} from '../../api/alerts/alerts';
 
-const partialScheduleValidate = {
-    on: Yup.boolean()
-        .required('Required'),
-    from: Yup.date()
-        .when('on', {
-            is: true,
-            then: Yup.date()
-                .max(Yup.ref('to'), 'invalid interval')
+const partialScheduleValidate = (day: string) => {
+
+    return (
+        {
+            on: Yup.boolean()
                 .required('Required'),
-        }),
-    to: Yup.date()
-        .when('on', {
-            is: true,
-            then: Yup.date()
-                .min(Yup.ref('from'), 'invalid interval')
-                .required('Required'),
-        }),
+            from: Yup.date()
+                .when('on', {
+                    is: true,
+                    then: Yup.date()
+                        .max(Yup.ref('to'), 'invalid interval')
+                        .required(`From time is required for  ${day}`),
+                }),
+            to: Yup.date()
+                .when('on', {
+                    is: true,
+                    then: Yup.date()
+                        .min(Yup.ref('from'), 'invalid interval')
+                        .required(`To time is required for ${day}`),
+                }),
+        }
+    )
 };
 
 const partialDefaultClassSetting = {
     minStudentPerClass: Yup.number()
-        .min(1, 'can\'t be empty class')
-        .max(Yup.ref('maxStudentPerClass'), 'can\'t be grater than max value')
-        .required('Required'),
+        .min(1, 'Min students number per class can\'t be empty class')
+        .max(Yup.ref('maxStudentPerClass'), 'Min students number per class can\'t be grater than max value')
+        .required('Min students number per class is required'),
     maxStudentPerClass: Yup.number()
-        .min(Yup.ref('minStudentPerClass'), 'can\'t be less than min value')
-        .required('Required'),
+        .min(Yup.ref('minStudentPerClass'), 'Max students number per class can\'t be less than min value')
+        .required('Max students number per class is required'),
     pricePerStudent: Yup.number()
-        .min(0, 'can\'t be negative')
-        .required('Required')
+        .min(0, 'Price per student can\'t be negative')
+        .required('Price per student is required')
 };
 
 const validate = Yup.object({
     classNickname: Yup.string()
-        .required('Required'),
+        .required('Class nickname is required'),
     startDate: Yup.date()
-        .required('Required')
-        .min(new Date(), 'can\'t be in the past')
-        .max(Yup.ref('endDate'), 'start date can\'t be grater than end date'),
+        .required('Start date is required')
+        .min(new Date(), 'Start date can\'t be in the past')
+        .max(Yup.ref('endDate'), 'Start date can\'t be grater than end date'),
     endDate: Yup.date()
-        .required('Required')
-        .min(Yup.ref('startDate'), 'end date can\'t be less than end date'),
+        .required('End date is required')
+        .min(Yup.ref('startDate'), 'End date can\'t be less than end date'),
     isOnline: Yup.boolean()
         .required('Required'),
     city: Yup.string()
         .when('isOnline', {
             is: false,
             then: Yup.string()
-                .required('Required'),
+                .required('City is required'),
         }),
     physicalAddress: Yup.string()
         .when('isOnline', {
             is: false,
             then: Yup.string()
-                .required('Required'),
+                .required('Physical address is required'),
         }),
     schedule: Yup.object().shape({
         saturday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
+            .shape(partialScheduleValidate('saturday'))
+            .required('Saturday is required'),
         sunday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
+            .shape(partialScheduleValidate('sunday'))
+            .required('sunday is required'),
         monday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
+            .shape(partialScheduleValidate('monday'))
+            .required('monday is required'),
         tuesday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
+            .shape(partialScheduleValidate('tuesday'))
+            .required('tuesday is required'),
         wednesday: Yup.object()
-            .shape(partialScheduleValidate)
+            .shape(partialScheduleValidate('wednesday'))
             .required('Required'),
         thursday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
+            .shape(partialScheduleValidate('thursday'))
+            .required('wednesday is required'),
         friday: Yup.object()
-            .shape(partialScheduleValidate)
-            .required('Required'),
-    }).required('Required'),
+            .shape(partialScheduleValidate('friday'))
+            .required('friday is required'),
+    }).required('schedule is required'),
     online: Yup.object()
         .when('isOnline', {
             is: true,
@@ -97,8 +103,8 @@ const validate = Yup.object({
                 .shape(partialDefaultClassSetting)
         }),
     referralIncentive: Yup.number()
-        .min(0, 'can\'t be negative')
-        .required('Required'),
+        .min(0, 'Referral incentive can\'t be negative')
+        .required('Referral incentive is required'),
 });
 
 const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords, fields, cities, levels}: ClassFormProps) => {
@@ -164,7 +170,7 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
     const scheduler = (values: any) => Object.keys(initialValues.schedule).map(key => {
 
         return (
-            <div className="flex flex-wrap items-center">
+            <div key={key} className="flex flex-wrap items-center">
                 <label className="capitalize w-32" htmlFor={`schedule.${key}.on`}>{key}</label>
 
                 <CheckboxField
@@ -214,8 +220,12 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
             initialValues={combinedInitialValues}
             validationSchema={validate}
             onSubmit={onSubmit}
-            render={({values}) => {
+            validateOnChange={true}
+            validateOnBlur={false}
+            validateOnMount={true}
+            render={({values, errors, isValid}) => {
                 return (
+
                     <Form className="px-8 py-8 py-8">
 
                         <div className="flex flex-wrap">
@@ -375,7 +385,8 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
 
 
                         <div className="flex flex-wrap px-4 pb-4">
-                            <StyledButton type='submit' className="px-16 mb-4 mx-auto">
+                            <StyledButton type='submit' className="px-16 mb-4 mx-auto"
+                                          onClick={() => !isValid && showAlertNotification('Validation errors', errors, 'danger')}>
                                 Save
                             </StyledButton>
 

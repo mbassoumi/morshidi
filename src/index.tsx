@@ -5,9 +5,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // import AppClass from './AppClass';
 
+// @ts-ignore
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
+
+import 'animate.css/animate.min.css'
+
+
 const Index: React.FC = () => {
     return (
         <>
+            <ReactNotification/>
             <App/>
             {/*<AppClass/>*/}
         </>
