@@ -1,38 +1,10 @@
 import ApolloClient from 'apollo-boost';
 import {gql} from 'apollo-boost';
 
-import STUDENTS from './../data/students'
 
-const typeDefs = gql`
-    type Student {
-        id      : ID!
-        name    : String!
-        username: String!
-        interests  : [String!]!
-        level      : String!
-        whatsapp: String!
-        phone   : String!
-        email   : String!
-    }
+import typeDefs from './schema';
 
-    type Query {
-        students: [Student!]!
-        student(id: ID!): Student
-    }
-`;
-
-const resolvers = {
-    Query: {
-        students() {
-            return STUDENTS;
-        },
-        //@ts-ignore
-        student(parent, args, { client }) {
-            return STUDENTS.find(student => student.id === args.id)
-        }
-    },
-};
-
+import resolvers from './resolvers';
 
 
 export const client = new ApolloClient({
@@ -40,31 +12,6 @@ export const client = new ApolloClient({
     resolvers,
     typeDefs
 });
-
-//
-// gql`
-//     directive @cacheControl(
-//         maxAge: Int
-//         scope: CacheControlScope
-//     ) on FIELD_DEFINITION | OBJECT | INTERFACE
-//     enum CacheControlScope {
-//         PUBLIC
-//         PRIVATE
-//     }
-//
-//     type ExchangeRate {
-//         currency: String
-//         rate: String
-//         name: String
-//     }
-//
-//     type Query {
-//         rates(currency: String!): [ExchangeRate]
-//     }
-//
-//     scalar Upload
-//
-// `;
 
 client.query({
     query: gql`
@@ -80,7 +27,7 @@ client.query({
 })
 .then(result => {
     console.log('result getStudentsList');
-    console.log(result)
+    console.log(result);
 });
 
 client.query({
@@ -97,5 +44,5 @@ client.query({
 })
 .then(result => {
     console.log('result getStudent');
-    console.log(result)
+    console.log(result);
 });
