@@ -1,15 +1,15 @@
 import React from 'react';
 import StudentProfileHeader from './StudentProfileHeader';
-import {StudentProfileProps} from './types';
+import {StudentProps} from './types';
 import Card from '../shared/Card';
 import StudentProfileBody from './StudentProfileBody';
 
-const StudentProfile = ({student}: StudentProfileProps) => {
+const StudentProfile = ({student}: StudentProps) => {
     return (
         <div>
-            <StudentProfileHeader id={student.id} name={student.name} username={student.username}/>
+            <StudentProfileHeader student={student}/>
             <Card>
-                <StudentProfileBody details={student.details}/>
+                <StudentProfileBody student={student}/>
             </Card>
         </div>
     );
