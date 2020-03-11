@@ -1,4 +1,5 @@
-import {TeacherDetails} from '../teacher/types';
+import {Teacher} from '../teacher/types';
+import {Rating, SelectObject} from '../shared/types';
 
 export interface CourseFormProps {
     defaultValues: any,
@@ -9,13 +10,6 @@ export interface CourseFormProps {
     cities: SelectObject[],
     onSubmit: (values: any, {setSubmitting}: any) => void
 }
-
-interface SelectObject {
-    value: string,
-    label: string,
-    __isNew?: boolean
-}
-
 export interface DefaultPhysicalClassSettingProps {
     values: object,
     cities: SelectObject[],
@@ -34,20 +28,6 @@ export interface Course {
     levels: string[],
     description: string,
     requirements: string[],
-    teacher: TeacherDetails,
+    teacher: Teacher,
     rating: Rating,
-}
-
-export interface CourseHeaderProps {
-    id: number,
-    name: string,
-    teacherName: string,
-    classes: number
-    students: number,
-    rating: Rating,
-}
-
-export interface Rating {
-    avg: number,
-    count: number
 }

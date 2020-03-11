@@ -1,5 +1,3 @@
-import {InputField, TextAreaField} from './FormikComponents';
-import React from 'react';
 import {Props as ReactSelectProps} from 'react-select/src/Select';
 
 export interface TabButtonProps {
@@ -28,7 +26,7 @@ type InputFieldType = 'text' | 'number';
 export interface InputFieldProps {
     className?: string,
     label?: string,
-    id :string,
+    id: string,
     name: string,
     type: InputFieldType,
     placeholder?: string,
@@ -39,7 +37,7 @@ export interface InputFieldProps {
 export interface TextAreaFieldProps {
     className?: string,
     label?: string,
-    id :string,
+    id: string,
     name: string,
     placeholder?: string,
     rows?: number,
@@ -51,4 +49,16 @@ export interface CheckboxFieldProps {
     id: string,
     name: string,
     children?: any
+}
+
+export interface Rating {
+    average: number,
+    count: number
+}
+
+
+export interface SelectObject {
+    value: string,
+    label: string,
+    __isNew?: boolean
 }

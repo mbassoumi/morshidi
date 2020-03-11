@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../shared/Card';
-import {TeacherProfileProps} from './types';
+import {TeacherProps} from './types';
 import CircleImg from '../shared/CircleImg';
 import Majd from '../../img/Majd.jpg';
 import Rating from 'react-rating';
@@ -9,10 +9,10 @@ import {faStar} from '@fortawesome/free-solid-svg-icons';
 import Tag from '../shared/Tag';
 import {Link} from 'react-router-dom';
 
-const TeacherCard = ({teacher}: TeacherProfileProps) => {
+const TeacherCard = ({teacher}: TeacherProps) => {
 
-    const fields = teacher.details.fields.map((tag, index) => <Tag text={tag} key={index}/>);
-    const levels = teacher.details.levels.map((tag, index) => <Tag text={tag} key={index}/>);
+    const fields = teacher.fields.map((tag, index) => <Tag text={tag} key={index}/>);
+    const levels = teacher.levels.map((tag, index) => <Tag text={tag} key={index}/>);
 
     return (
         <div className="mt-16 sm:mt-0">
@@ -33,7 +33,7 @@ const TeacherCard = ({teacher}: TeacherProfileProps) => {
                                 <Rating
                                     readonly
                                     className="whitespace-no-wrap"
-                                    initialRating={teacher.rating.avg}
+                                    initialRating={teacher.rating.average}
                                     emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
                                     fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
                                 />

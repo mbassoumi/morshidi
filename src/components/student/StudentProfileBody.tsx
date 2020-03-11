@@ -3,12 +3,12 @@ import Tag from '../shared/Tag';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
-import {StudentProfileBodyProps} from './types';
+import {StudentProps} from './types';
 
-const StudentProfileBody = ({details}: StudentProfileBodyProps) => {
+const StudentProfileBody = ({student}: StudentProps) => {
 
-    const interests = details.interests.map((tag, index) => <Tag text={tag} key={index}/>);
-    const level = <Tag text={details.level}/>;
+    const interests = student.interests.map((tag, index) => <Tag text={tag} key={index}/>);
+    const level = <Tag text={student.level}/>;
 
     return (
         <div>
@@ -28,15 +28,15 @@ const StudentProfileBody = ({details}: StudentProfileBodyProps) => {
                 <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4">Contact Information</span>
                 <div className="flex ml-4 mt-4 items-center">
                     <FontAwesomeIcon icon={faWhatsapp} className="text-green-500" size="lg"/>
-                    <span className="ml-2">{details.contactInfo.whatsapp}</span>
+                    <span className="ml-2">{student.whatsapp}</span>
                 </div>
                 <div className="flex ml-4 mt-4 items-center">
                     <FontAwesomeIcon icon={faPhone} size="lg"/>
-                    <span className="ml-2">{details.contactInfo.phone}</span>
+                    <span className="ml-2">{student.phone}</span>
                 </div>
                 <div className="flex ml-4 mt-4 items-center">
                     <FontAwesomeIcon icon={faEnvelope} className="text-gray-500" size="lg"/>
-                    <span className="ml-2">{details.contactInfo.email}</span>
+                    <span className="ml-2">{student.email}</span>
                 </div>
             </div>
         </div>

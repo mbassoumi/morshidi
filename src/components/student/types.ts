@@ -1,35 +1,4 @@
-export interface StudentProfileHeaderProps {
-    id: number,
-    name: string,
-    username: string,
-}
-
-export interface StudentDetails {
-    interests: string[],
-    level: string,
-    contactInfo: ContactInformation
-}
-
-export interface ContactInformation {
-    whatsapp?: string,
-    phone?: string,
-    email?: string,
-}
-
-export interface StudentProfileProps {
-    student: Student
-}
-
-export interface Student {
-    id: number,
-    name: string,
-    username: string,
-    details: StudentDetails
-}
-
-export interface StudentProfileBodyProps {
-    details: StudentDetails
-}
+import {SelectObject} from '../shared/types';
 
 export interface StudentFormProps {
     defaultValues: any,
@@ -40,8 +9,17 @@ export interface StudentFormProps {
     onSubmit: (values: any, {setSubmitting}: any) => void
 }
 
-interface SelectObject {
-    value: string,
-    label: string,
-    __isNew?: boolean
+export interface Student {
+    id: number,
+    name: string,
+    username: string,
+    interests: string[],
+    level: string,
+    whatsapp: string,
+    phone: string,
+    email: string
+}
+
+export interface StudentProps {
+    student: Student
 }

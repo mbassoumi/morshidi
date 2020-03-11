@@ -1,34 +1,4 @@
-export interface ClassHeaderProps {
-    name: string,
-    nickname: string,
-    id: number
-}
-
-export interface ClassPreviewProps {
-    children: any
-}
-
-export interface CourseOverviewProps {
-    courseOverview: CourseOverviewDetails
-}
-
-export interface CourseOverviewDetails {
-    fields: string[],
-    targetLevels: string[],
-    description: string,
-    requirements: string[]
-}
-
-export interface ClassDetails {
-    id: number,
-    name: string,
-    nickname: string,
-    courseOverview: CourseOverviewDetails
-}
-
-export interface ClassProps {
-    classDetails: ClassDetails
-}
+import {SelectObject} from '../shared/types';
 
 export interface ClassFormProps {
     defaultValues: any,
@@ -41,8 +11,16 @@ export interface ClassFormProps {
     onSubmit: (values: any, {setSubmitting}: any) => void
 }
 
-interface SelectObject {
-    value: string,
-    label: string,
-    __isNew?: boolean
+export interface ClassDetails {
+    id: number,
+    name: string,
+    nickname: string,
+    fields: string[],
+    targetLevels: string[],
+    description: string,
+    requirements: string[],
+}
+
+export interface ClassDetailsProps {
+    classDetails: ClassDetails
 }

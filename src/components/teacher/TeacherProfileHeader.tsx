@@ -4,9 +4,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar, faUserTie} from '@fortawesome/free-solid-svg-icons';
 import Rating from 'react-rating';
 import CircleImg from '../shared/CircleImg';
-import {TeacherProfileHeaderProps} from './types';
+import {TeacherProps} from './types';
 
-const TeacherProfileHeader = ({id, name, username, from, classes, sessions, followers, rating}: TeacherProfileHeaderProps) => {
+const TeacherProfileHeader = ({teacher}: TeacherProps) => {
     return (
         <div>
             <div className="bg-indigo-800 w-full justify-center text-center">
@@ -20,28 +20,28 @@ const TeacherProfileHeader = ({id, name, username, from, classes, sessions, foll
                         Follow
                     </button>
                 </div>
-                <div className="text-white font-bold tracking-wide text-2xl">{name}</div>
-                <div className="text-white tracking-wide text-lg">{from}</div>
+                <div className="text-white font-bold tracking-wide text-2xl">{teacher.name}</div>
+                <div className="text-white tracking-wide text-lg">{teacher.from}</div>
                 <div className="flex mt-3">
                     <div className="flex mx-auto justify-between items-center sm:w-1/3">
-                        <div className="flex justify-start text-white mx-4 sm:w-1/3">{username}</div>
+                        <div className="flex justify-start text-white mx-4 sm:w-1/3">{teacher.username}</div>
                         <FontAwesomeIcon icon={faUserTie} size="2x" className="flex justify-center mx-4 sm:w-1/3"/>
-                        <div className="flex justify-end text-white mx-4 sm:w-1/3 whitespace-no-wrap">ID: {id}
+                        <div className="flex justify-end text-white mx-4 sm:w-1/3 whitespace-no-wrap">ID: {teacher.id}
                         </div>
                     </div>
                 </div>
                 <div className="flex mt-3 pb-6">
                     <div className="flex mx-auto justify-between items-center sm:w-1/3">
                         <div className="bg-white w-16 sm:w-1/3">
-                            <div className="font-bold">{classes}</div>
+                            <div className="font-bold">{teacher.classes}</div>
                             <div className="text-sm md:text-lg">classes</div>
                         </div>
                         <div className="bg-white w-16 sm:w-1/3 mx-1">
-                            <div className="font-bold">{sessions}</div>
+                            <div className="font-bold">{teacher.sessions}</div>
                             <div className="text-sm md:text-lg">Sessions</div>
                         </div>
                         <div className="bg-white w-16 sm:w-1/3">
-                            <div className="font-bold">{followers}</div>
+                            <div className="font-bold">{teacher.followers}</div>
                             <div className="text-sm md:text-lg">Followers</div>
                         </div>
                     </div>
@@ -51,12 +51,12 @@ const TeacherProfileHeader = ({id, name, username, from, classes, sessions, foll
                 className="flex flex-wrap mx-auto -mt-4 py-1 px-2 justify-center items-center rounded-lg bg-white shadow-xl w-1/2 sm:w-1/4">
                 <Rating
                     className="whitespace-no-wrap"
-                    initialRating={rating.avg}
+                    initialRating={teacher.rating.average}
                     emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
                     fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
                 />
                 <div className="ml-2">
-                    ({rating.count})
+                    ({teacher.rating.count})
                 </div>
             </div>
         </div>
