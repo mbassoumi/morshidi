@@ -22,6 +22,7 @@ import CourseForm from './components/course/CourseForm';
 import ClassForm from './components/class/ClassForm';
 import TestComponent from './components/TestComponent';
 import Course from './components/course/Course';
+import StudentList from './components/student/StudentList';
 
 
 const App: React.FC = () => {
@@ -42,10 +43,12 @@ const App: React.FC = () => {
 
                 <Route path="/" exact={true}>
                     {/*<TestComponent/>*/}
-                    <div
-                        className="h-screen flex flex-col text-5xl text-center mx-auto justify-center align-middle items-center">
-                        <div className="text-indigo-900">See menu and give me feedback about pages</div>
-                    </div>
+                    {/*<div*/}
+                    {/*    className="h-screen flex flex-col text-5xl text-center mx-auto justify-center align-middle items-center">*/}
+                    {/*    <div className="text-indigo-900">See menu and give me feedback about pages</div>*/}
+                    {/*</div>*/}
+                    <StudentList/>
+
                 </Route>
 
 
