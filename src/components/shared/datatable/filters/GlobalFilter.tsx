@@ -7,12 +7,12 @@ const GlobalFilter = ({preGlobalFilteredRows, globalFilter, setGlobalFilter}: an
     const count = preGlobalFilteredRows.length;
 
     return (
-        <span className="flex items-center text-sm">
+        <span className="flex items-center text-sm bg-white border-2 rounded-lg overflow-hidden">
             <FontAwesomeIcon icon={faSearch} size="lg"
                              className="text-gray-600 hover:text-green-300 mx-2"/>
 
             <input
-                className="appearance-none   rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                className="appearance-none block pl-2 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                 value={globalFilter || ''}
                 onChange={e => {
                     setGlobalFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
