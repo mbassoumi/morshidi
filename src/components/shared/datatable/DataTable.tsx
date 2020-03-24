@@ -1,9 +1,15 @@
-import React, {useMemo, useRef} from 'react';
+import React, {useMemo} from 'react';
 import {useFilters, useGlobalFilter, usePagination, useSortBy, useTable} from 'react-table';
 import TextFilter from './filters/TextFilter';
 import GlobalFilter from './filters/GlobalFilter';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleDown, faCaretLeft, faCaretRight} from '@fortawesome/free-solid-svg-icons';
+import {
+    faAngleDown,
+    faCaretLeft,
+    faCaretRight,
+    faSortAmountDownAlt,
+    faSortAmountUpAlt
+} from '@fortawesome/free-solid-svg-icons';
 
 const DataTable = ({title, columns, data}: any) => {
 
@@ -113,7 +119,8 @@ const DataTable = ({title, columns, data}: any) => {
                                         </div>
 
 
-                                        <div className="flex items-center text-sm bg-white border-2 rounded-lg overflow-hidden">
+                                        <div
+                                            className="flex items-center text-sm bg-white border-2 rounded-lg overflow-hidden">
 
                                             <div className="flex items-center border-r-2 cursor-pointer">
                                                 <select
@@ -163,28 +170,38 @@ const DataTable = ({title, columns, data}: any) => {
                             {headerGroups.map(headerGroup => (
                                 <tr {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
                                     {headerGroup.headers.map(column => (
-                                        <th {
-                                                ...column.getHeaderProps(column.getSortByToggleProps())
-                                            }
+                                        <th {...column.getHeaderProps()}
                                             className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            {column.render('Header')}
 
+                                            <div  {...column.getHeaderProps(column.getSortByToggleProps())}
+                                                  className="flex justify-between">
+                                                {column.render('Header')}
+                                                <span>
+                                                    {
+                                                        column.isSorted
+                                                            ?
+                                                            column.isSortedDesc
+                                                                ? (
+                                                                    <FontAwesomeIcon icon={faSortAmountDownAlt} size="lg"
+                                                                                     className="text-red-500"/>
+                                                                )
+                                                                : (
+                                                                    <FontAwesomeIcon icon={faSortAmountUpAlt} size="lg"
+                                                                                     className="text-green-500"/>
+                                                                )
+                                                            : ''
+                                                    }
+                                                </span>
+                                            </div>
                                             {/* Render the columns filter UI */}
-                                            <div>{column.canFilter ? column.render('Filter') : null}</div>
-
-                                            <span>
-                                    {
-                                        column.isSorted
-                                            ?
-                                            column.isSortedDesc
-                                                ? ' 🔽'
-                                                : ' 🔼'
-                                            : ''}
-                                            </span>
+                                            <div className="">
+                                                {column.canFilter ? column.render('Filter') : null}
+                                            </div>
                                         </th>
                                     ))}
                                 </tr>
                             ))}
+
                             </thead>
 
 
