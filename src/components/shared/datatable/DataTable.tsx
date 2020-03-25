@@ -11,7 +11,7 @@ import {
     faSortAmountUpAlt
 } from '@fortawesome/free-solid-svg-icons';
 
-const DataTable = ({title, columns, data}: any) => {
+const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
     const defaultColumn = useMemo(
         () => ({
@@ -101,7 +101,7 @@ const DataTable = ({title, columns, data}: any) => {
 
 
     return (
-        <div className="container mx-auto px-4 sm:px-8">
+        <div className="px-4 sm:px-8">
             <div className="py-8">
 
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -171,10 +171,10 @@ const DataTable = ({title, columns, data}: any) => {
                                 <tr {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
                                     {headerGroup.headers.map(column => (
                                         <th {...column.getHeaderProps()}
-                                            className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="relative px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 
                                             <div  {...column.getHeaderProps(column.getSortByToggleProps())}
-                                                  className="flex justify-between">
+                                                  className="flex justify-between absolute top-0 mt-2">
                                                 {column.render('Header')}
                                                 <span>
                                                     {
@@ -194,8 +194,8 @@ const DataTable = ({title, columns, data}: any) => {
                                                 </span>
                                             </div>
                                             {/* Render the columns filter UI */}
-                                            <div className="">
-                                                {column.canFilter ? column.render('Filter') : null}
+                                            <div className="pt-2">
+                                                {column.canFilter ? column.render('Filter') : <div className="w-32"></div>}
                                             </div>
                                         </th>
                                     ))}
@@ -256,11 +256,13 @@ const DataTable = ({title, columns, data}: any) => {
                                 {`Page ${pageIndex + 1} of ${pageOptions.length}  `}
                             </strong>
                         </div>
-                        <div>
-                            <pre>
-                              <code>{JSON.stringify(filters, null, 2)}</code>
-                            </pre>
-                        </div>
+                        {debug && (
+                            <div>
+                                <pre>
+                                  <code>{JSON.stringify(filters, null, 2)}</code>
+                                </pre>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

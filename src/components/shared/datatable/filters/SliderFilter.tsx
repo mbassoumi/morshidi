@@ -18,7 +18,7 @@ const SliderFilter = ({column: {filterValue, setFilter, preFilteredRows, id}}: a
     }, [id, preFilteredRows]);
 
     return (
-        <div className="pt-3">
+        <div className="pt-3 w-32">
             <div className="flex items-center text-sm  overflow-hidden">
                 <input
                     className="w-3/4"

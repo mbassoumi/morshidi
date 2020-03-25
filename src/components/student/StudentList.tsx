@@ -3,7 +3,6 @@ import STUDENTS from '../../data/students';
 
 import DataTable from '../shared/datatable/DataTable';
 import SelectFilter from '../shared/datatable/filters/SelectFilter';
-import SliderFilter from '../shared/datatable/filters/SliderFilter';
 import NumberRangeFilter from '../shared/datatable/filters/NumberRangeFilter';
 
 
@@ -51,7 +50,8 @@ const StudentList = () => {
                 },
                 {
                     Header: 'Email',
-                    accessor: 'email'
+                    accessor: 'email',
+                    disableFilters: true
                 },
             ]
         }
@@ -61,7 +61,7 @@ const StudentList = () => {
 
     return (
         <div>
-            <DataTable title="Users List" columns={columns} data={data}/>
+            <DataTable title="Users List" columns={columns} data={data} debug={true}/>
             {/*<StyledDataTable/>*/}
 
         </div>
