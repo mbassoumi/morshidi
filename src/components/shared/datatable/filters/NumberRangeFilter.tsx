@@ -15,7 +15,7 @@ const NumberRangeFilter = ({column: {filterValue = [], preFilteredRows, setFilte
     return (
         <div className="pt-3">
             <div className="flex items-center text-sm">
-                <div className="w-24 bg-white border-2 rounded-lg overflow-hidden">
+                <div className="w-24 bg-white rounded-lg overflow-hidden">
                     <input
                         className="text-xs appearance-none block pl-2 pr-2 py-1 w-full bg-white placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         value={filterValue[0] || ''}
@@ -30,7 +30,7 @@ const NumberRangeFilter = ({column: {filterValue = [], preFilteredRows, setFilte
                 <div className="px-1">
                     to
                 </div>
-                <div className="w-24 bg-white border-2 rounded-lg overflow-hidden">
+                <div className="w-24 bg-white rounded-lg overflow-hidden">
                     <input
                         className="text-xs appearance-none block pl-2 pr-2 py-1 w-full bg-white placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
                         value={filterValue[1] || ''}

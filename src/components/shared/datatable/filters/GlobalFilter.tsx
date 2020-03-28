@@ -7,7 +7,7 @@ const GlobalFilter = ({preGlobalFilteredRows, globalFilter, setGlobalFilter}: an
     const count = preGlobalFilteredRows.length;
 
     return (
-        <span className="flex items-center text-sm bg-white border-2 rounded-lg overflow-hidden">
+        <span className="flex items-center text-sm bg-white  rounded-lg overflow-hidden">
             <FontAwesomeIcon icon={faSearch} size="lg"
                              className="text-gray-600 hover:text-green-300 mx-2"/>
 

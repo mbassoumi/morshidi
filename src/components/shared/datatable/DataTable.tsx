@@ -140,7 +140,7 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
 
                                         <div
-                                            className="flex items-center text-sm bg-white border-2 rounded-lg overflow-hidden">
+                                            className="flex items-center text-sm bg-white rounded-lg overflow-hidden">
 
                                             <div className="flex items-center border-r-2 cursor-pointer">
                                                 <select
