@@ -3,13 +3,7 @@ import {useFilters, useGlobalFilter, usePagination, useSortBy, useTable} from 'r
 import TextFilter from './filters/TextFilter';
 import GlobalFilter from './filters/GlobalFilter';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-    faAngleDown,
-    faCaretLeft,
-    faCaretRight,
-    faSortAmountDownAlt,
-    faSortAmountUpAlt
-} from '@fortawesome/free-solid-svg-icons';
+import {faAngleDown, faCaretLeft, faCaretRight, faSort, faSortDown, faSortUp} from '@fortawesome/free-solid-svg-icons';
 
 const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
@@ -41,15 +35,41 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
             text: (rows, id, filterValue) => {
                 //@ts-ignore
                 return rows.filter(row => {
-                    // const rowValue = row.values[id];
-                    // return rowValue !== undefined
-                    //     ? String(rowValue)
-                    //         .toLowerCase()
-                    //         .startsWith(String(filterValue).toLowerCase())
-                    //     : true;
-                    return true;
+                    const rowValue = row.values[id];
+                    return rowValue !== undefined
+                        ? String(rowValue)
+                            .toLowerCase()
+                            .startsWith(String(filterValue).toLowerCase())
+                        : true;
                 });
             },
+
+            //@ts-ignore
+            hasOne: (rows, id, filterValue) => {
+                //@ts-ignore
+                return rows.filter(row => {
+                    const rowValue = row.values[id];
+                    if (rowValue !== undefined) {
+                        return rowValue.includes(filterValue);
+                    }
+                    return false;
+                });
+            },
+
+            //@ts-ignore
+            graterThan: (rows, id, filterValue) => {
+                //@ts-ignore
+                return rows.filter(row => {
+                    const rowValue = row.values[id];
+                    if (rowValue !== undefined) {
+                        return rowValue >= filterValue;
+                        // return rowValue.includes(filterValue);
+                    }
+                    return false;
+                });
+            },
+
+
         }),
         []
     );
@@ -111,10 +131,10 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
                             <thead>
                             <tr>
                                 <th colSpan={visibleColumns.length}
-                                    className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100">
+                                    className="px-5 py-3 border-b-2 border-indigo-700 bg-indigo-900">
 
                                     <div className="flex justify-between items-center">
-                                        <div className="font-semibold text-2xl tracking-wide text-gray-700 uppercase">
+                                        <div className="font-semibold text-2xl tracking-wide text-white uppercase">
                                             {title}
                                         </div>
 
@@ -171,31 +191,39 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
                                 <tr {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
                                     {headerGroup.headers.map(column => (
                                         <th {...column.getHeaderProps()}
-                                            className="relative px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="relative px-5 py-3 border-b-2 border-indigo-700 bg-indigo-900 text-left text-xs font-semibold text-white uppercase tracking-wider">
 
                                             <div  {...column.getHeaderProps(column.getSortByToggleProps())}
-                                                  className="flex justify-between absolute top-0 mt-2">
-                                                {column.render('Header')}
-                                                <span>
+                                                  className="flex justify-between absolute top-0 mt-2 w-32">
+                                                <div>
+                                                    {column.render('Header')}
+                                                </div>
+                                                <div>
                                                     {
                                                         column.isSorted
                                                             ?
                                                             column.isSortedDesc
                                                                 ? (
-                                                                    <FontAwesomeIcon icon={faSortAmountDownAlt} size="lg"
-                                                                                     className="text-red-500"/>
-                                                                )
-                                                                : (
-                                                                    <FontAwesomeIcon icon={faSortAmountUpAlt} size="lg"
+                                                                    <FontAwesomeIcon icon={faSortDown} size="lg"
                                                                                      className="text-green-500"/>
                                                                 )
-                                                            : ''
+                                                                : (
+                                                                    <FontAwesomeIcon icon={faSortUp} size="lg"
+                                                                                     className="text-red-500"/>
+                                                                )
+                                                            : (
+                                                                column.canSort ?
+                                                                    <FontAwesomeIcon icon={faSort} size="lg"
+                                                                                     className="text-white"/>
+                                                                    : ''
+                                                            )
                                                     }
-                                                </span>
+                                                </div>
                                             </div>
                                             {/* Render the columns filter UI */}
                                             <div className="pt-2">
-                                                {column.canFilter ? column.render('Filter') : <div className="w-32"></div>}
+                                                {column.canFilter ? column.render('Filter') :
+                                                    <div className="w-32"></div>}
                                             </div>
                                         </th>
                                     ))}
@@ -231,23 +259,23 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
                                 <button
                                     onClick={() => gotoPage(0)} disabled={!canPreviousPage}
-                                    className={(!canPreviousPage ? 'cursor-not-allowed  ' : ' hover:bg-gray-400 ') + 'bg-gray-300 text-sm text-gray-800 font-semibold py-2 px-4 focus:outline-none focus:shadow-lg focus:bg-gray-500 rounded-l'}>
+                                    className={(!canPreviousPage ? 'cursor-not-allowed  ' : ' hover:bg-indigo-400 ') + 'bg-indigo-900 text-sm text-white font-semibold py-2 px-4 focus:outline-none focus:shadow-lg focus:bg-indigo-500 rounded-l'}>
                                     <FontAwesomeIcon icon={faCaretLeft} size="2x"/>
                                     <FontAwesomeIcon icon={faCaretLeft} size="2x"/>
                                 </button>
                                 <button
                                     onClick={() => previousPage()} disabled={!canPreviousPage}
-                                    className={(!canPreviousPage ? 'cursor-not-allowed  ' : ' hover:bg-gray-400 ') + 'bg-gray-300 text-sm text-gray-800 font-semibold py-2 px-4  focus:outline-none focus:shadow-lg focus:bg-gray-500'}>
+                                    className={(!canPreviousPage ? 'cursor-not-allowed  ' : ' hover:bg-indigo-400 ') + 'bg-indigo-900 text-sm text-white font-semibold py-2 px-4  focus:outline-none focus:shadow-lg focus:bg-indigo-500'}>
                                     Prev
                                 </button>
                                 <button
                                     onClick={() => nextPage()} disabled={!canNextPage}
-                                    className={(!canNextPage ? 'cursor-not-allowed  ' : ' hover:bg-gray-400 ') + 'bg-gray-300 text-sm text-gray-800 font-semibold py-2 px-4 focus:outline-none focus:shadow-lg focus:bg-gray-500'}>
+                                    className={(!canNextPage ? 'cursor-not-allowed  ' : ' hover:bg-indigo-400 ') + 'bg-indigo-900 text-sm text-white font-semibold py-2 px-4 focus:outline-none focus:shadow-lg focus:bg-indigo-500'}>
                                     Next
                                 </button>
                                 <button
                                     onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}
-                                    className={(!canNextPage ? 'cursor-not-allowed ' : ' hover:bg-gray-400 ') + 'bg-gray-300 text-sm text-gray-800 font-semibold py-2 px-4  focus:outline-none focus:shadow-lg focus:bg-gray-500 rounded-r'}>
+                                    className={(!canNextPage ? 'cursor-not-allowed ' : ' hover:bg-indigo-400 ') + 'bg-indigo-900 text-sm text-white font-semibold py-2 px-4  focus:outline-none focus:shadow-lg focus:bg-indigo-500 rounded-r'}>
                                     <FontAwesomeIcon icon={faCaretRight} size="2x"/>
                                     <FontAwesomeIcon icon={faCaretRight} size="2x"/>
                                 </button>

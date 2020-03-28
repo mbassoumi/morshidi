@@ -1,5 +1,5 @@
 import {Teacher} from '../teacher/types';
-import {Rating, SelectObject} from '../shared/types';
+import {RatingType, SelectObject} from '../shared/types';
 
 export interface CourseFormProps {
     defaultValues: any,
@@ -29,5 +29,5 @@ export interface Course {
     description: string,
     requirements: string[],
     teacher: Teacher,
-    rating: Rating,
+    rating: RatingType,
 }

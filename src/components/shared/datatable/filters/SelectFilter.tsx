@@ -8,7 +8,14 @@ const SelectFilter = ({column: {filterValue, setFilter, preFilteredRows, id}}: a
         const options: any = new Set();
         //@ts-ignore
         preFilteredRows.forEach(row => {
-            options.add(row.values[id]);
+            let tempOption = row.values[id];
+            if (Array.isArray(tempOption)){
+                tempOption.forEach(option => {
+                    options.add(option);
+                })
+            }else {
+                options.add(tempOption);
+            }
         });
         return [...options.values()];
     }, [id, preFilteredRows]);

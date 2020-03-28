@@ -9,12 +9,12 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 15,
+            average: 4.5
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
+        fields: ['math'],
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
@@ -30,12 +30,12 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 429,
+            average: 2.5
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
+        fields: ['english'],
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
@@ -51,12 +51,12 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 123,
+            average: 3
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
+        fields: ['computer'],
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
@@ -72,8 +72,8 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 938,
+            average: 2
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
@@ -93,12 +93,12 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 8938,
+            average: 5
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
+        fields: ['math', 'english'],
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
@@ -114,12 +114,12 @@ export default [
         sessions: 50,
         followers: 400,
         rating: {
-            count: 4329,
-            average: 3.5
+            count: 1329,
+            average: 3.3
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
+        fields: [ 'english', 'computer'],
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
@@ -140,8 +140,8 @@ export default [
         },
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
-        fields: ['math', 'english', 'computer'],
-        levels: ['tawjihi', 'first grade'],
+        fields: ['math', 'computer'],
+        levels: ['tawjihi'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com'
@@ -162,7 +162,7 @@ export default [
         aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
         fields: ['math', 'english', 'computer'],
-        levels: ['tawjihi', 'first grade'],
+        levels: ['first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com'
