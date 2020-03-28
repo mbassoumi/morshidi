@@ -39,7 +39,7 @@ const Menu = ({closeMenu, style}: MenuProps) => {
             <div className="mt-12 mr-10">
 
 
-                <MenuItem link='/profile' icon={faIdCard} text="Profile"
+                <MenuItem link='/profile' icon={faIdCard} text="My Profile"
                           closeMenu={closeMenu}/>
                 <MenuItem link='/teachers' icon={faUserTie} text="Teachers"
                           closeMenu={closeMenu}/>
