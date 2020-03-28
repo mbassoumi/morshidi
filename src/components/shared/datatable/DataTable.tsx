@@ -131,7 +131,7 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
                             <thead>
                             <tr>
                                 <th colSpan={visibleColumns.length}
-                                    className="px-5 py-3 border-b-2 border-indigo-700 bg-indigo-900">
+                                    className="px-5 py-3 border-b border-indigo-700 bg-indigo-900">
 
                                     <div className="flex justify-between items-center">
                                         <div className="font-semibold text-2xl tracking-wide text-white uppercase">
@@ -191,7 +191,7 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
                                 <tr {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
                                     {headerGroup.headers.map(column => (
                                         <th {...column.getHeaderProps()}
-                                            className="relative px-5 py-3 border-b-2 border-indigo-700 bg-indigo-900 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                                            className="relative px-5 py-3 border-b border-indigo-700 bg-indigo-900 text-left text-xs font-semibold text-white uppercase tracking-wider">
 
                                             <div  {...column.getHeaderProps(column.getSortByToggleProps())}
                                                   className="flex justify-between absolute top-0 mt-2 w-32">
