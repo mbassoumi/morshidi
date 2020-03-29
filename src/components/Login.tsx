@@ -47,7 +47,7 @@ const Login = () => {
                             Morshidi
                         </p>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-wrap">
                         <button
                             className="font-bold m-2 p-2 tracking-wider uppercase text-indigo-700 h-32 w-64  rounded-lg shadow-lg bg-gray-400 overflow-hidden outline-none hover:bg-gray-300 hover:shadow-2xl focus:shadow-outline active:bg-gray-500"
                             onClick={() => login('student')}
