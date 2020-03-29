@@ -1,16 +1,18 @@
+import TEACHERS from './teachers';
+
 export default [
     {
         __typename: 'Course',
         id: 1,
         name: 'Course 1',
-        classes: 120,
+        classes: 12,
         students: 50,
         rating: {
-            count: 4329,
-            avg: 3.5
+            count: 50,
+            average: 3.5
         },
         fields: ['math'],
-        levels: ['tawjihi', 'first grade'],
+        levels: ['tawjihi'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -23,20 +25,20 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 1,
+        teacher: TEACHERS.find(teacher => teacher.id === 1),
     },
     {
         __typename: 'Course',
         id: 2,
         name: 'Course 2',
-        classes: 120,
-        students: 50,
+        classes: 13,
+        students: 55,
         rating: {
-            count: 4329,
-            avg: 3.5
+            count: 4,
+            average: 2.5
         },
-        fields: ['math'],
-        levels: ['tawjihi', 'first grade'],
+        fields: ['calculus'],
+        levels: ['first grade'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -49,20 +51,20 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 2,
+        teacher: TEACHERS.find(teacher => teacher.id === 2),
     },
     {
         __typename: 'Course',
         id: 3,
         name: 'Course 3',
-        classes: 120,
-        students: 50,
+        classes: 15,
+        students: 67,
         rating: {
-            count: 4329,
-            avg: 3.5
+            count: 439,
+            average: 4
         },
-        fields: ['math'],
-        levels: ['tawjihi', 'first grade'],
+        fields: ['english'],
+        levels: [ '8th grade'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -75,17 +77,17 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 3,
+        teacher: TEACHERS.find(teacher => teacher.id === 3),
     },
     {
         __typename: 'Course',
         id: 4,
         name: 'Course 4',
-        classes: 120,
-        students: 50,
+        classes: 123,
+        students: 32,
         rating: {
-            count: 4329,
-            avg: 3.5
+            count: 329,
+            average: 5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -101,20 +103,20 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 4,
+        teacher: TEACHERS.find(teacher => teacher.id === 4),
     },
     {
         __typename: 'Course',
         id: 5,
         name: 'Course 5',
-        classes: 120,
+        classes: 10,
         students: 50,
         rating: {
-            count: 4329,
-            avg: 3.5
+            count: 432,
+            average: 3
         },
-        fields: ['math'],
-        levels: ['tawjihi', 'first grade'],
+        fields: ['physics'],
+        levels: ['tawjihi', '7th grade'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -127,7 +129,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 5,
+        teacher: TEACHERS.find(teacher => teacher.id === 5),
     },
     {
         __typename: 'Course',
@@ -137,7 +139,7 @@ export default [
         students: 50,
         rating: {
             count: 4329,
-            avg: 3.5
+            average: 3.5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -153,7 +155,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 6,
+        teacher: TEACHERS.find(teacher => teacher.id === 6),
     },
     {
         __typename: 'Course',
@@ -163,7 +165,7 @@ export default [
         students: 50,
         rating: {
             count: 4329,
-            avg: 3.5
+            average: 3.5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -179,7 +181,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 7,
+        teacher: TEACHERS.find(teacher => teacher.id === 7),
     },
     {
         __typename: 'Course',
@@ -189,7 +191,7 @@ export default [
         students: 50,
         rating: {
             count: 4329,
-            avg: 3.5
+            average: 3.5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -205,7 +207,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 8,
+        teacher: TEACHERS.find(teacher => teacher.id === 8),
     },
     {
         __typename: 'Course',
@@ -215,7 +217,7 @@ export default [
         students: 50,
         rating: {
             count: 4329,
-            avg: 3.5
+            average: 3.5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -231,7 +233,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 9,
+        teacher: TEACHERS.find(teacher => teacher.id === 9),
     },
     {
         __typename: 'Course',
@@ -241,7 +243,7 @@ export default [
         students: 50,
         rating: {
             count: 4329,
-            avg: 3.5
+            average: 3.5
         },
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],
@@ -257,6 +259,6 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        teacher_id: 10,
+        teacher: TEACHERS.find(teacher => teacher.id === 10),
     },
 ];

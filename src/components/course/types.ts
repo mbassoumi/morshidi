@@ -10,16 +10,17 @@ export interface CourseFormProps {
     cities: SelectObject[],
     onSubmit: (values: any, {setSubmitting}: any) => void
 }
+
 export interface DefaultPhysicalClassSettingProps {
     values: object,
     cities: SelectObject[],
 }
 
 export interface CourseProps {
-    course: Course
+    course: CourseType
 }
 
-export interface Course {
+export interface CourseType {
     id: number,
     name: string,
     classes: number

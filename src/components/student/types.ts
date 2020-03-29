@@ -23,3 +23,7 @@ export interface Student {
 export interface StudentProps {
     student: Student
 }
+
+export interface StudentListProps {
+    students: Student[],
+}

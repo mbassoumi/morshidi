@@ -32,6 +32,7 @@ export const student = {
 
 export const classDetails = {
     id          : 142323432,
+    course_id   : 2,
     name        : 'Advanced Equation',
     nickname    : 'Class Nickname',
     fields      : [
@@ -52,6 +53,9 @@ export const classDetails = {
         'Knowledge with Triangles and calculators',
         'Test 123',
         'More requirements'
+    ],
+    students    : [
+        student
     ]
 };
 

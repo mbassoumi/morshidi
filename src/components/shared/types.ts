@@ -53,7 +53,7 @@ export interface CheckboxFieldProps {
 
 export interface RatingType {
     average: number,
-    count: number,
+    count: number | undefined,
     readonly?: boolean
     onChange?: () => void
 }

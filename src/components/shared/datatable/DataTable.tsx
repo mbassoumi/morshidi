@@ -125,7 +125,7 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
             <div className="py-8">
 
                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                    <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                    <div className="inline-block min-w-full shadow rounded-lg overflow-hidden shadow">
 
                         <table {...getTableProps()} className="min-w-full leading-normal">
                             <thead>

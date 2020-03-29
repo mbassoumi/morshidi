@@ -1,15 +1,6 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import {
-    faBook,
-    faBookOpen,
-    faCoffee,
-    faCog,
-    faIdCard,
-    faPowerOff,
-    faTimes,
-    faUserTie
-} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faCog, faIdCard, faPowerOff, faTimes, faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
 import CircleImg from '../shared/CircleImg';
 import Majd from '../../img/Majd.jpg';
@@ -43,15 +34,16 @@ const Menu = ({closeMenu, style}: MenuProps) => {
                           closeMenu={closeMenu}/>
                 <MenuItem link='/teachers' icon={faUserTie} text="Teachers"
                           closeMenu={closeMenu}/>
+                <MenuItem link='/courses' icon={faBookOpen} text="Courses"
+                          closeMenu={closeMenu}/>
 
 
-
-                <MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>
-                <MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>
+                {/*<MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>*/}
+                {/*<MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>*/}
                 {/*<MenuItem link='/teacher/profile-new' icon={faSchool} text="New teacher profile" closeMenu={closeMenu}/>*/}
                 {/*<MenuItem link='/student/profile-new' icon={faSchool} text="New student profile" closeMenu={closeMenu}/>*/}
-                <MenuItem link='/course/public' icon={faCoffee} text="Course Public" closeMenu={closeMenu}/>
-                <MenuItem link='/course/new' icon={faBook} text="New Course" closeMenu={closeMenu}/>
+                {/*<MenuItem link='/course/public' icon={faCoffee} text="Course Public" closeMenu={closeMenu}/>*/}
+                {/*<MenuItem link='/course/new' icon={faBook} text="New Course" closeMenu={closeMenu}/>*/}
             </div>
 
 

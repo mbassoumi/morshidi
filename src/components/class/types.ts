@@ -1,4 +1,5 @@
 import {SelectObject} from '../shared/types';
+import {Student} from '../student/types';
 
 export interface ClassFormProps {
     defaultValues: any,
@@ -13,14 +14,20 @@ export interface ClassFormProps {
 
 export interface ClassDetails {
     id: number,
+    course_id: number,
     name: string,
     nickname: string,
     fields: string[],
     targetLevels: string[],
     description: string,
     requirements: string[],
+    students: Student[]
 }
 
 export interface ClassDetailsProps {
     classDetails: ClassDetails
+}
+
+export interface ClassesListProps {
+    courseClasses: ClassDetails[]
 }
