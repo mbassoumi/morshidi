@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ButtonHTMLAttributes} from 'react';
 import {OptionTypeBase} from 'react-select';
 
 
@@ -225,10 +225,10 @@ const CheckboxField = ({children, ...props}: CheckboxFieldProps) => {
     );
 };
 
-const StyledButton = ({className, ...props}: any) => {
+const StyledButton = ({className, ...props}: ButtonHTMLAttributes<any>) => {
 
     const style = classNames(
-        'bg-gray-800 hover:bg-gray-600 text-white font-bold py-2  rounded focus:outline-none focus:shadow-outline',
+        'bg-indigo-900 hover:bg-indigo-600 text-white font-bold py-2  rounded-lg focus:outline-none focus:shadow-outline',
         className
     );
 

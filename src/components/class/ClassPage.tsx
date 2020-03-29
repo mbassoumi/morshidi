@@ -31,8 +31,6 @@ const ClassPage = ({match}: RouteComponentProps) => {
 
 
     //@ts-ignore
-    // const courseId = parseInt(match.params.course_id);
-    //@ts-ignore
     const classId = parseInt(match.params.class_id);
 
     const classDetails: ClassDetails | undefined = CLASSES.find(item => item.id === classId);

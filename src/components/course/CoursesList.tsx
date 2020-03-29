@@ -1,5 +1,4 @@
 import React, {useMemo} from 'react';
-import COURSES from '../../data/courses';
 
 import DataTable from '../shared/datatable/DataTable';
 import SelectFilter from '../shared/datatable/filters/SelectFilter';
@@ -8,18 +7,24 @@ import Rating from '../shared/Rating';
 import RatingFilter from '../shared/datatable/filters/RatingFilter';
 import Actions from '../shared/datatable/components/Actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-solid-svg-icons';
+import {faEye, faPencilAlt, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {CellProps} from 'react-table';
 import SliderFilter from '../shared/datatable/filters/SliderFilter';
+import {CoursesListProps} from './types';
+import DataTableLinkButton from '../shared/datatable/components/DataTableLinkButton';
 
 
-const CoursesList = () => {
+const CoursesList = ({courses}: CoursesListProps) => {
 
     const getRowActions = (id: number) => {
         return [
             {
                 url: `/course/${id}`,
-                title: <FontAwesomeIcon icon={faEye} className=""/>
+                title: <span><FontAwesomeIcon icon={faEye} className="mr-2"/> View</span>
+            },
+            {
+                url: `/course/${id}/edit`,
+                title: <span><FontAwesomeIcon icon={faPencilAlt} className="mr-2"/> Edit</span>
             },
         ];
     };
@@ -81,11 +86,21 @@ const CoursesList = () => {
         },
     ], []);
 
-    const data = useMemo(() => COURSES, []);
+    const buttons = [
+        <DataTableLinkButton key="create-course" className="w-32 mx-1" to="/course/create">
+            <span className="mx-2">
+                Create
+            </span>
+            <FontAwesomeIcon icon={faPlus} size="sm"/>
+        </DataTableLinkButton>
+
+    ];
+
+    const data = useMemo(() => courses, [courses]);
 
     return (
         <div>
-            <DataTable title="Courses List" columns={columns} data={data}/>
+            <DataTable title="Courses List" columns={columns} data={data} buttons={buttons}/>
         </div>
     );
 };

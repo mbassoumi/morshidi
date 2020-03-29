@@ -9,6 +9,8 @@ import RatingFilter from '../shared/datatable/filters/RatingFilter';
 import Actions from '../shared/datatable/components/Actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
+import {CellProps} from 'react-table';
+import ImageCell from '../shared/datatable/components/ImageCell';
 
 
 const TeachersList = () => {
@@ -26,6 +28,13 @@ const TeachersList = () => {
         {
             Header: 'General Info',
             columns: [
+                {
+                    Header: 'Picture',
+                    accessor: 'picture',
+                    disableSortBy: true,
+                    disableFilters: true,
+                    Cell: ({cell: {value, row}}: CellProps<any>) => <ImageCell src={value} alt={row.original.name}/>
+                },
                 {
                     Header: 'Name',
                     accessor: 'name'
@@ -45,8 +54,7 @@ const TeachersList = () => {
                     accessor: 'rating.average',
                     Filter: RatingFilter,
                     filter: 'graterThan',
-                    //@ts-ignore
-                    Cell: ({cell: {value}}) => <Rating count={undefined} average={value} readonly={true}/>,
+                    Cell: ({cell: {value}}: CellProps<any>) => <Rating count={undefined} average={value} readonly={true}/>,
                 },
                 {
                     Header: 'Fields',
@@ -54,8 +62,7 @@ const TeachersList = () => {
                     Filter: SelectFilter,
                     filter: 'hasOne',
                     disableSortBy: true,
-                    //@ts-ignore
-                    Cell: ({cell: {value}}) => <MultipleOptionsCell values={value}/>,
+                    Cell: ({cell: {value}}: CellProps<any>) => <MultipleOptionsCell values={value}/>,
                 },
                 {
                     Header: 'Levels',
@@ -63,8 +70,7 @@ const TeachersList = () => {
                     Filter: SelectFilter,
                     filter: 'hasOne',
                     disableSortBy: true,
-                    //@ts-ignore
-                    Cell: ({cell: {value}}) => <MultipleOptionsCell values={value}/>,
+                    Cell: ({cell: {value}}: CellProps<any>) => <MultipleOptionsCell values={value}/>,
                 },
 
             ]
@@ -88,8 +94,7 @@ const TeachersList = () => {
                     Header: 'Actions',
                     disableFilters: true,
                     disableSortBy: true,
-                    //@ts-ignore
-                    Cell: ({cell: {row}}) => {
+                    Cell: ({cell: {row}}: CellProps<any>) => {
                         return (
                             <Actions actions={getRowActions(row.original.id)}/>
                         );

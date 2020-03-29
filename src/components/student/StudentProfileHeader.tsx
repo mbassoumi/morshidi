@@ -1,5 +1,4 @@
 import React from 'react';
-import Majd from '../../img/Majd.jpg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUserGraduate} from '@fortawesome/free-solid-svg-icons';
 import CircleImg from '../shared/CircleImg';
@@ -11,7 +10,7 @@ const StudentProfileHeader = ({student}: StudentProps) => {
             <div className="bg-indigo-800 w-full justify-center text-center pb-5">
                 <div className="flex">
                     <div className="mx-auto mt-5 mb-1">
-                        <CircleImg src={Majd} alt="Profile"/>
+                        <CircleImg src={student.picture} alt="Profile"/>
                     </div>
                 </div>
                 <div className="text-white font-bold tracking-wide text-2xl">{student.name}</div>

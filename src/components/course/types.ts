@@ -31,4 +31,19 @@ export interface CourseType {
     requirements: string[],
     teacher: Teacher,
     rating: RatingType,
+
+
+    keywords: string[],
+    city?: string,
+    physicalAddress?: string,
+    minStudentPerPhysicalClass?: number,
+    maxStudentPerPhysicalClass?: number,
+    pricePerPhysicalStudent?: number,
+    minStudentPerOnlineClass?: number,
+    maxStudentPerOnlineClass?: number,
+    pricePerOnlineStudent?: number,
+}
+
+export interface CoursesListProps {
+    courses: CourseType[]
 }

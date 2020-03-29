@@ -26,6 +26,13 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 1),
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
     },
     {
         __typename: 'Course',
@@ -52,6 +59,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 2),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -78,6 +96,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 3),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -104,6 +133,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 4),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -130,6 +170,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 5),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -156,6 +207,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 6),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -182,6 +244,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 7),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -208,6 +281,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 8),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -234,6 +318,17 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 9),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
     {
         __typename: 'Course',
@@ -260,5 +355,16 @@ export default [
             'More requirements'
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 10),
+
+
+        keywords                  : ['online'],
+        city                      : 'ramallah',
+        physicalAddress           : 'Irsal street',
+        minStudentPerPhysicalClass: 1,
+        maxStudentPerPhysicalClass: 20,
+        pricePerPhysicalStudent   : 21,
+        minStudentPerOnlineClass  : 1,
+        maxStudentPerOnlineClass  : 20,
+        pricePerOnlineStudent     : 21,
     },
 ];

@@ -5,6 +5,7 @@ import SelectFilter from '../shared/datatable/filters/SelectFilter';
 import {StudentListProps} from './types';
 import MultipleOptionsCell from '../shared/datatable/components/MultipleOptionsCell';
 import {CellProps} from 'react-table';
+import ImageCell from '../shared/datatable/components/ImageCell';
 
 
 const StudentList = ({students}: StudentListProps) => {
@@ -14,6 +15,13 @@ const StudentList = ({students}: StudentListProps) => {
         {
             Header: 'General Info',
             columns: [
+                {
+                    Header: 'Picture',
+                    accessor: 'picture',
+                    disableSortBy: true,
+                    disableFilters: true,
+                    Cell: ({cell: {value, row}}: CellProps<any>) => <ImageCell src={value} alt={row.original.name}/>
+                },
                 {
                     Header: 'Name',
                     accessor: 'name'

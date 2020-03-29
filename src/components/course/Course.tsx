@@ -37,7 +37,7 @@ const Course = ({match}: RouteComponentProps) => {
                             </div>
                             {
                                 courseClasses.length ?
-                                    <ClassesList courseClasses={courseClasses}/>
+                                    <ClassesList course={course} courseClasses={courseClasses}/>
                                     :
                                     <div className="flex justify-center">
                                         <Card className=" mt-4 mx-auto border-red-600 border-2 w-3/5">

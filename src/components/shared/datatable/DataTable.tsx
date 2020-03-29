@@ -5,7 +5,7 @@ import GlobalFilter from './filters/GlobalFilter';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown, faCaretLeft, faCaretRight, faSort, faSortDown, faSortUp} from '@fortawesome/free-solid-svg-icons';
 
-const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
+const DataTable = ({title, columns, data, debug, buttons}: any = {debug: false}) => {
 
     const defaultColumn = useMemo(
         () => ({
@@ -129,10 +129,26 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
                         <table {...getTableProps()} className="min-w-full leading-normal">
                             <thead>
+                            {
+                                buttons ? (
+                                    <tr key="buttons-tr">
+                                        <th colSpan={visibleColumns.length}
+                                            className="px-5 py-3 border-b border-indigo-700 bg-indigo-900">
+
+                                            <div className="flex flex-row-reverse items-center">
+                                                {
+                                                    //@ts-ignore
+                                                    buttons.map(button => button)
+                                                }
+                                            </div>
+
+                                        </th>
+                                    </tr>
+                                ) : null
+                            }
                             <tr>
                                 <th colSpan={visibleColumns.length}
                                     className="px-5 py-3 border-b border-indigo-700 bg-indigo-900">
-
                                     <div className="flex justify-between items-center">
                                         <div className="font-semibold text-2xl tracking-wide text-white uppercase">
                                             {title}
@@ -187,8 +203,10 @@ const DataTable = ({title, columns, data, debug}: any = {debug: false}) => {
 
                                 </th>
                             </tr>
-                            {headerGroups.map(headerGroup => (
-                                <tr {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
+
+
+                            {headerGroups.map((headerGroup,headerGroupKey ) => (
+                                <tr key={headerGroupKey} {...headerGroup.getHeaderGroupProps()} className="px-4 py-2">
                                     {headerGroup.headers.map(column => (
                                         <th {...column.getHeaderProps()}
                                             className="relative px-5 py-3 border-b border-indigo-700 bg-indigo-900 text-left text-xs font-semibold text-white uppercase tracking-wider">

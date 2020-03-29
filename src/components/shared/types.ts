@@ -11,7 +11,7 @@ export interface TagProps {
 }
 
 export interface CircleImgProps {
-    src: string | any,
+    src: string,
     alt: string,
 }
 

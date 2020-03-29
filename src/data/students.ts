@@ -8,7 +8,8 @@ export default [
         level: 'tawjihi',
         whatsapp: '(925)-332-9428',
         phone: '0598-569530',
-        email: 'mbbassoumi@gmail.com'
+        email: 'mbbassoumi@gmail.com',
+        picture: '/img/user1.jpg'
     },
     {
         __typename: 'Student',
@@ -19,7 +20,8 @@ export default [
         level: 'university',
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jehadbassoumi@gmail.com'
+        email: 'jehadbassoumi@gmail.com',
+        picture: '/img/user2.jpg'
     },
     {
         __typename: 'Student',
@@ -30,7 +32,8 @@ export default [
         level: 'tawjihi',
         whatsapp: '(925)-332-9428',
         phone: '0598-569530',
-        email: 'mbbassoumi@gmail.com'
+        email: 'mbbassoumi@gmail.com',
+        picture: '/img/user3.jpg'
     },
     {
         __typename: 'Student',
@@ -41,7 +44,8 @@ export default [
         level: 'university',
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jehadbassoumi@gmail.com'
+        email: 'jehadbassoumi@gmail.com',
+        picture: '/img/user4.jpg'
     },
     {
         __typename: 'Student',
@@ -52,7 +56,8 @@ export default [
         level: 'tawjihi',
         whatsapp: '(925)-332-9428',
         phone: '0598-569530',
-        email: 'mbbassoumi@gmail.com'
+        email: 'mbbassoumi@gmail.com',
+        picture: '/img/user5.jpg'
     },
     {
         __typename: 'Student',
@@ -63,7 +68,8 @@ export default [
         level: 'university',
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jehadbassoumi@gmail.com'
+        email: 'jehadbassoumi@gmail.com',
+        picture: '/img/user6.jpg'
     },
     {
         __typename: 'Student',
@@ -74,7 +80,8 @@ export default [
         level: 'tawjihi',
         whatsapp: '(925)-332-9428',
         phone: '0598-569530',
-        email: 'mbbassoumi@gmail.com'
+        email: 'mbbassoumi@gmail.com',
+        picture: '/img/user7.jpeg'
     },
     {
         __typename: 'Student',
@@ -85,7 +92,8 @@ export default [
         level: 'university',
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jehadbassoumi@gmail.com'
+        email: 'jehadbassoumi@gmail.com',
+        picture: '/img/user8.png'
     },
 
 ];

@@ -1,4 +1,5 @@
 import STUDENTS from './students';
+
 export default [
     {
         __typename: 'Class',
@@ -25,7 +26,65 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(0,6)
+        students: STUDENTS.slice(0, 6),
+
+
+
+
+        //
+        // startDate: '',
+        // endDate: '',
+        // schedule: {
+        //     saturday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     sunday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     monday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     tuesday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     wednesday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     thursday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        //     friday: {
+        //         on: false,
+        //         from: '',
+        //         to: ''
+        //     },
+        // },
+        // isOnline: false,
+        // city: '',
+        // physicalAddress: '',
+        // online: {
+        //     minStudentPerClass: '',
+        //     maxStudentPerClass: '',
+        //     pricePerStudent: '',
+        // },
+        // physical: {
+        //     minStudentPerClass: '',
+        //     maxStudentPerClass: '',
+        //     pricePerStudent: '',
+        // },
+        // referralIncentive: ''
     },
     {
         __typename: 'Class',
@@ -52,7 +111,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(2,6)
+        students: STUDENTS.slice(2, 6)
     },
     {
         __typename: 'Class',
@@ -79,7 +138,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(3,9)
+        students: STUDENTS.slice(3, 9)
     },
     {
         __typename: 'Class',
@@ -133,7 +192,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(3,6)
+        students: STUDENTS.slice(3, 6)
     },
     {
         __typename: 'Class',
@@ -160,7 +219,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(5,9)
+        students: STUDENTS.slice(5, 9)
     },
     {
         __typename: 'Class',
@@ -187,7 +246,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(0,6)
+        students: STUDENTS.slice(0, 6)
     },
     {
         __typename: 'Class',
@@ -241,7 +300,7 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(0,2)
+        students: STUDENTS.slice(0, 2)
 
     },
     {
@@ -269,6 +328,6 @@ export default [
             'Test 123',
             'More requirements'
         ],
-        students: STUDENTS.slice(0,6),
+        students: STUDENTS.slice(0, 6),
     },
 ];

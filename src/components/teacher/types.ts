@@ -23,7 +23,8 @@ export interface Teacher {
     levels: string[],
     whatsapp: string,
     phone: string,
-    email: string
+    email: string,
+    picture: string
 }
 
 export interface TeacherProps {

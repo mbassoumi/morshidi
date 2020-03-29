@@ -18,7 +18,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user1.jpg'
     },
     {
         __typename: 'Teacher',
@@ -39,7 +40,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user2.jpg'
     },
     {
         __typename: 'Teacher',
@@ -60,7 +62,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user3.jpg'
     },
     {
         __typename: 'Teacher',
@@ -81,7 +84,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user4.jpg'
     },
     {
         __typename: 'Teacher',
@@ -102,7 +106,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user5.jpg'
     },
     {
         __typename: 'Teacher',
@@ -123,7 +128,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user6.jpg'
     },
     {
         __typename: 'Teacher',
@@ -144,7 +150,8 @@ export default [
         levels: ['tawjihi'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user7.jpeg'
     },
     {
         __typename: 'Teacher',
@@ -165,7 +172,8 @@ export default [
         levels: ['first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user8.png'
     },
     {
         __typename: 'Teacher',
@@ -186,7 +194,8 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user9.png'
     },
     {
         __typename: 'Teacher',
@@ -207,6 +216,7 @@ export default [
         levels: ['tawjihi', 'first grade'],
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
-        email: 'jbesoomi@gmail.com'
+        email: 'jbesoomi@gmail.com',
+        picture: '/img/user10.png'
     },
 ];

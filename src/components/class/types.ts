@@ -1,5 +1,6 @@
 import {SelectObject} from '../shared/types';
 import {Student} from '../student/types';
+import {CourseType} from '../course/types';
 
 export interface ClassFormProps {
     defaultValues: any,
@@ -29,5 +30,6 @@ export interface ClassDetailsProps {
 }
 
 export interface ClassesListProps {
-    courseClasses: ClassDetails[]
+    courseClasses: ClassDetails[],
+    course: CourseType
 }

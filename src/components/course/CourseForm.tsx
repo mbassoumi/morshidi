@@ -13,7 +13,7 @@ import {showAlertNotification} from '../../api/alerts/alerts';
 
 
 const validate = Yup.object({
-    courseName: Yup.string()
+    name: Yup.string()
         .required('Course name is required'),
     fields: Yup.array()
         .of(Yup.string())
@@ -63,7 +63,7 @@ const validate = Yup.object({
 const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, cities, levels}: CourseFormProps) => {
 
     const initialValues = {
-        courseName: '',
+        name: '',
         fields: '',
         levels: '',
         keywords: '',
@@ -99,8 +99,8 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                             <InputField
                                 className="w-full sm:w-1/2"
                                 label='COURSE NAME'
-                                id='courseName'
-                                name='courseName'
+                                id='name'
+                                name='name'
                                 type='text'
                                 placeholder='enter course name'
                             />

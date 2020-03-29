@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../shared/Card';
 import {TeacherProps} from './types';
 import CircleImg from '../shared/CircleImg';
-import Majd from '../../img/Majd.jpg';
 import Rating from 'react-rating';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +18,7 @@ const TeacherCard = ({teacher}: TeacherProps) => {
 
             <Card className="mt-4 mx-auto">
                 <div className="flex justify-center mx-auto -mt-16">
-                    <CircleImg src={Majd} alt={teacher.name}/>
+                    <CircleImg src={teacher.picture} alt={teacher.name}/>
                 </div>
                 <div className="flex justify-between flex-wrap">
                     <div className="flex pb-4">
