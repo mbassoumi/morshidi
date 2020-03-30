@@ -54,9 +54,9 @@ const Routes = () => {
 
 
                 {/*CLASS ROUTES*/}
-                <Route component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
-                <Route component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
-                <Route component={EditClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>
+                <PrivateRoute component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
+                <PrivateRoute component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
+                <PrivateRoute component={EditClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>
 
 
                 <Route path="/" component={NotFoundException}/>

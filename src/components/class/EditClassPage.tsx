@@ -32,7 +32,7 @@ const EditClassPage = ({match}: RouteComponentProps) => {
         }, 400);
     };
     return (
-        <ClassForm courseName={course.name} defaultValues={{}} serverErrors={{}} onSubmit={onSubmit}
+        <ClassForm courseName={course.name} defaultValues={classDetails} serverErrors={{}} onSubmit={onSubmit}
                    cities={CITIES} fields={FIELDS} keywords={KEYWORDS} levels={LEVELS}/>
     )
 };

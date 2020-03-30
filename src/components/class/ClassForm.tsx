@@ -215,6 +215,7 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
         );
     });
 
+
     return (
         <Formik
             initialValues={combinedInitialValues}
@@ -224,6 +225,7 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
             validateOnBlur={false}
             validateOnMount={true}
             render={({values, errors, isValid}) => {
+                console.log('values', values)
                 return (
 
                     <Form className="px-8 py-8 py-8">

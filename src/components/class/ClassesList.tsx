@@ -37,22 +37,6 @@ const ClassesList = ({course, courseClasses}: ClassesListProps) => {
             accessor: 'nickname'
         },
         {
-            Header: 'Fields',
-            accessor: 'fields',
-            Filter: SelectFilter,
-            filter: 'hasOne',
-            disableSortBy: true,
-            Cell: ({cell: {value}}: CellProps<any>) => <MultipleOptionsCell values={value}/>,
-        },
-        {
-            Header: 'Levels',
-            accessor: 'targetLevels',
-            Filter: SelectFilter,
-            filter: 'hasOne',
-            disableSortBy: true,
-            Cell: ({cell: {value}}: CellProps<any>) => <MultipleOptionsCell values={value}/>,
-        },
-        {
             Header: 'Students',
             accessor: 'students.length',
             Filter: SliderFilter,
