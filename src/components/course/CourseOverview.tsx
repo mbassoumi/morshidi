@@ -1,6 +1,5 @@
 import React from 'react';
 import Tag from '../shared/Tag';
-import {ClassDetailsProps} from '../class/types';
 import {CourseProps} from './types';
 
 const CourseOverview = ({course}: CourseProps) => {

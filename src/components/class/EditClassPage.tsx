@@ -15,7 +15,7 @@ const EditClassPage = ({match}: RouteComponentProps) => {
     //@ts-ignore
     const courseId = parseInt(match.params.course_id);
     //@ts-ignore
-    const classId = parseInt(match.params.class_id);
+    // const classId = parseInt(match.params.class_id);
 
 
     //@ts-ignore

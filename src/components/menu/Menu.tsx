@@ -5,13 +5,13 @@ import {MenuProps} from './types';
 import CircleImg from '../shared/CircleImg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {useSelector} from 'react-redux';
-import TEACHERS from '../../data/teachers'
+// import TEACHERS from '../../data/teachers'
 
 const Menu = ({closeMenu, style}: MenuProps) => {
 
     //@ts-ignore
-    // const user = useSelector(state => state.auth.user);
-    const user = TEACHERS[0];
+    const user = useSelector(state => state.auth.user);
+    // const user = TEACHERS[0];
 
     return (
         <div className="absolute p-2 top-0 left-0 h-full min-h-screen bg-indigo-900 overflow-scroll" style={style}>

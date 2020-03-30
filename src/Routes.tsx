@@ -1,17 +1,16 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {cities, fields, interests, keywords, levels} from './data';
+import {cities, fields, interests, levels} from './data';
 import TeacherForm from './components/teacher/TeacherForm';
 import StudentForm from './components/student/StudentForm';
 import Course from './components/course/Course';
 import ClassPage from './components/class/ClassPage';
-import ClassForm from './components/class/ClassForm';
 import Login from './components/Login';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
-import Profile from './components/pages/Profile';
+import MyProfilePage from './components/profile/MyProfilePage';
 import TeachersList from './components/teacher/TeachersList';
-import TeacherProfilePage from './components/pages/TeacherProfilePage';
+import TeacherProfilePage from './components/profile/TeacherProfilePage';
 import NotFoundException from './components/shared/NotFoundException';
 import WelcomePage from './components/pages/WelcomePage';
 import CoursesPage from './components/course/CoursesPage';
@@ -39,10 +38,9 @@ const Routes = () => {
                 <PrivateRoute component={WelcomePage} path="/" exact={true}/>
 
 
-                <PrivateRoute component={Profile} path="/profile" exact={true}/>
+                <PrivateRoute component={MyProfilePage} path="/profile" exact={true}/>
                 <PrivateRoute component={TeachersList} path="/teachers" exact={true}/>
                 <PrivateRoute component={TeacherProfilePage} path="/teacher/:id" exact={true}/>
-
 
 
                 {/*COURSE ROUTES*/}
@@ -52,7 +50,6 @@ const Routes = () => {
                 <PrivateRoute component={Course} path="/course/:id" exact={true}/>
 
 
-
                 {/*CLASS ROUTES*/}
                 <PrivateRoute component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
                 <PrivateRoute component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
@@ -60,8 +57,6 @@ const Routes = () => {
 
 
                 <Route path="/" component={NotFoundException}/>
-
-
 
 
                 <Route path="/teacher/profile-new" exact={true}>

@@ -7,8 +7,8 @@ import {useSelector} from 'react-redux';
 const PrivateRoute = ({component: Component, ...rest}: RouteProps) => {
 
     //@ts-ignore
-    // const user = useSelector(state => state.auth.user);
-    const user = true;
+    const user = useSelector(state => state.auth.user);
+    // const user = true;
 
     console.log('PrivateRoute user', user);
 

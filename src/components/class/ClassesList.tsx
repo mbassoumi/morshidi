@@ -1,8 +1,6 @@
 import React, {useMemo} from 'react';
 
 import DataTable from '../shared/datatable/DataTable';
-import SelectFilter from '../shared/datatable/filters/SelectFilter';
-import MultipleOptionsCell from '../shared/datatable/components/MultipleOptionsCell';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye, faPencilAlt, faPlus, faUsers} from '@fortawesome/free-solid-svg-icons';
 import {CellProps} from 'react-table';
@@ -14,14 +12,14 @@ import Actions from '../shared/datatable/components/Actions';
 
 const ClassesList = ({course, courseClasses}: ClassesListProps) => {
 
-    const getRowActions = (id: number) => {
+    const getRowActions = (id: number, courseId: number) => {
         return [
             {
-                url: `/course/${course.id}/class/${id}`,
+                url: `/course/${courseId}/class/${id}`,
                 title: <span><FontAwesomeIcon icon={faEye} className="mr-2"/> View</span>
             },
             {
-                url: `/course/${course.id}/class/${id}/edit`,
+                url: `/course/${courseId}/class/${id}/edit`,
                 title: <span><FontAwesomeIcon icon={faPencilAlt} className="mr-2"/> Edit</span>
             },
         ];
@@ -54,12 +52,12 @@ const ClassesList = ({course, courseClasses}: ClassesListProps) => {
             disableSortBy: true,
             Cell: ({row}: CellProps<any>) => {
                 return (
-                    <Actions actions={getRowActions(row.original.id)}/>
+                    <Actions actions={getRowActions(row.original.id, course.id)}/>
                 );
             },
         },
 
-    ], []);
+    ], [course]);
 
     const data = useMemo(() => courseClasses, [courseClasses]);
 

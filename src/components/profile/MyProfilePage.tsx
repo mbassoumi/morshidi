@@ -4,7 +4,7 @@ import StudentProfile from '../student/StudentProfile';
 import TeacherProfile from '../teacher/TeacherProfile';
 import {Redirect} from 'react-router-dom';
 
-const Profile = () => {
+const MyProfilePage = () => {
 
     //@ts-ignore
     const user = useSelector(state => state.auth.user);
@@ -47,4 +47,4 @@ const Profile = () => {
 };
 
 
-export default Profile;
+export default MyProfilePage;
