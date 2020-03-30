@@ -17,9 +17,14 @@ export interface Student {
     level: string,
     whatsapp: string,
     phone: string,
-    email: string
+    email: string,
+    picture: string
 }
 
 export interface StudentProps {
     student: Student
+}
+
+export interface StudentListProps {
+    students: Student[],
 }

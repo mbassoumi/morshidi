@@ -1,4 +1,4 @@
-import {Rating, SelectObject} from '../shared/types';
+import {RatingType, SelectObject} from '../shared/types';
 
 export interface TeacherFormProps {
     defaultValues: any,
@@ -17,13 +17,14 @@ export interface Teacher {
     classes: number,
     sessions: number,
     followers: number,
-    rating: Rating
+    rating: RatingType
     aboutMe: string,
     fields: string[],
     levels: string[],
     whatsapp: string,
     phone: string,
-    email: string
+    email: string,
+    picture: string
 }
 
 export interface TeacherProps {

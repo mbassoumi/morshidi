@@ -1,10 +1,9 @@
 import React from 'react';
-import Majd from '../../img/Majd.jpg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faStar, faUserTie} from '@fortawesome/free-solid-svg-icons';
-import Rating from 'react-rating';
+import {faUserTie} from '@fortawesome/free-solid-svg-icons';
 import CircleImg from '../shared/CircleImg';
 import {TeacherProps} from './types';
+import Rating from '../shared/Rating';
 
 const TeacherProfileHeader = ({teacher}: TeacherProps) => {
     return (
@@ -13,7 +12,7 @@ const TeacherProfileHeader = ({teacher}: TeacherProps) => {
                 <div className="sm:relative">
                     <div className="flex">
                         <div className="mx-auto mt-5 mb-1">
-                            <CircleImg src={Majd} alt="Profile"/>
+                            <CircleImg src={teacher.picture} alt="Profile"/>
                         </div>
                     </div>
                     <button className="sm:absolute my-4 px-12 py-2 sm:top-0 sm:right-0 sm:mr-4 sm:mt-4 bg-indigo-900 rounded-lg hover:bg-indigo-300 focus:outline-none active:bg-indigo-400 text-white font-bold tracking-wider text-lg">
@@ -47,17 +46,8 @@ const TeacherProfileHeader = ({teacher}: TeacherProps) => {
                     </div>
                 </div>
             </div>
-            <div
-                className="flex flex-wrap mx-auto -mt-4 py-1 px-2 justify-center items-center rounded-lg bg-white shadow-xl w-1/2 sm:w-1/4">
-                <Rating
-                    className="whitespace-no-wrap"
-                    initialRating={teacher.rating.average}
-                    emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
-                    fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
-                />
-                <div className="ml-2">
-                    ({teacher.rating.count})
-                </div>
+            <div className="-mt-4">
+                <Rating average={teacher.rating.average} count={teacher.rating.count} readonly={true}/>
             </div>
         </div>
     );

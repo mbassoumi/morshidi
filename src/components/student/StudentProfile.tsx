@@ -8,7 +8,7 @@ const StudentProfile = ({student}: StudentProps) => {
     return (
         <div>
             <StudentProfileHeader student={student}/>
-            <Card>
+            <Card className="w-3/4 mt-4 mx-auto">
                 <StudentProfileBody student={student}/>
             </Card>
         </div>

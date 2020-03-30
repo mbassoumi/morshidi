@@ -10,7 +10,7 @@ const TeacherProfile = ({teacher}: TeacherProps) => {
     return (
         <div>
             <TeacherProfileHeader teacher={teacher}/>
-            <Card>
+            <Card className="w-3/4 mt-4 mx-auto">
                 <TeacherProfileBody teacher={teacher}/>
             </Card>
 

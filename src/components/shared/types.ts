@@ -11,7 +11,7 @@ export interface TagProps {
 }
 
 export interface CircleImgProps {
-    src: string | any,
+    src: string,
     alt: string,
 }
 
@@ -51,9 +51,11 @@ export interface CheckboxFieldProps {
     children?: any
 }
 
-export interface Rating {
+export interface RatingType {
     average: number,
-    count: number
+    count: number | undefined,
+    readonly?: boolean
+    onChange?: () => void
 }
 
 

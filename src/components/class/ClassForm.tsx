@@ -44,7 +44,7 @@ const partialDefaultClassSetting = {
 };
 
 const validate = Yup.object({
-    classNickname: Yup.string()
+    nickname: Yup.string()
         .required('Class nickname is required'),
     startDate: Yup.date()
         .required('Start date is required')
@@ -110,7 +110,7 @@ const validate = Yup.object({
 const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords, fields, cities, levels}: ClassFormProps) => {
 
     const initialValues = {
-        classNickname: '',
+        nickname: '',
         startDate: '',
         endDate: '',
         schedule: {
@@ -215,6 +215,7 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
         );
     });
 
+
     return (
         <Formik
             initialValues={combinedInitialValues}
@@ -224,6 +225,7 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
             validateOnBlur={false}
             validateOnMount={true}
             render={({values, errors, isValid}) => {
+                console.log('values', values)
                 return (
 
                     <Form className="px-8 py-8 py-8">
@@ -242,8 +244,8 @@ const ClassForm = ({defaultValues, serverErrors, onSubmit, courseName, keywords,
                             <InputField
                                 className="w-full sm:w-1/2"
                                 label='CLASS NICKNAME'
-                                id='classNickname'
-                                name='classNickname'
+                                id='nickname'
+                                name='nickname'
                                 type='text'
                                 placeholder='enter class nickname'
                             />
