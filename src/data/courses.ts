@@ -11,8 +11,8 @@ export default [
             count: 50,
             average: 3.5
         },
-        fields: ['math'],
-        levels: ['tawjihi'],
+        fields: ['field 1', 'field 2', 'field 3', 'field 4', 'field 5', 'field 6', 'field 7', ],
+        levels: ['level 1', 'level 2', 'level 3', 'level 4', 'level 5', 'level 6'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -27,12 +27,13 @@ export default [
         ],
         teacher: TEACHERS.find(teacher => teacher.id === 1),
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['keyword1', 'keyword2', 'keyword3', 'keyword4', 'keyword5', 'keyword6', 'keyword7'],
+        // keywords                  : ['keyword1', 'keyword2', 'keyword3'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
+        pricePerPhysicalStudent: 21,
     },
     {
         __typename: 'Course',
@@ -61,15 +62,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 2),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -82,7 +83,7 @@ export default [
             average: 4
         },
         fields: ['english'],
-        levels: [ '8th grade'],
+        levels: ['8th grade'],
         description: 'This course is about a lot of stupid stuf that is not useful to anyone...\n' +
             'asdasdas\n' +
             'asdad\n' +
@@ -98,15 +99,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 3),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -135,15 +136,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 4),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -172,15 +173,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 5),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -209,15 +210,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 6),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -246,15 +247,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 7),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -283,15 +284,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 8),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -320,15 +321,15 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 9),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
     {
         __typename: 'Course',
@@ -357,14 +358,14 @@ export default [
         teacher: TEACHERS.find(teacher => teacher.id === 10),
 
 
-        keywords                  : ['online'],
-        city                      : 'ramallah',
-        physicalAddress           : 'Irsal street',
+        keywords: ['online'],
+        city: 'ramallah',
+        physicalAddress: 'Irsal street',
         minStudentPerPhysicalClass: 1,
         maxStudentPerPhysicalClass: 20,
-        pricePerPhysicalStudent   : 21,
-        minStudentPerOnlineClass  : 1,
-        maxStudentPerOnlineClass  : 20,
-        pricePerOnlineStudent     : 21,
+        pricePerPhysicalStudent: 21,
+        minStudentPerOnlineClass: 1,
+        maxStudentPerOnlineClass: 20,
+        pricePerOnlineStudent: 21,
     },
 ];

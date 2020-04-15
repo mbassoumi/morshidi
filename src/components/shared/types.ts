@@ -8,6 +8,8 @@ export interface TabButtonProps {
 
 export interface TagProps {
     text: string,
+    bgColor?: string,
+    textColor?: string,
 }
 
 export interface CircleImgProps {

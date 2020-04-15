@@ -7,7 +7,8 @@ import LibraryRating from 'react-rating';
 const Rating = ({count, average, readonly, onChange}: RatingType) => {
 
     return (
-        <div className="flex flex-wrap mx-auto py-1 px-2 justify-center items-center rounded-lg bg-white shadow-xl w-1/2 sm:w-1/4">
+        <div
+            className="flex flex-wrap mx-auto py-1 px-2 justify-center items-center rounded-lg bg-white shadow-xl w-1/2 sm:w-1/4">
             <LibraryRating
                 readonly={readonly}
                 className="whitespace-no-wrap"
