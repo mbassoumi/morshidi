@@ -14,7 +14,9 @@ const TeacherCard = ({teacher}: TeacherProps) => {
     const levels = teacher.levels.map((tag, index) => <Tag text={tag} key={index}/>);
 
     return (
-        <div className="pt-12 sticky top-0">
+        <div className="pt-12 sticky top-0" style={{
+            minWidth: '400px'
+        }}>
 
             <Card className="mt-4 mx-auto">
                 <div className="flex justify-center mx-auto -mt-16">

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 export const useWindowSize = () => {
 
     const [size, setSize] = useState([0,0]);
@@ -9,7 +9,6 @@ export const useWindowSize = () => {
         };
 
         window.addEventListener('resize', updateSize);
-        console.log('majd');
 
         updateSize();
         return () => window.removeEventListener('resize', updateSize);

@@ -4,10 +4,11 @@ import Tag from "../shared/Tag";
 import {useWindowSize} from "../../hooks/useWindowSize";
 import {Popover, Avatar} from 'antd';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEye, faStar} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faStar} from "@fortawesome/free-solid-svg-icons";
 import LibraryRating from "react-rating";
 import {Link} from "react-router-dom";
 import TeacherCard from "../teacher/TeacherCard";
+import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
 
 
 const CourseCard = ({course}: CourseProps) => {
@@ -17,12 +18,12 @@ const CourseCard = ({course}: CourseProps) => {
     const fieldsDivRef = useRef(null);
 
     const fields = useMemo(() => {
-        const fieldsTags = course.fields.map((value, index) => <Tag key={index} text={value}/>)
+        const fieldsTags = course.fields.map((value, index) => <Tag key={index} text={value}/>);
 
         //@ts-ignore
         const showMore = fieldsDivRef?.current?.offsetWidth < fieldsDivRef?.current?.scrollWidth;
         if (showMore) {
-            const content = <div className="flex flex-wrap" >
+            const content = <div className="flex flex-wrap">
                 {fieldsTags}
             </div>;
             return (
@@ -45,12 +46,13 @@ const CourseCard = ({course}: CourseProps) => {
     const levelsDivRef = useRef(null);
 
     const levels = useMemo(() => {
+
         const levelsTags = course.levels.map((value, index) => <Tag key={index} text={value} bgColor="blue"/>);
 
         //@ts-ignore
         const showMore = levelsDivRef?.current?.offsetWidth < levelsDivRef?.current?.scrollWidth;
         if (showMore) {
-            const content = <div className="flex flex-wrap" >
+            const content = <div className="flex flex-wrap">
                 {levelsTags}
             </div>;
             return (
@@ -75,11 +77,10 @@ const CourseCard = ({course}: CourseProps) => {
     const keywords = useMemo(() => {
         const keywordsTags = course.keywords.map((value, index) => <span key={index}
                                                                          className="mr-2 text-blue-400 hover:text-blue-300 cursor-pointer">{`#${value}`}</span>);
-
         //@ts-ignore
         const showMore = keywordsDivRef?.current?.offsetWidth < keywordsDivRef?.current?.scrollWidth;
         if (showMore) {
-            const content = <div className="flex flex-wrap" >
+            const content = <div className="flex flex-wrap">
                 {keywordsTags}
             </div>;
             return (
@@ -92,7 +93,7 @@ const CourseCard = ({course}: CourseProps) => {
             )
         }
         return (
-            <div className="truncate" ref={keywordsDivRef}>
+            <div className="truncate " ref={keywordsDivRef}>
                 {keywordsTags}
             </div>
         )
@@ -122,8 +123,9 @@ const CourseCard = ({course}: CourseProps) => {
     // }, [course]);
 
     return (
-        <div className="p-6">
-            <div className="bg-gray-100 shadow-2xl border border-gray-200 rounded-lg" >
+
+        <div className="p-3 animated zoomIn">
+            <div className="bg-gray-100 shadow-2xl border border-gray-200 rounded-lg">
                 <div className="pl-4 pr-6">
                     <div className="flex py-2 flex-wrap justify-between items-center">
                         <div className="text-2xl text-black font-bold tracking-wide whitespace-no-wrap">
@@ -153,15 +155,19 @@ const CourseCard = ({course}: CourseProps) => {
                     </div>
                     <div className="flex justify-between flex-row-reverse">
                         <div className="flex p-2 flex-row-reverse">
-                            <Link
-                                to={`/course/${course.id}`}
-                                className="w-8 h-8 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-300 inline-block mx-2">
-                                <FontAwesomeIcon icon={faEye} size="lg" className="text-white"/>
-                            </Link>
+                            <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer">
+                                <Link
+                                    to={`/course/${course.id}`}
+                                    className="w-8 h-8 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-300 inline-block mx-2">
+                                    <FontAwesomeIcon icon={faEye} size="lg" className="text-white"/>
+                                </Link>
+                            </AnimateHoveredComponent>
 
-                            <Popover content={<TeacherCard teacher={course.teacher}/>} className="bg-red-800 mx-2">
-                                <Avatar src={course.teacher.picture} className="cursor-pointer"/>
-                            </Popover>
+                            <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer">
+                                <Popover content={<TeacherCard teacher={course.teacher}/>}>
+                                    <Avatar src={course.teacher.picture}/>
+                                </Popover>
+                            </AnimateHoveredComponent>
                         </div>
 
                         <div className="flex items-center">

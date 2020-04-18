@@ -1,49 +1,76 @@
 import React from 'react';
-import CoursesList from './CoursesList';
 import COURSES from '../../data/courses';
 import CourseCard from "./CourseCard";
 import {List} from "antd";
-import {CourseProps} from "./types";
+import {CourseType} from "./types";
 
 
 const CoursesPage = () => {
+
+    //@ts-ignore
+    const data: CourseType[] = COURSES;
+
     return (
         <div>
-
             <List
                 grid={{
-                    gutter: 16,
                     xs: 1,
-                    // sm: 2,
                     md: 2,
-                //     lg: 4,
                     xl: 3,
-                //     xxl: 3,
                 }}
                 pagination={{
                     onChange: page => {
-                        console.log(page);
+                        console.log('page', page);
+
                     },
-                    pageSize: 6,
+                    onShowSizeChange: (current: number, size: number) => {
+                        console.log('current', current);
+                        console.log('size', size);
+                    },
+                    total: COURSES.length,
+                    // defaultCurrent: 1
+                    // disabled: true
+                    // current: 2,
+                    defaultPageSize: 6,
+                    // pageSize: 6,
+                    //     onChange?: (page: number, pageSize?: number) => void,
+                    hideOnSinglePage: true,
+                    showSizeChanger: true,
+                    pageSizeOptions: ['3', '6'],
+                    // showQuickJumper: true,
+                    //     showQuickJumper?: boolean | {
+                    //         goButton?: React.ReactNode;
+                    // };
+
+                    showTitle: true,
+
+                    showTotal: (total: number, range: [number, number]) =>
+                        <div>total: {total} range: {range[0]} to {range[1]}</div>,
+                    size: 'default',
+                    responsive: true,
+                    // simple: true,
+                    // style: {
+                    //     backgroundColor: 'red'
+                    // },
+                    //     locale?: Object,
+                    className: 'flex justify-center',
+                    //     prefixCls?: string,
+                    //     selectPrefixCls?: string,
+                    //     itemRender: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next', originalElement: React.ReactElement<HTMLElement>) => (
+                    //         <div>
+                    //             page: {page}
+                    //         </div>
+                    //     ),
+                    //     role?: string,
+                    //     showLessItems?: boolean,
                 }}
-                dataSource={COURSES}
-                renderItem={(course, index) => (
-                    <List.Item>
-                        {
-                            // @ts-ignore
-                            <CourseCard course={course}/>
-                        }
+                dataSource={data}
+                renderItem={(course: CourseType) => (
+                    <List.Item key={course.id}>
+                        <CourseCard key={course.id} course={course}/>
                     </List.Item>
                 )}
-            />,
-            {/*{*/}
-            {/*    // @ts-ignore*/}
-            {/*    <CourseCard course={COURSES[0]}/>*/}
-            {/*}*/}
-            {/*{*/}
-            {/*    // @ts-ignore*/}
-            {/*    <CoursesList courses={COURSES}/>*/}
-            {/*}*/}
+            />
         </div>
     );
 };
