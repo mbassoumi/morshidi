@@ -11,7 +11,8 @@ const CoursesPage = () => {
     const data: CourseType[] = COURSES;
 
     return (
-        <div>
+        <div className="p-6">
+            <div className="flex justify-center text-black text-3xl font-bold tracking-wide uppercase">Courses List</div>
             <List
                 grid={{
                     xs: 1,
@@ -44,8 +45,8 @@ const CoursesPage = () => {
 
                     showTitle: true,
 
-                    showTotal: (total: number, range: [number, number]) =>
-                        <div>total: {total} range: {range[0]} to {range[1]}</div>,
+                    // showTotal: (total: number, range: [number, number]) =>
+                    //     <div>total: {total} range: {range[0]} to {range[1]}</div>,
                     size: 'default',
                     responsive: true,
                     // simple: true,
