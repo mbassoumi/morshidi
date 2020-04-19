@@ -98,21 +98,21 @@ const TeacherCard = ({teacher}: TeacherProps) => {
                             </div>
                         </div>
                     </div>
-                    <div className="-mt-4 hidden sm:block">
+                    <div className="-mt-4">
                         <Rating average={teacher.rating.average} count={teacher.rating.count} readonly={true}/>
                     </div>
                 </div>
 
                 <div className="pt-8 px-4">
-                    <div className="flex justify-end sm:hidden">
-                        <LibraryRating
-                            readonly
-                            className="whitespace-no-wrap"
-                            initialRating={teacher.rating.average}
-                            emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
-                            fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
-                        />
-                    </div>
+                    {/*<div className="flex justify-end sm:hidden">*/}
+                    {/*    <LibraryRating*/}
+                    {/*        readonly*/}
+                    {/*        className="whitespace-no-wrap"*/}
+                    {/*        initialRating={teacher.rating.average}*/}
+                    {/*        emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}*/}
+                    {/*        fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                     <div className="flex">
                         <div className="w-1/2">
                             <div style={{
