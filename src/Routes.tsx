@@ -9,7 +9,6 @@ import Login from './components/Login';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
 import MyProfilePage from './components/profile/MyProfilePage';
-import TeachersList from './components/teacher/TeachersList';
 import TeacherProfilePage from './components/profile/TeacherProfilePage';
 import NotFoundException from './components/shared/NotFoundException';
 import WelcomePage from './components/pages/WelcomePage';
@@ -19,6 +18,7 @@ import EditCoursePage from './components/course/EditCoursePage';
 import CreateClassPage from './components/class/CreateClassPage';
 import EditClassPage from './components/class/EditClassPage';
 import TeachersPage from "./components/teacher/TeachersPage";
+import ClassesPage from "./components/class/ClassesPage";
 
 
 const Routes = () => {
@@ -53,6 +53,7 @@ const Routes = () => {
 
 
                 {/*CLASS ROUTES*/}
+                <PrivateRoute component={ClassesPage} exact={true} path="/classes"/>
                 <PrivateRoute component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
                 <PrivateRoute component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
                 <PrivateRoute component={EditClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>

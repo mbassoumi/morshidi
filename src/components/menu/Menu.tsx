@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import {faBookOpen, faCog, faIdCard, faPowerOff, faTimes, faUserTie} from '@fortawesome/free-solid-svg-icons';
+import {faBookOpen, faCog, faIdCard, faPowerOff, faSdCard, faTimes, faUserTie} from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
 import CustomImg from '../shared/CustomImg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -41,6 +41,9 @@ const Menu = ({closeMenu, style}: MenuProps) => {
                           closeMenu={closeMenu}/>
                 <MenuItem link='/courses' icon={faBookOpen} text="Courses"
                           closeMenu={closeMenu}/>
+                <MenuItem link='/classes' icon={faSdCard} text="Classes"
+                          closeMenu={closeMenu}/>
+
 
 
                 {/*<MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>*/}
