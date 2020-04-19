@@ -28,7 +28,7 @@ const CoursesPage = () => {
                         console.log('current', current);
                         console.log('size', size);
                     },
-                    total: COURSES.length,
+                    total: data.length,
                     // defaultCurrent: 1
                     // disabled: true
                     // current: 2,

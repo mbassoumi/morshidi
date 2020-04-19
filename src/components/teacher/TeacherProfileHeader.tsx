@@ -1,7 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUserTie} from '@fortawesome/free-solid-svg-icons';
-import CircleImg from '../shared/CircleImg';
+import CustomImg from '../shared/CustomImg';
 import {TeacherProps} from './types';
 import Rating from '../shared/Rating';
 
@@ -12,7 +12,7 @@ const TeacherProfileHeader = ({teacher}: TeacherProps) => {
                 <div className="sm:relative">
                     <div className="flex">
                         <div className="mx-auto mt-5 mb-1">
-                            <CircleImg src={teacher.picture} alt="Profile"/>
+                            <CustomImg src={teacher.picture} alt="Profile"/>
                         </div>
                     </div>
                     <button className="sm:absolute my-4 px-12 py-2 sm:top-0 sm:right-0 sm:mr-4 sm:mt-4 bg-indigo-900 rounded-lg hover:bg-indigo-300 focus:outline-none active:bg-indigo-400 text-white font-bold tracking-wider text-lg">

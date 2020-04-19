@@ -12,7 +12,7 @@ export default [
             count: 15,
             average: 4.5
         },
-        aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
+        aboutMe: 'I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. I have been been with Samasource for 3 years. I taught Math & Arabic at al hashimeya schoool. Nice\n' +
             '                    job nice nice nice!',
         fields: ['math'],
         levels: ['tawjihi', 'first grade'],

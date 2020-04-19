@@ -18,6 +18,7 @@ import CreateCoursePage from './components/course/CreateCoursePage';
 import EditCoursePage from './components/course/EditCoursePage';
 import CreateClassPage from './components/class/CreateClassPage';
 import EditClassPage from './components/class/EditClassPage';
+import TeachersPage from "./components/teacher/TeachersPage";
 
 
 const Routes = () => {
@@ -39,7 +40,8 @@ const Routes = () => {
 
 
                 <PrivateRoute component={MyProfilePage} path="/profile" exact={true}/>
-                <PrivateRoute component={TeachersList} path="/teachers" exact={true}/>
+
+                <PrivateRoute component={TeachersPage} path="/teachers" exact={true}/>
                 <PrivateRoute component={TeacherProfilePage} path="/teacher/:id" exact={true}/>
 
 

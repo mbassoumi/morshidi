@@ -12,9 +12,9 @@ export interface TagProps {
     textColor?: string,
 }
 
-export interface CircleImgProps {
-    src: string,
-    alt: string,
+export interface CustomImgProps {
+    size?: 'sm' | 'lg' | 'xl',
+    circle?: boolean
 }
 
 export interface CardProps {
