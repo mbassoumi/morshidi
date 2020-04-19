@@ -1,5 +1,6 @@
 import {User} from '../types';
 import {LOGIN, LOGOUT} from './constants/action-types';
+import TEACHERS from './../../data/teachers'
 
 type ActionType = typeof LOGIN | typeof LOGOUT;
 
@@ -18,6 +19,7 @@ interface AuthStateType {
 
 const initialState: AuthStateType = {
     user: undefined,
+    // user: TEACHERS[0],
 };
 
 
