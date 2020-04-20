@@ -51,7 +51,7 @@
     "start:js": "react-scripts start",
     "build:js": "react-scripts build",
     "start:css": "postcss src/tailwind.css -c tailwind.config.js -o src/index.css -w",
-    "build:css": "postcss src/tailwind.css -c tailwind.config.js -o src/index.css --env production"
+    "build:css": "postcss src/tailwind.css -c tailwind.config.js -o src/index.css -w"
   },
   "eslintConfig": {
     "extends": "react-app"
