@@ -19,6 +19,8 @@ import CreateClassPage from './components/class/CreateClassPage';
 import EditClassPage from './components/class/EditClassPage';
 import TeachersPage from "./components/teacher/TeachersPage";
 import ClassesPage from "./components/class/ClassesPage";
+import StudentsPage from "./components/student/StudentsPage";
+import StudentProfilePage from "./components/profile/StudentProfilePage";
 
 
 const Routes = () => {
@@ -43,6 +45,9 @@ const Routes = () => {
 
                 <PrivateRoute component={TeachersPage} path="/teachers" exact={true}/>
                 <PrivateRoute component={TeacherProfilePage} path="/teacher/:id" exact={true}/>
+
+                <PrivateRoute component={StudentsPage} path="/students" exact={true}/>
+                <PrivateRoute component={StudentProfilePage} path="/student/:id" exact={true}/>
 
 
                 {/*COURSE ROUTES*/}

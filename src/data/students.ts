@@ -4,7 +4,7 @@ export default [
         id: 1,
         name: 'Majd Bassoumi',
         username: '@mbassoumi',
-        interests: ['math', 'physics'],
+        interests: ['math', 'physics', 'interest 3', 'interest 4', 'interest 5', 'interest 6', 'interest 7' ],
         level: 'tawjihi',
         whatsapp: '(925)-332-9428',
         phone: '0598-569530',

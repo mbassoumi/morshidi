@@ -1,6 +1,15 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import {faBookOpen, faCog, faIdCard, faPowerOff, faSdCard, faTimes, faUserTie} from '@fortawesome/free-solid-svg-icons';
+import {
+    faBookOpen,
+    faCog,
+    faIdCard,
+    faPowerOff,
+    faSdCard,
+    faTimes,
+    faUserGraduate,
+    faUserTie
+} from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
 import CustomImg from '../shared/CustomImg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -34,7 +43,6 @@ const Menu = ({closeMenu, style}: MenuProps) => {
 
             <div className="mt-12 mr-10">
 
-
                 <MenuItem link='/profile' icon={faIdCard} text="My Profile"
                           closeMenu={closeMenu}/>
                 <MenuItem link='/teachers' icon={faUserTie} text="Teachers"
@@ -43,6 +51,9 @@ const Menu = ({closeMenu, style}: MenuProps) => {
                           closeMenu={closeMenu}/>
                 <MenuItem link='/classes' icon={faSdCard} text="Classes"
                           closeMenu={closeMenu}/>
+                <MenuItem link='/students' icon={faUserGraduate} text="Students"
+                          closeMenu={closeMenu}/>
+
 
 
 
