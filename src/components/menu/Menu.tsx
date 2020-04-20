@@ -1,8 +1,17 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import {faBookOpen, faCog, faIdCard, faPowerOff, faTimes, faUserTie} from '@fortawesome/free-solid-svg-icons';
+import {
+    faBookOpen,
+    faCog,
+    faIdCard,
+    faPowerOff,
+    faSdCard,
+    faTimes,
+    faUserGraduate,
+    faUserTie
+} from '@fortawesome/free-solid-svg-icons';
 import {MenuProps} from './types';
-import CircleImg from '../shared/CircleImg';
+import CustomImg from '../shared/CustomImg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {useSelector} from 'react-redux';
 // import TEACHERS from '../../data/teachers'
@@ -18,7 +27,7 @@ const Menu = ({closeMenu, style}: MenuProps) => {
 
             <div className="flex">
                 <div className="mx-auto mt-10">
-                    <CircleImg src={user.picture} alt="Profile"/>
+                    <CustomImg src={user.picture} alt="Profile"/>
                 </div>
                 <button onClick={closeMenu} className="focus:outline-none h-full">
                     <FontAwesomeIcon size="lg" icon={faTimes} className="hover:text-white text-gray-600"/>
@@ -34,13 +43,18 @@ const Menu = ({closeMenu, style}: MenuProps) => {
 
             <div className="mt-12 mr-10">
 
-
                 <MenuItem link='/profile' icon={faIdCard} text="My Profile"
                           closeMenu={closeMenu}/>
                 <MenuItem link='/teachers' icon={faUserTie} text="Teachers"
                           closeMenu={closeMenu}/>
                 <MenuItem link='/courses' icon={faBookOpen} text="Courses"
                           closeMenu={closeMenu}/>
+                <MenuItem link='/classes' icon={faSdCard} text="Classes"
+                          closeMenu={closeMenu}/>
+                <MenuItem link='/students' icon={faUserGraduate} text="Students"
+                          closeMenu={closeMenu}/>
+
+
 
 
                 {/*<MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>*/}

@@ -1,83 +1,172 @@
-import React from 'react';
-import Card from '../shared/Card';
+import React, {useMemo, useRef} from 'react';
 import {TeacherProps} from './types';
-import CircleImg from '../shared/CircleImg';
-import Rating from 'react-rating';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faStar} from '@fortawesome/free-solid-svg-icons';
-import Tag from '../shared/Tag';
-import {Link} from 'react-router-dom';
+import CustomImg from "../shared/CustomImg";
+import {Button, Popover} from "antd";
+import {faEnvelope, faEye, faStar} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faFacebook, faWhatsapp} from "@fortawesome/free-brands-svg-icons";
+import Tag from "../shared/Tag";
+import {useWindowSize} from "../../hooks/useWindowSize";
+import LibraryRating from "react-rating";
+import Rating from "../shared/Rating";
+import {Link} from "react-router-dom";
+import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
 
 const TeacherCard = ({teacher}: TeacherProps) => {
 
-    const fields = teacher.fields.map((tag, index) => <Tag text={tag} key={index}/>);
-    const levels = teacher.levels.map((tag, index) => <Tag text={tag} key={index}/>);
+    const [width] = useWindowSize();
+
+    const fieldsDivRef = useRef(null);
+    const fields = useMemo(() => {
+        const fieldsTags = teacher.fields.map((value, index) => <Tag key={index} text={value}/>);
+
+        //@ts-ignore
+        const showMore = fieldsDivRef?.current?.offsetWidth < fieldsDivRef?.current?.scrollWidth;
+        if (showMore) {
+            const content = <div className="flex flex-wrap">
+                {fieldsTags}
+            </div>;
+            return (
+                <Popover content={content}>
+                    <div className="truncate" ref={fieldsDivRef}>
+                        {fieldsTags}
+                    </div>
+                </Popover>
+            )
+        }
+        return (
+            <div className="truncate" ref={fieldsDivRef}>
+                {fieldsTags}
+            </div>
+        )
+
+    }, [teacher, width]);
+
+    const levelsDivRef = useRef(null);
+
+    const levels = useMemo(() => {
+
+        const levelsTags = teacher.levels.map((value, index) => <Tag key={index} text={value} bgColor="blue"/>);
+
+        //@ts-ignore
+        const showMore = levelsDivRef?.current?.offsetWidth < levelsDivRef?.current?.scrollWidth;
+        if (showMore) {
+            const content = <div className="flex flex-wrap">
+                {levelsTags}
+            </div>;
+            return (
+
+                <Popover content={content}>
+                    <div className="truncate" ref={levelsDivRef}>
+                        {levelsTags}
+                    </div>
+                </Popover>
+            )
+        }
+        return (
+            <div className="truncate" ref={levelsDivRef}>
+                {levelsTags}
+            </div>
+        )
+    }, [teacher, width]);
 
     return (
-        <div className="pt-12 sticky top-0">
-
-            <Card className="mt-4 mx-auto">
-                <div className="flex justify-center mx-auto -mt-16">
-                    <CircleImg src={teacher.picture} alt={teacher.name}/>
+        <div className="p-6 animated zoomIn" style={{
+            minWidth: '600px'
+        }}>
+            <div className="bg-gray-100 shadow-2xl border border-gray-200 rounded-lg overflow-hidden">
+                <div className="relative">
+                    <div className="absolute">
+                        <div className="pl-4 pt-8 ">
+                            <CustomImg src={teacher.picture} alt={teacher.name} circle={false} size="lg"
+                                       className="rounded"/>
+                        </div>
+                    </div>
+                    <div className="absolute right-0 pr-4 pt-4">
+                        <Button type="primary">follow</Button>
+                    </div>
+                    <div className="bg-indigo-700">
+                        <div className="flex flex-col  items-center pb-6 pt-3">
+                            <div className="text-white text-3xl font-bold capitalize tracking-wide">{teacher.name}</div>
+                            <div className="text-gray-200 text-sm  capitalize tracking-wide">{teacher.from}</div>
+                            <div className="flex pt-2">
+                                <FontAwesomeIcon icon={faFacebook} size="2x" className="text-white mx-1 cursor-pointer"/>
+                                <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white mx-1 cursor-pointer"
+                                                 title={teacher.whatsapp}/>
+                                <FontAwesomeIcon icon={faEnvelope} size="2x" className="text-white mx-1 cursor-pointer"
+                                                 title={teacher.email}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="-mt-4">
+                        <Rating average={teacher.rating.average} count={teacher.rating.count} readonly={true}/>
+                    </div>
                 </div>
-                <div className="flex justify-between flex-wrap">
-                    <div className="flex pb-4">
-                        <div className="">
-                            <div className="text-2xl">{teacher.name}</div>
-                            <div className="text-lg text-gray-600">{teacher.from}</div>
-                            <div className="flex whitespace-no-wrap">
-                                <Rating
-                                    readonly
-                                    className="whitespace-no-wrap"
-                                    initialRating={teacher.rating.average}
-                                    emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
-                                    fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
-                                />
-                                <div className="ml-2 whitespace-no-wrap">
-                                    ({teacher.rating.count})
+
+                <div className="pt-8 px-4">
+                    {/*<div className="flex justify-end sm:hidden">*/}
+                    {/*    <LibraryRating*/}
+                    {/*        readonly*/}
+                    {/*        className="whitespace-no-wrap"*/}
+                    {/*        initialRating={teacher.rating.average}*/}
+                    {/*        emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}*/}
+                    {/*        fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
+                    <div className="flex">
+                        <div className="w-1/2">
+                            <div style={{
+                                maxWidth: '500px'
+                            }}>
+                                <div className="text-black text-xl font-bold capitalize">About <span
+                                    className="text-indigo-700">me</span></div>
+                                <div className="pt-2 pr-4 font-mono h-24 overflow-hidden">{teacher.aboutMe}</div>
+                            </div>
+                        </div>
+                        <div className="w-1/2">
+                            <div className="pl-2 py-1">{fields}</div>
+                            <div className="pl-2 py-1">{levels}</div>
+
+                            <div className="pl-2 py-1 flex items-center">
+                                <div className="text-black text-xl font-bold font-mono w-12">
+                                    {teacher.classes}
+                                </div>
+                                <div className="ml-2 text-gray-600 truncate">
+                                    Active Classes
+                                </div>
+                            </div>
+
+                            <div className="pl-2 py-1 flex items-center">
+                                <div className="text-black text-xl font-bold font-mono w-12">
+                                    7
+                                </div>
+                                <div className="ml-2 text-gray-600">
+                                    Courses
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="text-gray-500">
-                        <div>{teacher.username}</div>
-                        <div className="whitespace-no-wrap">ID: {teacher.id}</div>
+                    <div className="flex justify-between p-2">
+                        <div className="flex items-center">
+                            <div className="text-black text-xl font-bold font-mono">
+                                {teacher.followers}
+                            </div>
+                            <div className="ml-2 text-gray-600">
+                                followers
+                            </div>
+                        </div>
+                        <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer">
+                            <Link
+                                to={`/teacher/${teacher.id}`}
+                                className="w-8 h-8 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-300 inline-block mx-2">
+                                <FontAwesomeIcon icon={faEye} size="lg" className="text-white"/>
+                            </Link>
+                        </AnimateHoveredComponent>
                     </div>
                 </div>
-                <div className="flex-wrap items-center mb-2">
-                    <span className="text-xl text-gray-900 mr-4">Field</span>
-                    <span className="flex-wrap">
-                    {fields}
-                </span>
-                </div>
-                <div className="flex-wrap items-center mb-2">
-                    <span className="text-xl text-gray-900 mr-4">Levels</span>
-                    <span className="flex-wrap">
-                    {levels}
-                </span>
-                </div>
-                <div className="border-b-2 border-gray-600 -mx-4"/>
-
-                <div className="flex flex-wrap pt-4 items-center">
-                    <Link to={`/teacher/${teacher.id}`}
-                          className="text-xs mt-1 mr-1 px-2 py-1 bg-gray-900 text-white rounded-lg focus:outline-none focus:shadow-outline hover:bg-gray-800 active:bg-gray-600 whitespace-no-wrap">
-                        View profile
-                    </Link>
-                    <Link to="#"
-                          className="text-xs mt-1 mr-1 px-2 py-1 bg-gray-900 text-white rounded-lg focus:outline-none focus:shadow-outline hover:bg-gray-800 active:bg-gray-600 whitespace-no-wrap">
-                        Browse courses
-                    </Link>
-                    <Link to="#"
-                          className="text-xs mt-1  px-2 py-1 bg-gray-900 text-white rounded-lg focus:outline-none focus:shadow-outline hover:bg-gray-800 active:bg-gray-600 whitespace-no-wrap">
-                        Book a private session
-                    </Link>
-
-
-                </div>
-
-            </Card>
+            </div>
         </div>
-    );
+    )
 };
 
 export default TeacherCard;

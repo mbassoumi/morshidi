@@ -67,7 +67,7 @@ export default [
     {
         __typename: 'Class',
         id: 2,
-        course_id: 1,
+        course_id: 2,
         name: 'Class 2',
         nickname: 'Class Nickname 2',
         students: STUDENTS.slice(2, 6),

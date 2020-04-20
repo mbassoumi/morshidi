@@ -9,7 +9,6 @@ import Login from './components/Login';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
 import MyProfilePage from './components/profile/MyProfilePage';
-import TeachersList from './components/teacher/TeachersList';
 import TeacherProfilePage from './components/profile/TeacherProfilePage';
 import NotFoundException from './components/shared/NotFoundException';
 import WelcomePage from './components/pages/WelcomePage';
@@ -18,6 +17,10 @@ import CreateCoursePage from './components/course/CreateCoursePage';
 import EditCoursePage from './components/course/EditCoursePage';
 import CreateClassPage from './components/class/CreateClassPage';
 import EditClassPage from './components/class/EditClassPage';
+import TeachersPage from "./components/teacher/TeachersPage";
+import ClassesPage from "./components/class/ClassesPage";
+import StudentsPage from "./components/student/StudentsPage";
+import StudentProfilePage from "./components/profile/StudentProfilePage";
 
 
 const Routes = () => {
@@ -39,8 +42,12 @@ const Routes = () => {
 
 
                 <PrivateRoute component={MyProfilePage} path="/profile" exact={true}/>
-                <PrivateRoute component={TeachersList} path="/teachers" exact={true}/>
+
+                <PrivateRoute component={TeachersPage} path="/teachers" exact={true}/>
                 <PrivateRoute component={TeacherProfilePage} path="/teacher/:id" exact={true}/>
+
+                <PrivateRoute component={StudentsPage} path="/students" exact={true}/>
+                <PrivateRoute component={StudentProfilePage} path="/student/:id" exact={true}/>
 
 
                 {/*COURSE ROUTES*/}
@@ -51,6 +58,7 @@ const Routes = () => {
 
 
                 {/*CLASS ROUTES*/}
+                <PrivateRoute component={ClassesPage} exact={true} path="/classes"/>
                 <PrivateRoute component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
                 <PrivateRoute component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
                 <PrivateRoute component={EditClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>
