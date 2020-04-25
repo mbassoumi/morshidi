@@ -1,4 +1,5 @@
 import {SelectObject} from '../shared/types';
+import {ClassDetails} from "../class/types";
 
 export interface StudentFormProps {
     defaultValues: any,
@@ -10,6 +11,7 @@ export interface StudentFormProps {
 }
 
 export interface Student {
+    __typename: 'Student'
     id: number,
     name: string,
     username: string,
@@ -18,7 +20,8 @@ export interface Student {
     whatsapp: string,
     phone: string,
     email: string,
-    picture: string
+    picture: string,
+    activeClasses?: any
 }
 
 export interface StudentProps {

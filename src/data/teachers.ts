@@ -1,4 +1,7 @@
-export default [
+import CLASSES from "./classes";
+import {Teacher} from "../components/teacher/types";
+
+const TEACHER: Teacher[] = [
     {
         __typename: 'Teacher',
         id: 1,
@@ -19,7 +22,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user1.jpg'
+        picture: '/img/user1.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -41,7 +45,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user2.jpg'
+        picture: '/img/user2.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -63,7 +68,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user3.jpg'
+        picture: '/img/user3.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -85,7 +91,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user4.jpg'
+        picture: '/img/user4.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -107,7 +114,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user5.jpg'
+        picture: '/img/user5.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -129,7 +137,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user6.jpg'
+        picture: '/img/user6.jpg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -151,7 +160,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user7.jpeg'
+        picture: '/img/user7.jpeg',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -173,7 +183,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user8.png'
+        picture: '/img/user8.png',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -195,7 +206,8 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user9.png'
+        picture: '/img/user9.png',
+        activeClasses: CLASSES.slice(0, 4)
     },
     {
         __typename: 'Teacher',
@@ -217,6 +229,9 @@ export default [
         whatsapp: '(925)-332-9428',
         phone: '0599-042378',
         email: 'jbesoomi@gmail.com',
-        picture: '/img/user10.png'
+        picture: '/img/user10.png',
+        activeClasses: CLASSES.slice(0, 4)
     },
 ];
+
+export default TEACHER;

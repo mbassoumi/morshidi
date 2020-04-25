@@ -7,9 +7,16 @@ import TeacherCard from '../teacher/TeacherCard';
 import ClassesList from '../class/ClassesList';
 import CLASSES from '../../data/classes';
 import COURSES from '../../data/courses';
-import {RouteComponentProps} from 'react-router-dom';
+import {Link, RouteComponentProps} from 'react-router-dom';
 import {CourseType} from './types';
 import NotFoundException from '../shared/NotFoundException';
+import {Avatar, List, Popover} from "antd";
+import CourseCard from "./CourseCard";
+import {ClassDetails} from "../class/types";
+import ClassCard from "../class/ClassCard";
+import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 
 const Course = ({match}: RouteComponentProps) => {
@@ -18,7 +25,8 @@ const Course = ({match}: RouteComponentProps) => {
     const courseId = parseInt(match.params.id);
     //@ts-ignore
     const course: CourseType = COURSES.find(item => item.id === courseId);
-    const courseClasses = CLASSES.filter(item => item.course_id === courseId);
+    //@ts-ignore
+    const courseClasses: ClassDetails[] = CLASSES.filter(item => item.course_id === courseId);
     return (
         <div className="pb-16">
             {
@@ -26,18 +34,83 @@ const Course = ({match}: RouteComponentProps) => {
                         <>
                             <CourseHeader course={course}/>
                             <div className="flex justify-between flex-col lg:flex-row">
-                                <div className="lg:w-3/4 mx-2">
-                                    <Card className=" mt-4 mx-auto">
-                                        <CourseBody course={course}/>
-                                    </Card>
-                                </div>
-                                <div className=" lg:w-1/4 mx-2">
-                                    <TeacherCard teacher={course.teacher}/>
-                                </div>
+                                <Card className=" mt-4 mx-auto">
+                                    <CourseBody course={course}/>
+                                </Card>
+                            </div>
+                            <div className="fixed right-0 bottom-0 mr-6 mb-12 w-12 h-12 z-10">
+                                <AnimateHoveredComponent animation="heartBeat infinite" className="">
+                                    <Link
+                                        to={`/course/${course.id}/class/create`}
+                                        className="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-300 inline-block mr-3">
+                                        <FontAwesomeIcon icon={faPlus} size="lg" className="text-white"/>
+                                    </Link>
+                                </AnimateHoveredComponent>
                             </div>
                             {
                                 courseClasses.length ?
-                                    <ClassesList course={course} courseClasses={courseClasses}/>
+                                    <div className="mt-4 mx-2">
+                                        <List
+                                            grid={{
+                                                xs: 1,
+                                                md: 2,
+                                                xl: 3,
+                                            }}
+                                            pagination={{
+                                                onChange: page => {
+                                                    console.log('page', page);
+
+                                                },
+                                                onShowSizeChange: (current: number, size: number) => {
+                                                    console.log('current', current);
+                                                    console.log('size', size);
+                                                },
+                                                total: courseClasses.length,
+                                                // defaultCurrent: 1
+                                                // disabled: true
+                                                // current: 2,
+                                                defaultPageSize: 6,
+                                                // pageSize: 6,
+                                                //     onChange?: (page: number, pageSize?: number) => void,
+                                                hideOnSinglePage: true,
+                                                showSizeChanger: true,
+                                                pageSizeOptions: ['3', '6'],
+                                                // showQuickJumper: true,
+                                                //     showQuickJumper?: boolean | {
+                                                //         goButton?: React.ReactNode;
+                                                // };
+
+                                                showTitle: true,
+
+                                                // showTotal: (total: number, range: [number, number]) =>
+                                                //     <div>total: {total} range: {range[0]} to {range[1]}</div>,
+                                                size: 'default',
+                                                responsive: true,
+                                                // simple: true,
+                                                // style: {
+                                                //     backgroundColor: 'red'
+                                                // },
+                                                //     locale?: Object,
+                                                className: 'flex justify-center',
+                                                //     prefixCls?: string,
+                                                //     selectPrefixCls?: string,
+                                                //     itemRender: (page: number, type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next', originalElement: React.ReactElement<HTMLElement>) => (
+                                                //         <div>
+                                                //             page: {page}
+                                                //         </div>
+                                                //     ),
+                                                //     role?: string,
+                                                //     showLessItems?: boolean,
+                                            }}
+                                            dataSource={courseClasses}
+                                            renderItem={(classDetails: ClassDetails) => (
+                                                <List.Item key={classDetails.id}>
+                                                    <ClassCard key={classDetails.id} classDetails={classDetails}
+                                                               course={course}/>
+                                                </List.Item>
+                                            )}
+                                        />
+                                    </div>
                                     :
                                     <div className="flex justify-center">
                                         <Card className=" mt-4 mx-auto border-red-600 border-2 w-3/5">

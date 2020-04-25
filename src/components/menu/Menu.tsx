@@ -5,7 +5,7 @@ import {
     faCog,
     faIdCard,
     faPowerOff,
-    faSdCard,
+    faSdCard, faTable,
     faTimes,
     faUserGraduate,
     faUserTie
@@ -53,6 +53,9 @@ const Menu = ({closeMenu, style}: MenuProps) => {
                           closeMenu={closeMenu}/>
                 <MenuItem link='/students' icon={faUserGraduate} text="Students"
                           closeMenu={closeMenu}/>
+                <MenuItem link='/schedule' icon={faTable} text="My Schedule"
+                          closeMenu={closeMenu}/>
+
 
 
 
