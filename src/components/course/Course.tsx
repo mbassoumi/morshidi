@@ -41,18 +41,10 @@ const Course = ({match}: RouteComponentProps) => {
                             <div className="fixed right-0 bottom-0 mr-6 mb-12 w-12 h-12 z-10">
                                 <AnimateHoveredComponent animation="heartBeat infinite" className="">
                                     <Link
-                                        to={`/course/create`}
+                                        to={`/course/${course.id}/class/create`}
                                         className="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-300 inline-block mr-3">
                                         <FontAwesomeIcon icon={faPlus} size="lg" className="text-white"/>
                                     </Link>
-                                </AnimateHoveredComponent>
-                                <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer mt-6">
-                                    <Popover placement="leftBottom" content={<TeacherCard teacher={course.teacher}/>}>
-                                        <div
-                                            className="mr-3">
-                                            <Avatar src={course.teacher.picture} size={48}/>
-                                        </div>
-                                    </Popover>
                                 </AnimateHoveredComponent>
                             </div>
                             {
