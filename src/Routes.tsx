@@ -21,6 +21,9 @@ import TeachersPage from "./components/teacher/TeachersPage";
 import ClassesPage from "./components/class/ClassesPage";
 import StudentsPage from "./components/student/StudentsPage";
 import StudentProfilePage from "./components/profile/StudentProfilePage";
+import MySchedule from "./components/schedule/MySchedule";
+import CreateTeacherPage from "./components/teacher/CreateTeacherPage";
+import EditTeacherPage from "./components/teacher/EditTeacherPage";
 
 
 const Routes = () => {
@@ -41,10 +44,15 @@ const Routes = () => {
                 <PrivateRoute component={WelcomePage} path="/" exact={true}/>
 
 
+                <PrivateRoute component={MySchedule} path="/schedule" exact={true}/>
                 <PrivateRoute component={MyProfilePage} path="/profile" exact={true}/>
 
+
                 <PrivateRoute component={TeachersPage} path="/teachers" exact={true}/>
+                <PrivateRoute component={TeachersPage} path="/teachers" exact={true}/>
+                <PrivateRoute component={CreateTeacherPage} path="/teacher/create" exact={true}/>
                 <PrivateRoute component={TeacherProfilePage} path="/teacher/:id" exact={true}/>
+                <PrivateRoute component={EditTeacherPage} path="/teacher/:id/edit" exact={true}/>
 
                 <PrivateRoute component={StudentsPage} path="/students" exact={true}/>
                 <PrivateRoute component={StudentProfilePage} path="/student/:id" exact={true}/>

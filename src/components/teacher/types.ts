@@ -1,4 +1,5 @@
 import {RatingType, SelectObject} from '../shared/types';
+import {ClassDetails} from "../class/types";
 
 export interface TeacherFormProps {
     defaultValues: any,
@@ -10,6 +11,7 @@ export interface TeacherFormProps {
 }
 
 export interface Teacher {
+    __typename: 'Teacher',
     id: number,
     name: string,
     username: string,
@@ -24,7 +26,8 @@ export interface Teacher {
     whatsapp: string,
     phone: string,
     email: string,
-    picture: string
+    picture: string,
+    activeClasses?: ClassDetails[]
 }
 
 export interface TeacherProps {

@@ -37,6 +37,7 @@ interface ClassStudentDetails {
 
 
 export interface ClassDetails {
+    __typename: 'Class',
     id: number,
     course_id: number,
     name: string,

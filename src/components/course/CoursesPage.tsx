@@ -3,6 +3,10 @@ import COURSES from '../../data/courses';
 import CourseCard from "./CourseCard";
 import {List} from "antd";
 import {CourseType} from "./types";
+import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCross, faGlobe, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 
 const CoursesPage = () => {
@@ -11,8 +15,9 @@ const CoursesPage = () => {
     const data: CourseType[] = COURSES;
 
     return (
-        <div className="p-6">
-            <div className="flex justify-center text-black text-3xl font-bold tracking-wide uppercase">Courses List</div>
+        <div className="p-6 ">
+            <div className="flex justify-center text-black text-3xl font-bold tracking-wide uppercase">Courses List
+            </div>
             <List
                 grid={{
                     xs: 1,
@@ -72,6 +77,15 @@ const CoursesPage = () => {
                     </List.Item>
                 )}
             />
+            <div className="fixed right-0 bottom-0 mr-3 mb-12 w-12 h-12">
+                <AnimateHoveredComponent animation="heartBeat infinite">
+                    <Link
+                        to={`/course/create`}
+                        className="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center hover:bg-indigo-300 inline-block mr-3">
+                        <FontAwesomeIcon icon={faPlus} size="lg" className="text-white"/>
+                    </Link>
+                </AnimateHoveredComponent>
+            </div>
         </div>
     );
 };

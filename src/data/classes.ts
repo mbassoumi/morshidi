@@ -1,6 +1,7 @@
 import STUDENTS from './students';
+import {ClassDetails} from "../components/class/types";
 
-export default [
+const CLASSES: ClassDetails[] = [
     {
         __typename: 'Class',
         id: 1,
@@ -67,7 +68,7 @@ export default [
     {
         __typename: 'Class',
         id: 2,
-        course_id: 2,
+        course_id: 1,
         name: 'Class 2',
         nickname: 'Class Nickname 2',
         students: STUDENTS.slice(2, 6),
@@ -76,34 +77,34 @@ export default [
         endDate: new Date(2020, 4, 27),
         schedule: {
             saturday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             sunday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 12, 15),
+                to: new Date(0, 0, 0, 13, 15),
             },
             monday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             tuesday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 12, 15),
+                to: new Date(0, 0, 0, 13, 15),
             },
             wednesday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             thursday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 12, 15),
+                to: new Date(0, 0, 0, 13, 15),
             },
             friday: {
                 on: false,
@@ -139,8 +140,8 @@ export default [
         schedule: {
             saturday: {
                 on: true,
-                from: new Date(0, 0, 0, 16, 15),
-                to: new Date(0, 0, 0, 17, 15)
+                from: new Date(0, 0, 0, 19, 15),
+                to: new Date(0, 0, 0, 21, 15)
             },
             sunday: {
                 on: false,
@@ -149,8 +150,8 @@ export default [
             },
             monday: {
                 on: true,
-                from: new Date(0, 0, 0, 16, 15),
-                to: new Date(0, 0, 0, 17, 15)
+                from: new Date(0, 0, 0, 19, 15),
+                to: new Date(0, 0, 0, 21, 15)
             },
             tuesday: {
                 on: false,
@@ -159,8 +160,8 @@ export default [
             },
             wednesday: {
                 on: true,
-                from: new Date(0, 0, 0, 16, 15),
-                to: new Date(0, 0, 0, 17, 15)
+                from: new Date(0, 0, 0, 19, 15),
+                to: new Date(0, 0, 0, 21, 15)
             },
             thursday: {
                 on: false,
@@ -200,34 +201,34 @@ export default [
         endDate: new Date(2020, 4, 27),
         schedule: {
             saturday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             sunday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 8, 15),
+                to: new Date(0, 0, 0, 9, 45),
             },
             monday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             tuesday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 8, 15),
+                to: new Date(0, 0, 0, 9, 45),
             },
             wednesday: {
-                on: true,
+                on: false,
                 from: new Date(0, 0, 0, 16, 15),
                 to: new Date(0, 0, 0, 17, 15)
             },
             thursday: {
-                on: false,
-                from: undefined,
-                to: undefined
+                on: true,
+                from: new Date(0, 0, 0, 8, 15),
+                to: new Date(0, 0, 0, 9, 45),
             },
             friday: {
                 on: false,
@@ -621,3 +622,5 @@ export default [
         referralIncentive: 10
     },
 ];
+
+export default CLASSES;
