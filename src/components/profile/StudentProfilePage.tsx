@@ -2,15 +2,16 @@ import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import STUDENTS from '../../data/students';
 import NotFoundException from '../shared/NotFoundException';
-import {Student} from "../student/types";
-import StudentProfile from "../student/StudentProfile";
+import {Student} from "../user/student/types";
+import StudentProfile from "../user/student/StudentProfile";
 
 const StudentProfilePage = ({match}: RouteComponentProps) => {
 
     //@ts-ignore
-    const id = parseInt(match.params.id);
+    const id = match.params.id;
 
-    const student: Student | undefined = STUDENTS.find(item => item.id === id);
+    //@ts-ignore
+    const student: Student = STUDENTS.find(student => student.user_account.id === id);
 
     return (
         <div>

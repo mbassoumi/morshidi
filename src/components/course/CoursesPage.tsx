@@ -2,7 +2,7 @@ import React from 'react';
 import COURSES from '../../data/courses';
 import CourseCard from "./CourseCard";
 import {List} from "antd";
-import {CourseType} from "./types";
+import {Course} from "./types";
 import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCross, faGlobe, faPlus} from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 const CoursesPage = () => {
 
     //@ts-ignore
-    const data: CourseType[] = COURSES;
+    const data: Course[] = COURSES;
 
     return (
         <div className="p-6 ">
@@ -71,7 +71,7 @@ const CoursesPage = () => {
                     //     showLessItems?: boolean,
                 }}
                 dataSource={data}
-                renderItem={(course: CourseType) => (
+                renderItem={(course: Course) => (
                     <List.Item key={course.id}>
                         <CourseCard key={course.id} course={course}/>
                     </List.Item>

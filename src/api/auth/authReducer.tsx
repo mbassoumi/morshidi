@@ -1,6 +1,6 @@
-import {User} from '../types';
 import {LOGIN, LOGOUT} from './constants/action-types';
 import TEACHERS from './../../data/teachers'
+import {User} from "../../components/user/types";
 
 type ActionType = typeof LOGIN | typeof LOGOUT;
 
@@ -12,6 +12,7 @@ interface ActionProps {
     type: ActionType,
     payload?: PayloadType
 }
+
 
 interface AuthStateType {
     user: User | undefined

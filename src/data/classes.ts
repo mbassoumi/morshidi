@@ -1,7 +1,7 @@
 import STUDENTS from './students';
-import {ClassDetails} from "../components/class/types";
+import {GroupClass} from "../components/class/group_class/types";
 
-const CLASSES: ClassDetails[] = [
+const CLASSES = [
     {
         __typename: 'Class',
         id: 1,

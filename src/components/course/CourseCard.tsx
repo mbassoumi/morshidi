@@ -1,5 +1,5 @@
 import React, {useMemo, useRef} from "react";
-import {CourseProps} from "./types";
+import {Course} from "./types";
 import Tag from "../shared/Tag";
 import {useWindowSize} from "../../hooks/useWindowSize";
 import {Popover, Avatar} from 'antd';
@@ -7,75 +7,22 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEye, faStar} from "@fortawesome/free-solid-svg-icons";
 import LibraryRating from "react-rating";
 import {Link} from "react-router-dom";
-import TeacherCard from "../teacher/TeacherCard";
+import TeacherCard from "../user/teacher/TeacherCard";
 import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
 
 
-const CourseCard = ({course}: CourseProps) => {
+interface CourseCardProps {
+    course: Course
+}
+
+const CourseCard = ({course}: CourseCardProps) => {
 
     const [width] = useWindowSize();
-
-    const fieldsDivRef = useRef(null);
-
-    const fields = useMemo(() => {
-        const fieldsTags = course.fields.map((value, index) => <Tag key={index} text={value}/>);
-
-        //@ts-ignore
-        const showMore = fieldsDivRef?.current?.offsetWidth < fieldsDivRef?.current?.scrollWidth;
-        if (showMore) {
-            const content = <div className="flex flex-wrap">
-                {fieldsTags}
-            </div>;
-            return (
-
-                <Popover content={content}>
-                    <div className="truncate" ref={fieldsDivRef}>
-                        {fieldsTags}
-                    </div>
-                </Popover>
-            )
-        }
-        return (
-            <div className="truncate" ref={fieldsDivRef}>
-                {fieldsTags}
-            </div>
-        )
-
-    }, [course, width]);
-
-    const levelsDivRef = useRef(null);
-
-    const levels = useMemo(() => {
-
-        const levelsTags = course.levels.map((value, index) => <Tag key={index} text={value} bgColor="blue"/>);
-
-        //@ts-ignore
-        const showMore = levelsDivRef?.current?.offsetWidth < levelsDivRef?.current?.scrollWidth;
-        if (showMore) {
-            const content = <div className="flex flex-wrap">
-                {levelsTags}
-            </div>;
-            return (
-
-                <Popover content={content}>
-                    <div className="truncate" ref={levelsDivRef}>
-                        {levelsTags}
-                    </div>
-                </Popover>
-            )
-        }
-        return (
-            <div className="truncate" ref={levelsDivRef}>
-                {levelsTags}
-            </div>
-        )
-    }, [course, width]);
-
 
     const keywordsDivRef = useRef(null);
 
     const keywords = useMemo(() => {
-        const keywordsTags = course.keywords.map((value, index) => <span key={index}
+        const keywordsTags = course.search_keywords.map((value, index) => <span key={index}
                                                                          className="mr-2 text-blue-400 hover:text-blue-300 cursor-pointer">{`#${value}`}</span>);
         //@ts-ignore
         const showMore = keywordsDivRef?.current?.offsetWidth < keywordsDivRef?.current?.scrollWidth;
@@ -129,7 +76,7 @@ const CourseCard = ({course}: CourseProps) => {
                 <div className="pl-4 pr-6">
                     <div className="flex py-2 flex-wrap justify-between items-center">
                         <div className="text-2xl text-black font-bold tracking-wide whitespace-no-wrap">
-                            {course.name}
+                            {course.title}
                         </div>
                         <div>
                             <LibraryRating
@@ -145,10 +92,10 @@ const CourseCard = ({course}: CourseProps) => {
                         {course.description}
                     </div>
                     <div className="py-2">
-                        {fields}
+                        <Tag text={course.field.name}/>
                     </div>
                     <div className="py-2">
-                        {levels}
+                        <Tag text={course.level.name}/>
                     </div>
                     <div>
                         {keywords}
@@ -165,14 +112,14 @@ const CourseCard = ({course}: CourseProps) => {
 
                             <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer">
                                 <Popover content={<TeacherCard teacher={course.teacher}/>}>
-                                    <Avatar src={course.teacher.picture}/>
+                                    <Avatar src={course.teacher.user_account.avatar.thumb}/>
                                 </Popover>
                             </AnimateHoveredComponent>
                         </div>
 
                         <div className="flex items-center">
                             <div className="text-black text-xl font-bold font-mono">
-                                {course.classes}
+                                {course.group_classes.length}
                             </div>
                             <div className="ml-2 text-gray-600">
                                 Active Classes

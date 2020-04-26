@@ -1,7 +1,7 @@
 import CLASSES from "./classes";
-import {Teacher} from "../components/teacher/types";
+import {Teacher} from "../components/user/teacher/types";
 
-const TEACHER: Teacher[] = [
+const TEACHER = [
     {
         __typename: 'Teacher',
         id: 1,

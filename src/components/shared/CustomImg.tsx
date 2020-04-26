@@ -1,8 +1,12 @@
 import React, {ImgHTMLAttributes} from 'react';
-import {CustomImgProps} from './types';
 import classNames from "classnames";
 
-const CustomImg = ({size, circle= true, className, ...props}: CustomImgProps & ImgHTMLAttributes<any>) => {
+interface CustomImgProps extends ImgHTMLAttributes<HTMLImageElement> {
+    size?: 'sm' | 'lg' | 'xl' | undefined
+    circle?: boolean
+}
+
+const CustomImg = ({size, circle = true, className, ...props}: CustomImgProps) => {
 
     const componentClassName = classNames(
         className,

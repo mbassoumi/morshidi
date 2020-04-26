@@ -10,9 +10,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEye, faPencilAlt, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {CellProps} from 'react-table';
 import SliderFilter from '../shared/datatable/filters/SliderFilter';
-import {CoursesListProps} from './types';
+import {Course} from './types';
 import DataTableLinkButton from '../shared/datatable/components/DataTableLinkButton';
 
+
+interface CoursesListProps {
+    courses: Course[]
+}
 
 const CoursesList = ({courses}: CoursesListProps) => {
 

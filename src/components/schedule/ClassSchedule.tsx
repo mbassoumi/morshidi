@@ -1,13 +1,16 @@
 import React from "react";
-import {ClassDetailsProps} from "../class/types";
+import {GroupClass} from "../class/group_class/types";
 import Schedule from "./Schedule";
 import {ScheduleSlot} from "./types";
 
-const ClassSchedule = ({classDetails}: ClassDetailsProps) => {
+interface ClassScheduleProps {
+    groupClass: GroupClass
+}
+const ClassSchedule = ({groupClass}: ClassScheduleProps) => {
 
     let schedule: ScheduleSlot[] = [];
 
-    const classSchedule = classDetails.schedule;
+    const classSchedule = groupClass.schedule;
 
     //@ts-ignore
     schedule = Object.keys(classSchedule).filter((day) => classSchedule[day].on).map((day) => {
@@ -15,7 +18,7 @@ const ClassSchedule = ({classDetails}: ClassDetailsProps) => {
             [
                 day,
                 //@ts-ignore
-                classSchedule[day].on ? classDetails.nickname : '',
+                classSchedule[day].on ? groupClass.nickname : '',
                 //@ts-ignore
                 new Date(classSchedule[day].from),
                 //@ts-ignore

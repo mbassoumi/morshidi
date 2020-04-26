@@ -49,6 +49,7 @@ export default {
         },
         //@ts-ignore
         course(parent, args, { client }) {
+            //@ts-ignore
             return COURSES.find(course => course.id === args.id)
         },
 

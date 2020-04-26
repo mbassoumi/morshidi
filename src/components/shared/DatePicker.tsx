@@ -13,15 +13,8 @@ const DatePicker = (props: ReactDatePickerProps) => {
             placeholderText="pick a date ..."
             autoComplete="off"
             {...props}
-            // customInput={<CustomDatePickerInput/>}
         />
     );
 };
-
-// const CustomDatePickerInput = ({value, onClick}: any) => (
-//     <button className="w-full block" onClick={onClick}>
-//         {value}
-//     </button>
-// );
 
 export default DatePicker;

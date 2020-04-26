@@ -3,17 +3,14 @@ import React from 'react';
 import Card from '../shared/Card';
 import CourseHeader from './CourseHeader';
 import CourseBody from './CourseBody';
-import TeacherCard from '../teacher/TeacherCard';
-import ClassesList from '../class/ClassesList';
 import CLASSES from '../../data/classes';
 import COURSES from '../../data/courses';
 import {Link, RouteComponentProps} from 'react-router-dom';
-import {CourseType} from './types';
+import {Course as CourseProps} from './types';
 import NotFoundException from '../shared/NotFoundException';
-import {Avatar, List, Popover} from "antd";
-import CourseCard from "./CourseCard";
-import {ClassDetails} from "../class/types";
-import ClassCard from "../class/ClassCard";
+import {List} from "antd";
+import {GroupClass} from "../class/group_class/types";
+import GroupClassCard from "../class/group_class/GroupClassCard";
 import AnimateHoveredComponent from "../shared/AnimatedComponents/AnimateHoveredComponent";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
@@ -24,9 +21,9 @@ const Course = ({match}: RouteComponentProps) => {
     //@ts-ignore
     const courseId = parseInt(match.params.id);
     //@ts-ignore
-    const course: CourseType = COURSES.find(item => item.id === courseId);
+    const course: CourseProps = COURSES.find(item => item.id === courseId);
     //@ts-ignore
-    const courseClasses: ClassDetails[] = CLASSES.filter(item => item.course_id === courseId);
+    const courseClasses: GroupClass[] = CLASSES.filter(item => item.course_id === courseId);
     return (
         <div className="pb-16">
             {
@@ -103,10 +100,9 @@ const Course = ({match}: RouteComponentProps) => {
                                                 //     showLessItems?: boolean,
                                             }}
                                             dataSource={courseClasses}
-                                            renderItem={(classDetails: ClassDetails) => (
-                                                <List.Item key={classDetails.id}>
-                                                    <ClassCard key={classDetails.id} classDetails={classDetails}
-                                                               course={course}/>
+                                            renderItem={(groupClass: GroupClass) => (
+                                                <List.Item key={groupClass.id}>
+                                                    <GroupClassCard key={groupClass.id} groupClass={groupClass}/>
                                                 </List.Item>
                                             )}
                                         />

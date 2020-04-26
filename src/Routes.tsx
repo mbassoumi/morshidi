@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {cities, fields, interests, levels} from './data';
-import TeacherForm from './components/teacher/TeacherForm';
-import StudentForm from './components/student/StudentForm';
+import TeacherForm from './components/user/teacher/TeacherForm';
+import StudentForm from './components/user/student/StudentForm';
 import Course from './components/course/Course';
-import ClassPage from './components/class/ClassPage';
+import GroupClassPage from './components/class/group_class/GroupClassPage';
 import Login from './components/Login';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
@@ -15,15 +15,15 @@ import WelcomePage from './components/pages/WelcomePage';
 import CoursesPage from './components/course/CoursesPage';
 import CreateCoursePage from './components/course/CreateCoursePage';
 import EditCoursePage from './components/course/EditCoursePage';
-import CreateClassPage from './components/class/CreateClassPage';
-import EditClassPage from './components/class/EditClassPage';
-import TeachersPage from "./components/teacher/TeachersPage";
-import ClassesPage from "./components/class/ClassesPage";
-import StudentsPage from "./components/student/StudentsPage";
+import CreateGroupClassPage from './components/class/group_class/CreateGroupClassPage';
+import EditGroupClassPage from './components/class/group_class/EditGroupClassPage';
+import TeachersPage from "./components/user/teacher/TeachersPage";
+import GroupClassesPage from "./components/class/group_class/GroupClassesPage";
+import StudentsPage from "./components/user/student/StudentsPage";
 import StudentProfilePage from "./components/profile/StudentProfilePage";
 import MySchedule from "./components/schedule/MySchedule";
-import CreateTeacherPage from "./components/teacher/CreateTeacherPage";
-import EditTeacherPage from "./components/teacher/EditTeacherPage";
+import CreateTeacherPage from "./components/user/teacher/CreateTeacherPage";
+import EditTeacherPage from "./components/user/teacher/EditTeacherPage";
 
 
 const Routes = () => {
@@ -66,10 +66,10 @@ const Routes = () => {
 
 
                 {/*CLASS ROUTES*/}
-                <PrivateRoute component={ClassesPage} exact={true} path="/classes"/>
-                <PrivateRoute component={CreateClassPage} path="/course/:course_id/class/create" exact={true}/>
-                <PrivateRoute component={ClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
-                <PrivateRoute component={EditClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>
+                <PrivateRoute component={GroupClassesPage} exact={true} path="/classes"/>
+                <PrivateRoute component={CreateGroupClassPage} path="/course/:course_id/class/create" exact={true}/>
+                <PrivateRoute component={GroupClassPage} path="/course/:course_id/class/:class_id" exact={true}/>
+                <PrivateRoute component={EditGroupClassPage} path="/course/:course_id/class/:class_id/edit" exact={true}/>
 
 
                 <Route path="/" component={NotFoundException}/>

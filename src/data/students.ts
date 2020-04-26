@@ -1,7 +1,6 @@
-import CLASSES from './classes';
-import {Student} from "../components/student/types";
+import {Student} from "../components/user/student/types";
 
-const STUDENTS: Student[] = [
+const STUDENTS = [
     {
         __typename: 'Student',
         id: 1,
