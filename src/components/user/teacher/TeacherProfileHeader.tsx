@@ -24,7 +24,7 @@ const TeacherProfileHeader = ({teacher}: TeacherProfileHeaderProps) => {
                     </button>
                 </div>
                 <div className="text-white font-bold tracking-wide text-2xl">{teacher.user_account.first_name}</div>
-                <div className="text-white tracking-wide text-lg">{teacher.user_account.address.city}</div>
+                <div className="text-white tracking-wide text-lg">{teacher.user_account.address.city.name}</div>
                 <div className="flex mt-3">
                     <div className="flex mx-auto justify-between items-center sm:w-1/3">
                         <div className="flex justify-start text-white mx-4 sm:w-1/3">{teacher.user_account.username}</div>

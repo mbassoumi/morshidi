@@ -7,6 +7,8 @@ import STUDENTS from '../data/students';
 import TEACHERS from '../data/teachers';
 import {User} from "./user/types";
 
+console.log('Login STUDENTS', STUDENTS)
+console.log('Login TEACHERS', TEACHERS)
 
 const Login = () => {
 

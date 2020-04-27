@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../shared/Card';
 import CourseHeader from './CourseHeader';
 import CourseBody from './CourseBody';
-import CLASSES from '../../data/classes';
+import Group_classes from '../../data/group_classes';
 import COURSES from '../../data/courses';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {Course as CourseProps} from './types';
@@ -19,11 +19,11 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 const Course = ({match}: RouteComponentProps) => {
 
     //@ts-ignore
-    const courseId = parseInt(match.params.id);
+    const courseId = match.params.id;
     //@ts-ignore
     const course: CourseProps = COURSES.find(item => item.id === courseId);
     //@ts-ignore
-    const courseClasses: GroupClass[] = CLASSES.filter(item => item.course_id === courseId);
+    const courseClasses: GroupClass[] = Group_classes.filter(item => item.course_id === courseId);
     return (
         <div className="pb-16">
             {

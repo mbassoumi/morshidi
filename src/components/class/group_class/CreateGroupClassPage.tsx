@@ -2,7 +2,7 @@ import React from 'react';
 import GroupClassForm from './GroupClassForm';
 import CITIES from '../../../data/cities';
 import FIELDS from '../../../data/fields';
-import KEYWORDS from '../../../data/keywords';
+import KEYWORDS from '../../../data/search_keywords';
 import LEVELS from '../../../data/levels';
 import {Course} from '../../course/types';
 import COURSES from '../../../data/courses';

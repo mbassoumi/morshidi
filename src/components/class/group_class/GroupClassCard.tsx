@@ -2,7 +2,7 @@ import React from "react";
 import {GroupClass} from "./types";
 import {faEye, faGlobe, faLongArrowAltRight, faMapMarkedAlt, faUsers} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import ClassSchedule from "../../schedule/ClassSchedule";
+import GroupClassSchedule from "../../schedule/GroupClassSchedule";
 import {Avatar, Popover, Tabs} from "antd";
 import TeacherCard from "../../user/teacher/TeacherCard";
 import AnimateHoveredComponent from "../../shared/AnimatedComponents/AnimateHoveredComponent";
@@ -45,7 +45,7 @@ const GroupClassCard = ({groupClass}: ClassCardProps) => {
                                         <div className="">
                                             <div className="flex justify-center items-center mx-auto text-red-600">
                                                 <FontAwesomeIcon icon={faMapMarkedAlt} size="lg" className=""/>
-                                                <div className="mx-2">{groupClass.class_settings.address.city}</div>
+                                                <div className="mx-2">{groupClass.class_settings.address?.city.name}</div>
                                             </div>
                                             <div className="text-xs">({groupClass.class_settings.address_details})</div>
                                         </div>
@@ -60,7 +60,7 @@ const GroupClassCard = ({groupClass}: ClassCardProps) => {
                     </Tabs.TabPane>
                     <Tabs.TabPane tab="Schedule" key="2">
                         <div className="px-6 pt-3">
-                            <ClassSchedule groupClass={groupClass}/>
+                            <GroupClassSchedule groupClass={groupClass}/>
                         </div>
                     </Tabs.TabPane>
                 </Tabs>

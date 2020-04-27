@@ -61,6 +61,12 @@ export default gql`
         name: String!
     }
 
+    type Review {
+        text: String!,
+        rate: Int!,
+        user: User!
+    }
+    
     type Rating {
         count: Int!
         average: Float!

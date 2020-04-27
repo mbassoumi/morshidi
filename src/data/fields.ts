@@ -1,8 +1,26 @@
-export default [
-    {__typename: 'Field', id: 1, label: 'MATH', value: 'math'},
-    {__typename: 'Field', id: 2, label: 'ENGLISH', value: 'english'},
-    {__typename: 'Field', id: 3, label: 'COMPUTER', value: 'computer'},
-    {__typename: 'Field', id: 4, label: 'ENGINEER', value: 'engineer'},
-    {__typename: 'Field', id: 5, label: 'ARABIC', value: 'arabic'},
-    {__typename: 'Field', id: 6, label: 'SPORT', value: 'sport'},
+import {Field} from "../components/shared/types";
+
+const FIELDS: Field[] = [
+    {
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000100',
+        name: 'MATH'
+    },
+    {
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000200',
+        name: 'ENGLISH'
+    },
+    {
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000300',
+        name: 'COMPUTER'
+    },
+    {
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000400',
+        name: 'ENGINEER'
+    },
+    {
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000500',
+        name: 'ARABIC'
+    },
 ];
+
+export default FIELDS;

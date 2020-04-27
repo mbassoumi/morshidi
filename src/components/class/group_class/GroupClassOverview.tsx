@@ -74,7 +74,7 @@ const GroupClassOverview = ({groupClass}: GroupClassOverviewProps) => {
                                     <div className="flex flex-wrap items-center mb-2">
                                         <span className="text-xl sm:text-2xl md:text-3xl text-gray-900 mr-4">City</span>
                                         <span className="font-semibold text-gray-600 mx-4">
-                                            {groupClass.class_settings.address.city && <Tag text={'groupClass.class_settings.address.city'}/>}
+                                            {groupClass.class_settings.address?.city && <Tag text={groupClass.class_settings.address.city.name}/>}
                                         </span>
                                     </div>
                                 </div>

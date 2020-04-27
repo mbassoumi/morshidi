@@ -90,7 +90,7 @@ const TeacherCard = ({teacher}: TeacherCardProps) => {
                     <div className="bg-indigo-700">
                         <div className="flex flex-col  items-center pb-6 pt-3">
                             <div className="text-white text-3xl font-bold capitalize tracking-wide">{teacher.user_account.first_name + ' ' + teacher.user_account.last_name}</div>
-                            <div className="text-gray-200 text-sm  capitalize tracking-wide">{teacher.user_account.address.city}</div>
+                            <div className="text-gray-200 text-sm  capitalize tracking-wide">{teacher.user_account.address.city.name}</div>
                             <div className="flex pt-2">
                                 <FontAwesomeIcon icon={faFacebook} size="2x" className="text-white mx-1 cursor-pointer"/>
                                 <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white mx-1 cursor-pointer"

@@ -24,11 +24,10 @@ const MyProfilePage = () => {
     };
 
     const renderProfile = () => {
-        switch (user.__typename) {
-            case 'Student':
-                return studentProfile();
-            case 'Teacher':
-                return teacherProfile();
+        if (user.user_account.roles.includes('teacher')){
+            return teacherProfile();
+        }else if (user.user_account.roles.includes('student')){
+            return studentProfile();
         }
     };
 

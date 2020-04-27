@@ -6,30 +6,32 @@ import {ScheduleSlot} from "./types";
 interface ClassScheduleProps {
     groupClass: GroupClass
 }
-const ClassSchedule = ({groupClass}: ClassScheduleProps) => {
+const GroupClassSchedule = ({groupClass}: ClassScheduleProps) => {
 
     let schedule: ScheduleSlot[] = [];
 
     const classSchedule = groupClass.schedule;
 
     //@ts-ignore
-    schedule = Object.keys(classSchedule).filter((day) => classSchedule[day].on).map((day) => {
+    schedule = Object.keys(classSchedule).map((day) => {
         return (
             [
                 day,
                 //@ts-ignore
-                classSchedule[day].on ? groupClass.nickname : '',
+                groupClass.nickname,
                 //@ts-ignore
-                new Date(classSchedule[day].from),
+                new Date(classSchedule[day].start_time),
                 //@ts-ignore
-                new Date(classSchedule[day].to),
+                new Date(classSchedule[day].end_time),
             ]
         )
     });
+
+    console.log('schedule', schedule);
 
     return (
         <Schedule schedule={schedule}/>
     )
 };
 
-export default ClassSchedule;
+export default GroupClassSchedule;

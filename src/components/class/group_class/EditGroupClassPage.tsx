@@ -2,10 +2,10 @@ import React from 'react';
 import GroupClassForm from './GroupClassForm';
 import CITIES from '../../../data/cities';
 import FIELDS from '../../../data/fields';
-import KEYWORDS from '../../../data/keywords';
+import KEYWORDS from '../../../data/search_keywords';
 import LEVELS from '../../../data/levels';
 import COURSES from '../../../data/courses';
-import CLASSES from '../../../data/classes';
+import Group_classes from '../../../data/group_classes';
 import {RouteComponentProps} from 'react-router-dom';
 import {GroupClass} from './types';
 import {Course} from "../../course/types";
@@ -21,7 +21,7 @@ const EditGroupClassPage = ({match}: RouteComponentProps) => {
     //@ts-ignore
     const course: Course = COURSES.find(item => item.id === courseId);
     //@ts-ignore
-    const groupClass: GroupClass = CLASSES.find(item => item.id === courseId);
+    const groupClass: GroupClass = Group_classes.find(item => item.id === courseId);
 
 
     const onSubmit = (values: any, {setSubmitting}: any) => {

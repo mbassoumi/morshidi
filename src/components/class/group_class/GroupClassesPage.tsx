@@ -1,6 +1,6 @@
 import React from "react";
 import COURSES from '../../../data/courses'
-import CLASSES from '../../../data/classes'
+import Group_classes from '../../../data/group_classes'
 import GroupClassCard from "./GroupClassCard";
 import {List} from "antd";
 import {GroupClass} from "./types";
@@ -8,7 +8,7 @@ import {GroupClass} from "./types";
 const GroupClassesPage = () => {
 
     //@ts-ignore
-    const data: GroupClass[] = CLASSES;
+    const data: GroupClass[] = Group_classes;
 
     return (
         <div className="p-6">

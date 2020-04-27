@@ -22,8 +22,8 @@ const CourseCard = ({course}: CourseCardProps) => {
     const keywordsDivRef = useRef(null);
 
     const keywords = useMemo(() => {
-        const keywordsTags = course.search_keywords.map((value, index) => <span key={index}
-                                                                         className="mr-2 text-blue-400 hover:text-blue-300 cursor-pointer">{`#${value}`}</span>);
+        const keywordsTags = course.search_keywords.map(searchKeyword => <span key={searchKeyword.id}
+                                                                         className="mr-2 text-blue-400 hover:text-blue-300 cursor-pointer">{`#${searchKeyword.name}`}</span>);
         //@ts-ignore
         const showMore = keywordsDivRef?.current?.offsetWidth < keywordsDivRef?.current?.scrollWidth;
         if (showMore) {

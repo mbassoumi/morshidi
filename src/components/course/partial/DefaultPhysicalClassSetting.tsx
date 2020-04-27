@@ -4,7 +4,12 @@ import {ReactSelectType} from '../../shared/ReactSelect';
 import CITIES from './../../../data/cities'
 const DefaultPhysicalClassSetting = () => {
 
-    const cities = CITIES
+    const cities = CITIES.map(city => {
+        return {
+            value: city.id,
+            label: city.name,
+        }
+    })
 
     return (
         <div className="px-4 pb-4">

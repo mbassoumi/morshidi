@@ -1,3 +1,5 @@
+import {User} from "../user/types";
+
 export interface Level {
     id: string
     name: string
@@ -13,10 +15,16 @@ export interface SearchKeyword {
     name: string
 }
 
+export interface Review {
+    text: string,
+    rate: number,
+    user?: User
+}
+
 export interface Rating {
     count: number
     average: number
-    reviews: string[]
+    reviews: Review[]
 }
 
 export interface City {

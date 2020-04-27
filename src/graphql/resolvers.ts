@@ -1,9 +1,8 @@
 import CITIES from '../data/cities';
-import CLASSES from '../data/classes';
+import Group_classes from '../data/group_classes';
 import COURSES from '../data/courses';
 import FIELDS from '../data/fields';
-import INTERESTS from '../data/interests';
-import KEYWORDS from '../data/keywords';
+import KEYWORDS from '../data/search_keywords';
 import LEVELS from '../data/levels';
 import STUDENTS from '../data/students';
 import TEACHERS from '../data/teachers';
@@ -15,7 +14,7 @@ export default {
         },
         //@ts-ignore
         student(parent, args, { client }) {
-            return STUDENTS.find(student => student.id === args.id)
+            return STUDENTS.find(student => student.user_account.id === args.id)
         },
 
 
@@ -24,7 +23,7 @@ export default {
         },
         //@ts-ignore
         teacher(parent, args, { client }) {
-            return TEACHERS.find(teacher => teacher.id === args.id)
+            return TEACHERS.find(teacher => teacher.user_account.id === args.id)
         },
 
 
@@ -37,11 +36,11 @@ export default {
         },
 
         classes() {
-            return CLASSES;
+            return Group_classes;
         },
         //@ts-ignore
         class(parent, args, { client }) {
-            return CLASSES.find(classObj => classObj.id === args.id)
+            return Group_classes.find(classObj => classObj.id === args.id)
         },
 
         courses() {
@@ -62,11 +61,11 @@ export default {
         },
 
         interests() {
-            return INTERESTS;
+            return FIELDS;
         },
         //@ts-ignore
         interest(parent, args, { client }) {
-            return INTERESTS.find(interest => interest.id === args.id)
+            return FIELDS.find(interest => interest.id === args.id)
         },
 
         keywords() {

@@ -23,15 +23,9 @@ export interface Avatar {
     uri: string
 }
 
-export enum Gender {
-    MALE,
-    FEMALE
-}
+type Gender = 'male' | 'female';
 
-export enum ContactInfoType {
-    EMAIL,
-    PHONE
-}
+type ContactInfoType = 'phone' | 'email'
 
 export interface ContactInfo {
     id: string
@@ -41,9 +35,4 @@ export interface ContactInfo {
     primary: Boolean
 }
 
-enum UserRole {
-    STUDENT,
-    TEACHER,
-    ADMIN,
-    SALE_POINT
-}
+type UserRole = 'student' | 'teacher' | 'admin' | 'sale_point'

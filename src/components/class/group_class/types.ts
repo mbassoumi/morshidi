@@ -20,18 +20,18 @@ export interface GroupClassSettings {
     min_students: number
     max_students: number
     price_per_student: number
-    address: Address
-    address_details: string
+    address?: Address
+    address_details?: string
 }
 
 export interface GroupClassSchedule {
-    saturday: ClassTime
-    sunday: ClassTime
-    monday: ClassTime
-    tuesday: ClassTime
-    wednesday: ClassTime
-    thursday: ClassTime
-    friday: ClassTime
+    saturday?: ClassTime
+    sunday?: ClassTime
+    monday?: ClassTime
+    tuesday?: ClassTime
+    wednesday?: ClassTime
+    thursday?: ClassTime
+    friday?: ClassTime
 }
 
 export interface GroupClassEnrollment {

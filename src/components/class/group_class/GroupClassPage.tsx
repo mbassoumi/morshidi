@@ -7,7 +7,7 @@ import {GroupClass} from './types';
 import StudentList from '../../user/student/StudentList';
 import Card from '../../shared/Card';
 import {RouteComponentProps, useHistory} from 'react-router-dom';
-import CLASSES from '../../../data/classes';
+import Group_classes from '../../../data/group_classes';
 import COURSES from '../../../data/courses';
 import NotFoundException from '../../shared/NotFoundException';
 import {useRouteQuery} from '../../../hooks/useRouteQuery';
@@ -36,12 +36,15 @@ const GroupClassPage = ({match}: RouteComponentProps) => {
     //@ts-ignore
     const classId = match.params.class_id;
 
+    //@ts-ignore
+    const courseId = match.params.course_id;
+
 
     //@ts-ignore
-    const groupClass: GroupClass = CLASSES.find(item => item.id === classId);
+    const groupClass: GroupClass = Group_classes.find(item => item.id === classId);
 
     //@ts-ignore
-    const course: Course = COURSES.find(item => item.id === groupClass?.course_id);
+    const course: Course = COURSES.find(item => item.id === courseId);
 
     const renderTapComponent = () => {
         if (groupClass === undefined) {
