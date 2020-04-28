@@ -70,7 +70,7 @@ export default gql`
     type Rating {
         count: Int!
         average: Float!
-        reviews: [String!]!
+        reviews: [Review!]!
     }
 
     type GroupClassSettings {
@@ -197,9 +197,10 @@ export default gql`
 
     union User = Teacher | Student
 
-    #    type Query {
-    #        teachers: [Teacher!]!
-    #        teacher(id: ID!): Teacher
+        type Query {
+            teachers: [Teacher!]!
+            user(id: ID!): User
+#            teacher(id: ID!): Teacher
     #        students: [Student!]!
     #        student(id: ID!): Student
     #        classes: [Class!]!
@@ -212,5 +213,5 @@ export default gql`
     #        interests: [Interest!]!
     #        cities: [City!]!
     #        keywords: [Keyword!]!
-    #    }
+        }
 `;

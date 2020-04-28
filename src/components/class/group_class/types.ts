@@ -1,4 +1,4 @@
-import {Address} from "../../shared/types";
+import {Address, GraphqlTypeName} from "../../shared/types";
 import {Course} from "../../course/types";
 import {Student} from "../../user/student/types";
 import {ClassTime} from "../types";
@@ -12,6 +12,7 @@ export interface GroupClass {
     class_settings: GroupClassSettings
     schedule: GroupClassSchedule
     enrollments: GroupClassEnrollment[]
+    __typename?: GraphqlTypeName
 }
 
 
@@ -22,6 +23,7 @@ export interface GroupClassSettings {
     price_per_student: number
     address?: Address
     address_details?: string
+    __typename?: GraphqlTypeName
 }
 
 export interface GroupClassSchedule {
@@ -32,6 +34,7 @@ export interface GroupClassSchedule {
     wednesday?: ClassTime
     thursday?: ClassTime
     friday?: ClassTime
+    __typename?: GraphqlTypeName
 }
 
 export interface GroupClassEnrollment {
@@ -39,6 +42,7 @@ export interface GroupClassEnrollment {
     student: Student
     group_class: GroupClass
     status: GroupClassEnrollmentStatus
+    __typename?: GraphqlTypeName
 }
 
 export enum GroupClassEnrollmentStatus {

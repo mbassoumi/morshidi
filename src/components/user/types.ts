@@ -1,4 +1,4 @@
-import {Address} from "../shared/types";
+import {Address, GraphqlTypeName} from "../shared/types";
 import {Student} from "./student/types";
 import {Teacher} from "./teacher/types";
 
@@ -16,11 +16,13 @@ export interface UserAccount {
     address: Address
     contact_info: ContactInfo[]
     roles: UserRole[]
+    __typename?: GraphqlTypeName
 }
 
 export interface Avatar {
     thumb: string
     uri: string
+    __typename?: GraphqlTypeName
 }
 
 type Gender = 'male' | 'female';
@@ -33,6 +35,7 @@ export interface ContactInfo {
     value: string
     confirmed: Boolean
     primary: Boolean
+    __typename?: GraphqlTypeName
 }
 
 type UserRole = 'student' | 'teacher' | 'admin' | 'sale_point'

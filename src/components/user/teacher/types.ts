@@ -1,10 +1,11 @@
 import {UserAccount} from "../types";
-import {Field, Level, Rating} from "../../shared/types";
+import {Field, GraphqlTypeName, Level, Rating} from "../../shared/types";
 import {Student} from "../student/types";
 import {PrivateClass} from "../../class/private_class/types";
 import {Course} from "../../course/types";
 
 export interface Teacher {
+    __typename?: GraphqlTypeName,
     user_account: UserAccount
     rating: Rating
     bio: string

@@ -3,8 +3,11 @@ import COURSES from "./courses";
 import GROUP_CLASS_SETTINGS from "./partial/group_class_settings";
 import GROUP_CLASS_SCHEDULES from "./partial/group_class_schedules";
 
+const TYPE_NAME = 'GroupClass';
+
 const GROUP_CLASSES: GroupClass[] = [
     {
+        __typename: TYPE_NAME,
         id: 'aaaaaaaa-bbbb-cccc-dddd-000010000000',
         course: COURSES[0],
         nickname: 'group_class_1',
@@ -15,6 +18,7 @@ const GROUP_CLASSES: GroupClass[] = [
         enrollments: []
     },
     {
+        __typename: TYPE_NAME,
         id: 'aaaaaaaa-bbbb-cccc-dddd-000020000000',
         course: COURSES[1],
         nickname: 'group_class_2',
@@ -25,6 +29,7 @@ const GROUP_CLASSES: GroupClass[] = [
         enrollments: []
     },
     {
+        __typename: TYPE_NAME,
         id: 'aaaaaaaa-bbbb-cccc-dddd-000030000000',
         course: COURSES[2],
         nickname: 'group_class_3',
@@ -35,6 +40,7 @@ const GROUP_CLASSES: GroupClass[] = [
         enrollments: []
     },
     {
+        __typename: TYPE_NAME,
         id: 'aaaaaaaa-bbbb-cccc-dddd-000040000000',
         course: COURSES[2],
         nickname: 'group_class_4',

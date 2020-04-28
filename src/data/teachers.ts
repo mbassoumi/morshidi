@@ -3,18 +3,15 @@ import USER_ACCOUNTS from "./partial/user_accounts";
 import LEVELS from "./levels";
 import FIELDS from "./fields";
 import REVIEWS from "./partial/reviews";
+import RATINGS from "./partial/ratings";
+
+const TYPE_NAME = 'Teacher';
 
 const TEACHERS: Teacher[] = [
     {
+        __typename: TYPE_NAME,
         user_account: USER_ACCOUNTS[1],
-        rating: {
-            count: 25,
-            average: 4.5,
-            reviews: [
-                // REVIEWS[2],
-                // REVIEWS[3],
-            ],
-        },
+        rating: RATINGS[0],
         bio: 'This is a small bio about me',
         followers: [
             // STUDENTS[0],
@@ -31,16 +28,9 @@ const TEACHERS: Teacher[] = [
         ]
     },
     {
+        __typename: TYPE_NAME,
         user_account: USER_ACCOUNTS[2],
-        rating: {
-            count: 5,
-            average: 1.5,
-            reviews: [
-                // REVIEWS[0],
-                // REVIEWS[1],
-                // REVIEWS[2],
-            ],
-        },
+        rating: RATINGS[1],
         bio: 'This is a small bio about me',
         followers: [
             // STUDENTS[0],

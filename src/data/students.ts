@@ -4,9 +4,11 @@ import LEVELS from "./levels";
 import FIELDS from "./fields";
 
 
+const TYPE_NAME = 'Student';
 
 const STUDENTS: Student[] = [
     {
+        __typename: TYPE_NAME,
         user_account: USER_ACCOUNTS[3],
         group_classes: [],
         following: [
@@ -21,6 +23,7 @@ const STUDENTS: Student[] = [
         ]
     },
     {
+        __typename: TYPE_NAME,
         user_account: USER_ACCOUNTS[4],
         group_classes: [],
         following: [
