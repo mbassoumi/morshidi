@@ -1,11 +1,17 @@
 import React, {HTMLProps} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
-import {RatingType} from './types';
-import LibraryRating from 'react-rating';
+import LibraryRating, {RatingComponentProps} from 'react-rating';
 import classNames from "classnames";
 
-const Rating = ({count, average, readonly, onChange, className, ...props}: RatingType & HTMLProps<any>) => {
+
+interface RatingProps extends RatingComponentProps{
+    count?: number
+    average: number
+    readonly: boolean
+    onChange?: any
+}
+const Rating = ({count, average, readonly, onChange, className, ...props}: RatingProps) => {
 
     const combinedClassNames = classNames(
         className,
@@ -13,7 +19,7 @@ const Rating = ({count, average, readonly, onChange, className, ...props}: Ratin
     );
     return (
         <div
-            className={combinedClassNames}>
+            className={combinedClassNames} >
             <div className="flex flex-no-wrap px-2 py-1 rounded-lg bg-white shadow-xl">
 
                 <LibraryRating
@@ -23,6 +29,7 @@ const Rating = ({count, average, readonly, onChange, className, ...props}: Ratin
                     onChange={onChange}
                     emptySymbol={<FontAwesomeIcon icon={faStar} className="text-gray-500" size="lg"/>}
                     fullSymbol={<FontAwesomeIcon icon={faStar} className="text-yellow-500" size="lg"/>}
+                    {...props}
                 />
                 {
                     count ? (

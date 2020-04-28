@@ -1,10 +1,15 @@
 import React from 'react';
-import {InputField, SelectField} from '../../shared/FormikComponents';
+import {InputField, SelectField} from '../../shared/formik/FormikComponents';
 import {ReactSelectType} from '../../shared/ReactSelect';
-import {DefaultPhysicalClassSettingProps} from '../types';
+import CITIES from './../../../data/cities'
+const DefaultPhysicalClassSetting = () => {
 
-const DefaultPhysicalClassSetting = ({values, cities}: DefaultPhysicalClassSettingProps) => {
-
+    const cities = CITIES.map(city => {
+        return {
+            value: city.id,
+            label: city.name,
+        }
+    })
 
     return (
         <div className="px-4 pb-4">

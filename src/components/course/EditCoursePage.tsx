@@ -2,7 +2,7 @@ import React from 'react';
 import {cities, fields, keywords, levels} from '../../data';
 import CourseForm from './CourseForm';
 import {RouteComponentProps} from 'react-router-dom';
-import {CourseType} from './types';
+import {Course} from './types';
 import COURSES from '../../data/courses';
 
 const EditCoursePage = ({match}: RouteComponentProps) => {
@@ -11,7 +11,7 @@ const EditCoursePage = ({match}: RouteComponentProps) => {
     const courseId = parseInt(match.params.id);
 
     //@ts-ignore
-    const course: CourseType = COURSES.find(item => item.id === courseId);
+    const course: Course = COURSES.find(item => item.id === courseId);
 
 
     const onSubmit = (values: any, {setSubmitting}: any) => {

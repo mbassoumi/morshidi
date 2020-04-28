@@ -14,20 +14,21 @@ import {MenuProps} from './types';
 import CustomImg from '../shared/CustomImg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {useSelector} from 'react-redux';
-// import TEACHERS from '../../data/teachers'
+import {User} from "../user/types";
 
 const Menu = ({closeMenu, style}: MenuProps) => {
 
     //@ts-ignore
-    const user = useSelector(state => state.auth.user);
-    // const user = TEACHERS[0];
+    const user: User = useSelector(state => state.auth.user);
+
+    const userName = user.user_account.first_name + ' ' + user.user_account.last_name;
 
     return (
         <div className="absolute p-2 top-0 left-0 h-full min-h-screen bg-indigo-900 overflow-scroll" style={style}>
 
             <div className="flex">
                 <div className="mx-auto mt-10">
-                    <CustomImg src={user.picture} alt="Profile"/>
+                    <CustomImg src={user.user_account.avatar.thumb} alt="Profile"/>
                 </div>
                 <button onClick={closeMenu} className="focus:outline-none h-full">
                     <FontAwesomeIcon size="lg" icon={faTimes} className="hover:text-white text-gray-600"/>
@@ -35,7 +36,7 @@ const Menu = ({closeMenu, style}: MenuProps) => {
             </div>
             <div className="flex m-2">
                 <div className="mx-auto">
-                    <div className="text-white font-bold tracking-wide text-xl">{user.name}</div>
+                    <div className="text-white font-bold tracking-wide text-xl">{userName}</div>
                 </div>
             </div>
             <div className="border-white border-solid border-t-2"/>
@@ -60,8 +61,8 @@ const Menu = ({closeMenu, style}: MenuProps) => {
 
 
 
-                {/*<MenuItem link='/class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>*/}
-                {/*<MenuItem link='/class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>*/}
+                {/*<MenuItem link='/group_class/public' icon={faBookOpen} text="Class Public" closeMenu={closeMenu}/>*/}
+                {/*<MenuItem link='/group_class/new' icon={faCoffee} text="New Class" closeMenu={closeMenu}/>*/}
                 {/*<MenuItem link='/teacher/profile-new' icon={faSchool} text="New teacher profile" closeMenu={closeMenu}/>*/}
                 {/*<MenuItem link='/student/profile-new' icon={faSchool} text="New student profile" closeMenu={closeMenu}/>*/}
                 {/*<MenuItem link='/course/public' icon={faCoffee} text="Course Public" closeMenu={closeMenu}/>*/}

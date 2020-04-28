@@ -30,7 +30,7 @@ export const student = {
     email    : 'mbbassoumi@gmail.com'
 };
 
-export const classDetails = {
+export const groupClass = {
     id          : 142323432,
     course_id   : 2,
     name        : 'Advanced Equation',

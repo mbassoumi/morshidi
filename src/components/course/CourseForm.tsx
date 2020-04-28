@@ -1,8 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
-import {CourseFormProps} from './types';
 import {FieldArray, Form, Formik} from 'formik';
-import {InputField, SelectField, StyledButton, TextAreaField} from '../shared/FormikComponents';
+import {InputField, SelectField, StyledButton, TextAreaField} from '../shared/formik/FormikComponents';
 import {ReactSelectType} from '../shared/ReactSelect';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare, faTrash} from '@fortawesome/free-solid-svg-icons';
@@ -38,27 +37,37 @@ const validate = Yup.object({
     physicalAddress: Yup.string()
         .notRequired(),
     minStudentPerPhysicalClass: Yup.number()
-        .min(1, 'wrong min value for min student per physical class')
-        .max(Yup.ref('maxStudentPerPhysicalClass'), 'min student per physical class value can\'t be larger than max value')
+        .min(1, 'wrong min value for min student per physical group_class')
+        .max(Yup.ref('maxStudentPerPhysicalClass'), 'min student per physical group_class value can\'t be larger than max value')
         .notRequired(),
     maxStudentPerPhysicalClass: Yup.number()
-        .min(Yup.ref('minStudentPerPhysicalClass'), 'max student per physical class value can\'t be less than min value')
+        .min(Yup.ref('minStudentPerPhysicalClass'), 'max student per physical group_class value can\'t be less than min value')
         .notRequired(),
     pricePerPhysicalStudent: Yup.number()
         .min(0, 'Price per physical student can\'t be negative')
         .notRequired(),
     minStudentPerOnlineClass: Yup.number()
-        .min(1, 'wrong min value for min student per online class')
-        .max(Yup.ref('maxStudentPerOnlineClass'), 'min student per online class value can\'t be larger than max value')
+        .min(1, 'wrong min value for min student per online group_class')
+        .max(Yup.ref('maxStudentPerOnlineClass'), 'min student per online group_class value can\'t be larger than max value')
         .notRequired(),
     maxStudentPerOnlineClass: Yup.number()
-        .min(Yup.ref('minStudentPerOnlineClass'), 'max student per online class value can\'t be less than min value')
+        .min(Yup.ref('minStudentPerOnlineClass'), 'max student per online group_class value can\'t be less than min value')
         .notRequired(),
     pricePerOnlineStudent: Yup.number()
         .min(0, 'Price per online student can\'t be negative')
         .notRequired(),
 
 });
+
+interface CourseFormProps {
+    defaultValues: any,
+    serverErrors: any,
+    onSubmit: (values: any, {setSubmitting}: any) => void,
+    keywords: any,
+    fields:any,
+    cities: any,
+    levels: any
+}
 
 const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, cities, levels}: CourseFormProps) => {
 
@@ -208,7 +217,7 @@ const CourseForm = ({defaultValues, serverErrors, onSubmit, keywords, fields, ci
                         </div>
 
                         <DefaultOnlineClassSetting/>
-                        <DefaultPhysicalClassSetting cities={cities} values={values}/>
+                        <DefaultPhysicalClassSetting/>
 
 
                         <div className="flex flex-wrap px-4 pb-4">

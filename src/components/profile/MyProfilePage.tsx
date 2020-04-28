@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import StudentProfile from '../student/StudentProfile';
-import TeacherProfile from '../teacher/TeacherProfile';
+import StudentProfile from '../user/student/StudentProfile';
+import TeacherProfile from '../user/teacher/TeacherProfile';
 import {Redirect} from 'react-router-dom';
 
 const MyProfilePage = () => {
@@ -24,11 +24,10 @@ const MyProfilePage = () => {
     };
 
     const renderProfile = () => {
-        switch (user.__typename) {
-            case 'Student':
-                return studentProfile();
-            case 'Teacher':
-                return teacherProfile();
+        if (user.user_account.roles.includes('teacher')){
+            return teacherProfile();
+        }else if (user.user_account.roles.includes('student')){
+            return studentProfile();
         }
     };
 

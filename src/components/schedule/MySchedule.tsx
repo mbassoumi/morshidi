@@ -2,9 +2,9 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {ScheduleSlot} from "./types";
 import Schedule from "./Schedule";
-import {Teacher} from "../teacher/types";
-import {Student} from "../student/types";
-import {ClassDetails} from "../class/types"
+import {Teacher} from "../user/teacher/types";
+import {Student} from "../user/student/types";
+import {GroupClass} from "../class/group_class/types"
 
 const MySchedule = () => {
 
@@ -35,20 +35,20 @@ const MySchedule = () => {
     //     )
     // });
 
-    const userClasses: ClassDetails[] = user.activeClasses;
+    const userClasses: GroupClass[] = [];
 
-    userClasses?.forEach((classDetails, index) => {
+    userClasses?.forEach((groupClass, index) => {
         //@ts-ignore
-        Object.keys(classDetails.schedule).filter((day) => classDetails.schedule[day].on).forEach((day) => {
+        Object.keys(groupClass.schedule).filter((day) => groupClass.schedule[day].on).forEach((day) => {
             schedule.push(
                 [
                     day,
                     //@ts-ignore
-                    classDetails.schedule[day].on ? classDetails.nickname : '',
+                    groupClass.schedule[day].on ? groupClass.nickname : '',
                     //@ts-ignore
-                    new Date(classDetails.schedule[day].from),
+                    new Date(groupClass.schedule[day].from),
                     //@ts-ignore
-                    new Date(classDetails.schedule[day].to),
+                    new Date(groupClass.schedule[day].to),
                 ]
             )
         });

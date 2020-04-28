@@ -1,68 +1,63 @@
-import {Props as ReactSelectProps} from 'react-select/src/Select';
+import {User} from "../user/types";
 
-export interface TabButtonProps {
-    active: boolean,
-    onClick: () => void,
-    text: string
+export interface Level {
+    id: string
+    name: string
+    __typename?: GraphqlTypeName
 }
 
-export interface TagProps {
+export interface Field {
+    id: string
+    name: string
+    __typename?: GraphqlTypeName
+}
+
+export interface SearchKeyword {
+    id: string
+    name: string
+    __typename?: GraphqlTypeName
+}
+
+export interface Review {
+    __typename?: GraphqlTypeName
     text: string,
-    bgColor?: string,
-    textColor?: string,
+    rate: number,
+    user?: User
 }
 
-export interface CustomImgProps {
-    size?: 'sm' | 'lg' | 'xl',
-    circle?: boolean
+export interface Rating {
+    __typename?: GraphqlTypeName
+    count: number
+    average: number
+    reviews: Review[]
 }
 
-export interface CardProps {
-    children: any,
-    className?: string
+export interface City {
+    id: string
+    name: string
+    __typename?: GraphqlTypeName
 }
 
-type InputFieldType = 'text' | 'number';
-
-
-export interface InputFieldProps {
-    className?: string,
-    label?: string,
-    id: string,
-    name: string,
-    type: InputFieldType,
-    placeholder?: string,
-    disabled?: boolean,
-    value?: any
+export interface Address {
+    city: City
+    __typename?: GraphqlTypeName
 }
 
-export interface TextAreaFieldProps {
-    className?: string,
-    label?: string,
-    id: string,
-    name: string,
-    placeholder?: string,
-    rows?: number,
-}
-
-export type SelectFieldProps = ReactSelectProps & { name: string }
-
-export interface CheckboxFieldProps {
-    id: string,
-    name: string,
-    children?: any
-}
-
-export interface RatingType {
-    average: number,
-    count: number | undefined,
-    readonly?: boolean
-    onChange?: () => void
-}
-
-
-export interface SelectObject {
-    value: string,
-    label: string,
-    __isNew?: boolean
-}
+export type GraphqlTypeName =
+    'Teacher'
+    | 'Student'
+    | 'SearchKeyword'
+    | 'Level'
+    | 'GroupClass'
+    | 'Field'
+    | 'Course'
+    | 'City'
+    | 'Address'
+    | 'ClassTime'
+    | 'ContactInfo'
+    | 'GroupClassSchedule'
+    | 'GroupClassSettings'
+    | 'Review'
+    | 'UserAccount'
+    | 'Rating'
+    | 'Avatar'

@@ -1,49 +1,19 @@
-import {Teacher} from '../teacher/types';
-import {RatingType, SelectObject} from '../shared/types';
+import {Field, GraphqlTypeName, Level, Rating, SearchKeyword} from "../shared/types";
+import {Teacher} from "../user/teacher/types";
+import {GroupClassSettings, GroupClass} from "../class/group_class/types";
 
-export interface CourseFormProps {
-    defaultValues: any,
-    serverErrors: any,
-    fields: SelectObject[],
-    levels: SelectObject[],
-    keywords: SelectObject[],
-    cities: SelectObject[],
-    onSubmit: (values: any, {setSubmitting}: any) => void
-}
-
-export interface DefaultPhysicalClassSettingProps {
-    values: object,
-    cities: SelectObject[],
-}
-
-export interface CourseProps {
-    course: CourseType
-}
-
-export interface CourseType {
-    id: number,
-    name: string,
-    classes: number
-    students: number,
-    fields: string[],
-    levels: string[],
-    description: string,
-    requirements: string[],
-    teacher: Teacher,
-    rating: RatingType,
-
-
-    keywords: string[],
-    city?: string,
-    physicalAddress?: string,
-    minStudentPerPhysicalClass?: number,
-    maxStudentPerPhysicalClass?: number,
-    pricePerPhysicalStudent?: number,
-    minStudentPerOnlineClass?: number,
-    maxStudentPerOnlineClass?: number,
-    pricePerOnlineStudent?: number,
-}
-
-export interface CoursesListProps {
-    courses: CourseType[]
+export interface Course {
+    id: string
+    title: string
+    field: Field
+    level: Level
+    search_keywords: SearchKeyword[]
+    description: string
+    requirements: string[]
+    teacher: Teacher
+    rating: Rating
+    group_classes: GroupClass[]
+    default_online_class_settings: GroupClassSettings
+    default_physical_class_settings: GroupClassSettings
+    __typename?: GraphqlTypeName
 }

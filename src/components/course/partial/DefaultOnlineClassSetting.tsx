@@ -1,5 +1,5 @@
 import React from 'react';
-import {InputField} from '../../shared/FormikComponents';
+import {InputField} from '../../shared/formik/FormikComponents';
 
 const DefaultOnlineClassSetting = () => {
 

@@ -1,33 +1,33 @@
-export default [
-    {
-        __typename: 'City',
-        id: 1,
-        value: 'city_1',
-        label: 'City 1'
-    },
-    {
-        __typename: 'City',
-        id: 2,
-        value: 'city_2',
-        label: 'City 2'
-    },
-    {
-        __typename: 'City',
-        id: 3,
-        value: 'city_3',
-        label: 'City 3'
-    },
-    {
-        __typename: 'City',
-        id: 4,
-        value: 'city_4',
-        label: 'City 4'
-    },
-    {
-        __typename: 'City',
-        id: 5,
-        value: 'city_5',
-        label: 'City 5'
-    },
+import {City} from "../components/shared/types";
 
+const TYPE_NAME = 'City';
+
+const CITIES: City[] = [
+    {
+        __typename: TYPE_NAME,
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000010',
+        name: 'Ramallah'
+    },
+    {
+        __typename: TYPE_NAME,
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000020',
+        name: 'Nablus'
+    },
+    {
+        __typename: TYPE_NAME,
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000030',
+        name: 'Jenin'
+    },
+    {
+        __typename: TYPE_NAME,
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000040',
+        name: 'Betlahem'
+    },
+    {
+        __typename: TYPE_NAME,
+        id: 'aaaaaaaa-bbbb-cccc-dddd-000000000050',
+        name: 'Betlahem'
+    },
 ];
+
+export default CITIES;

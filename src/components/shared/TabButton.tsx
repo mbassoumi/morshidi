@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {HTMLProps} from 'react';
 import classNames from 'classnames';
-import {TabButtonProps} from './types';
+
+interface TabButtonProps extends HTMLProps<HTMLButtonElement>{
+    active?: boolean,
+    text: string
+}
 
 const TabButton = ({text, active, onClick}: TabButtonProps) => {
 

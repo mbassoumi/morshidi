@@ -3,28 +3,31 @@ import {useDispatch, useSelector} from 'react-redux';
 import {loginAction} from '../api/auth/actions/authActions';
 import {showAlertNotification} from '../api/alerts/alerts';
 import {Redirect,} from 'react-router-dom';
-import {User} from '../api/types';
 import STUDENTS from '../data/students';
 import TEACHERS from '../data/teachers';
-
+import {User} from "./user/types";
 
 const Login = () => {
 
     const dispatch = useDispatch();
 
-    //@ts-ignore
-    const user = useSelector(state => state.auth.user);
 
-    console.log('Login user', user);
+    //@ts-ignore
+    const loggedInUser = useSelector(state => state.auth.user);
+
+    console.log('Login user', loggedInUser);
 
     const login = (userType: string) => {
+
 
         let user: User;
         switch (userType) {
             case 'teacher':
+                //@ts-ignore
                 user = TEACHERS[0];
                 break;
             case 'student':
+                //@ts-ignore
                 user = STUDENTS[0];
                 break;
             default:
@@ -38,7 +41,7 @@ const Login = () => {
     return (
         <div className="h-screen">
             {
-                user ? <Redirect to={{pathname: '/'}}/> : null
+                loggedInUser ? <Redirect to={{pathname: '/'}}/> : null
             }
             <div className="flex justify-center items-center mx-auto h-screen bg-indigo-900">
                 <div className="flex flex-col">

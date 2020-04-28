@@ -5,6 +5,8 @@ import {gql} from 'apollo-boost';
 import typeDefs from './schema';
 
 import resolvers from './resolvers';
+import {getAllTeachersQuery} from "../components/user/teacher/api/queries";
+import {getUserByIdQuery} from "../components/user/api/queries";
 
 
 export const client = new ApolloClient({
@@ -13,36 +15,55 @@ export const client = new ApolloClient({
     typeDefs
 });
 
-client.query({
-    query: gql`
-        query getStudentsList {
-            students @client {
-                __typename
-                id
-                name
-                interests
-            }
-        }
-    `
-})
-.then(result => {
-    console.log('result getStudentsList');
-    console.log(result);
-});
 
 client.query({
-    query: gql`
-        query getStudent {
-            student(id: 4) @client {
-                __typename
-                id
-                name
-                interests
-            }
-        }
-    `
+    query: getAllTeachersQuery
 })
-.then(result => {
-    console.log('result getStudent');
-    console.log(result);
-});
+    .then(result => {
+        console.log('result getAllTeachers');
+        console.log(result);
+    });
+
+client.query({
+    query: getUserByIdQuery
+})
+    .then(result => {
+        console.log('result getUserByIdQuery');
+        console.log(result);
+    });
+
+
+// client.query({
+//     query: gql`
+//         query getStudentsList {
+//             students @client {
+//                 __typename
+//                 id
+//                 name
+//                 interests
+//             }
+//         }
+//     `
+// })
+// .then(result => {
+//     console.log('result getStudentsList');
+//     console.log(result);
+// });
+//
+// client.query({
+//     query: gql`
+//         query getStudent {
+//             student(id: 4) @client {
+//                 __typename
+//                 id
+//                 name
+//                 interests
+//             }
+//         }
+//     `
+// })
+// .then(result => {
+//     console.log('result getStudent');
+//     console.log(result);
+// });
+

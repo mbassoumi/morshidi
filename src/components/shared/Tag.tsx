@@ -1,8 +1,14 @@
 import React, {HTMLProps} from 'react';
-import {TagProps} from './types';
 import classNames from "classnames";
 
-const Tag = ({text, bgColor, textColor, ...props}: TagProps & HTMLProps<any>) => {
+
+interface TagProps extends HTMLProps<HTMLSpanElement> {
+    text: string
+    bgColor?: string
+    textColor?: string
+}
+
+const Tag = ({text, bgColor, textColor, ...props}: TagProps) => {
 
     const bgClassColor = bgColor ? `bg-${bgColor}-600` : 'bg-indigo-600';
     const textClassColor = textColor ? `bg-${textColor}-300` : 'text-white';

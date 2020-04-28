@@ -1,30 +1,54 @@
 import CITIES from '../data/cities';
-import CLASSES from '../data/classes';
+import Group_classes from '../data/group_classes';
 import COURSES from '../data/courses';
 import FIELDS from '../data/fields';
-import INTERESTS from '../data/interests';
-import KEYWORDS from '../data/keywords';
+import KEYWORDS from '../data/search_keywords';
 import LEVELS from '../data/levels';
 import STUDENTS from '../data/students';
 import TEACHERS from '../data/teachers';
+import REVIEWS from "../data/partial/reviews";
 
 export default {
     Query: {
+
+        teachers() {
+            return TEACHERS.map((teacher) => {
+                return {
+                    ...teacher,
+                    followers: STUDENTS,
+                    courses: COURSES,
+                    rating: {
+                        ...teacher.rating,
+                        reviews: REVIEWS
+                    }
+                }
+            })
+        },
+
+        //@ts-ignore
+        user(parent, args, {client}) {
+            console.log('args.id', args.id);
+            //@ts-ignore
+            let user = TEACHERS.find(teacher => teacher.user_account.id === args.id)
+            if (!user) {
+                //@ts-ignore
+                user = STUDENTS.find(student => student.user_account.id === args.id)
+            }
+            return user;
+        },
+
         students() {
             return STUDENTS;
         },
         //@ts-ignore
-        student(parent, args, { client }) {
-            return STUDENTS.find(student => student.id === args.id)
+        student(parent, args, {client}) {
+            return STUDENTS.find(student => student.user_account.id === args.id)
         },
 
 
-        teachers() {
-            return TEACHERS;
-        },
         //@ts-ignore
-        teacher(parent, args, { client }) {
-            return TEACHERS.find(teacher => teacher.id === args.id)
+        teacher(parent, args, {client}) {
+            return TEACHERS.find(teacher => teacher.user_account.id === args.id)
         },
 
 
@@ -32,23 +56,24 @@ export default {
             return CITIES;
         },
         //@ts-ignore
-        city(parent, args, { client }) {
+        city(parent, args, {client}) {
             return CITIES.find(city => city.id === args.id)
         },
 
         classes() {
-            return CLASSES;
+            return Group_classes;
         },
         //@ts-ignore
-        class(parent, args, { client }) {
-            return CLASSES.find(classObj => classObj.id === args.id)
+        class(parent, args, {client}) {
+            return Group_classes.find(classObj => classObj.id === args.id)
         },
 
         courses() {
             return COURSES;
         },
         //@ts-ignore
-        course(parent, args, { client }) {
+        course(parent, args, {client}) {
+            //@ts-ignore
             return COURSES.find(course => course.id === args.id)
         },
 
@@ -56,23 +81,23 @@ export default {
             return FIELDS;
         },
         //@ts-ignore
-        field(parent, args, { client }) {
+        field(parent, args, {client}) {
             return FIELDS.find(field => field.id === args.id)
         },
 
         interests() {
-            return INTERESTS;
+            return FIELDS;
         },
         //@ts-ignore
-        interest(parent, args, { client }) {
-            return INTERESTS.find(interest => interest.id === args.id)
+        interest(parent, args, {client}) {
+            return FIELDS.find(interest => interest.id === args.id)
         },
 
         keywords() {
             return KEYWORDS;
         },
         //@ts-ignore
-        keyword(parent, args, { client }) {
+        keyword(parent, args, {client}) {
             return KEYWORDS.find(keyword => keyword.id === args.id)
         },
 
@@ -80,7 +105,7 @@ export default {
             return LEVELS;
         },
         //@ts-ignore
-        level(parent, args, { client }) {
+        level(parent, args, {client}) {
             return LEVELS.find(level => level.id === args.id)
         },
 

@@ -1,101 +1,217 @@
 import {gql} from 'apollo-boost';
 
 export default gql`
-    type Rating {
-        count: Int!
-        average: Float!
+    #    TODO: check Date scalor serilazation
+    #    TODO: need schedule for teacher and student
+
+    scalar Date
+    scalar Timestamp
+
+    enum Gender {
+        MALE
+        FEMALE
     }
 
-    type Teacher {
-        id       : ID!
-        name     : String!
-        username : String!
-        from: String!
-        classes  : Int!
-        sessions : Int!
-        followers: Int
-        rating   : Rating!
-        aboutMe    : String!
-        fields     : [String!]!
-        levels     : [String!]!
-        whatsapp: String!
-        phone   : String!
-        email   : String!
-    }
-
-    type Student {
-        id      : ID!
-        name    : String!
-        username: String!
-        interests  : [String!]!
-        level      : String!
-        whatsapp: String!
-        phone   : String!
-        email   : String!
-    }
-
-    type Class {
-        id            : ID!
-        name          : String!
-        nickname      : String!
-        fields      : [String!]!
-        targetLevels: [String!]!
-        description : String!
-        requirements: [String!]!
+    type Avatar {
+        thumb: String!
+        uri: String!
     }
 
     type City {
-        label: String!
-        value: String!
+        id: ID!
+        name: String!
     }
 
-    type Field {
-        label: String!
-        value: String!
+    type Address {
+        city: City!
     }
 
-    type Interest {
-        label: String!
-        value: String!
+    enum ContactInfoType {
+        EMAIL
+        PHONE
     }
-    type Keyword {
-        label: String!
+
+    type ContactInfo {
+        id: ID!
+        type: ContactInfoType!
         value: String!
+        confirmed: Boolean!
+        primary: Boolean!
+    }
+
+    enum UserRole {
+        STUDENT
+        TEACHER
+        ADMIN
+        SALE_POINT
     }
 
     type Level {
-        label: String!
-        value: String!
+        id: ID!
+        name: String!
+    }
+
+    type Field {
+        id: ID!
+        name: String!
+    }
+
+    type SearchKeyword {
+        id: ID!
+        name: String!
+    }
+
+    type Review {
+        text: String!,
+        rate: Int!,
+        user: User!
+    }
+    
+    type Rating {
+        count: Int!
+        average: Float!
+        reviews: [Review!]!
+    }
+
+    type GroupClassSettings {
+        online: Boolean!
+        min_students: Int!
+        max_students: Int!
+        price_per_student: Float!
+        address: Address
+        address_details: String
+    }
+
+
+    type ClassTime {
+        start_time: Timestamp!
+        end_time: Timestamp!
+    }
+
+    type GroupClassSchedule {
+        saturday: ClassTime
+        sunday: ClassTime
+        monday: ClassTime
+        tuesday: ClassTime
+        wednesday: ClassTime
+        thursday: ClassTime
+        friday: ClassTime
+    }
+
+    enum GroupClassEnrollmentStatus {
+        REQUESTED
+        CONFIRMED
+        ON_WAITING_LIST
+        CANCELED
+        DECLINED
+        WITHDRAWN
+    }
+
+    type GroupClassEnrollment {
+        id: ID!
+        student: Student!
+        group_class: GroupClass!
+        status: GroupClassEnrollmentStatus!
+    }
+
+    type PrivateClass {
+        id: ID!
+        teacher: Teacher!
+        student: Student!
+        time: ClassTime!
+    }
+
+    type UserAccount {
+        id: ID!
+        username: String!
+        first_name: String!
+        last_name: String!
+        avatar: Avatar!,
+        date_of_birth: Date!,
+        gender: Gender!,
+        address: Address!,
+        contact_info: [ContactInfo!]!
+        roles: [UserRole!]!
+    }
+
+    union SlotDetails = PrivateClass | GroupClass
+
+
+    type ScheduleSlot {
+        time: ClassTime!
+        details: SlotDetails!
+    }
+
+    type UserSchedule {
+        start_date: Date
+        end_date: Date
+        slots: [ScheduleSlot!]!
+        user: User
+    }
+
+
+    type Teacher {
+        user_account: UserAccount!
+        rating: Rating!,
+        bio: String
+        followers: [Student!]!
+        private_classes: [PrivateClass!]!
+        courses: [Course!]!
+        levels: [Level!]!
+        fields: [Field!]!
+    }
+
+    type Student {
+        user_account: UserAccount!
+        group_classes: [GroupClass!]!
+        following: [Teacher!]!
+        level: Level!
+        fields: [Field!]!
+    }
+
+    type GroupClass {
+        id: ID!
+        course: Course!
+        nickname: String!
+        start_date: Date!
+        end_date: Date!
+        class_settings: GroupClassSettings!
+        schedule: GroupClassSchedule!
+        enrollments: [GroupClassEnrollment!]!
     }
 
     type Course {
-        id       : ID!
-        name     : String!
-        classes  : Int!
-        students : Int!
-        rating   : Rating!
-        fields     : [String!]!
-        levels     : [String!]!
+        id: ID!
+        title: String!
+        field: Field!
+        level: Level!
+        search_keywords: [SearchKeyword!]!
         description: String!
         requirements: [String!]!
-        teacher: Teacher!,
+        teacher: Teacher!
+        rating: Rating!
+        group_classes: [GroupClass!]!
+        default_online_class_settings: GroupClassSettings
+        default_physical_class_settings: GroupClassSettings
     }
 
+    union User = Teacher | Student
 
-    type Query {
-        teachers: [Teacher!]!
-        teacher(id: ID!): Teacher
-        students: [Student!]!
-        student(id: ID!): Student
-        classes: [Class!]!
-        class(id: ID!): Class
-        courses: [Course!]!
-        course(id: ID!): Course
-
-        fields: [Field!]!
-        levels: [Level!]!
-        interests: [Interest!]!
-        cities: [City!]!
-        keywords: [Keyword!]!
-    }
+        type Query {
+            teachers: [Teacher!]!
+            user(id: ID!): User
+#            teacher(id: ID!): Teacher
+    #        students: [Student!]!
+    #        student(id: ID!): Student
+    #        classes: [Class!]!
+    #        class(id: ID!): Class
+    #        courses: [Course!]!
+    #        course(id: ID!): Course
+    #
+    #        fields: [Field!]!
+    #        levels: [Level!]!
+    #        interests: [Interest!]!
+    #        cities: [City!]!
+    #        keywords: [Keyword!]!
+        }
 `;
