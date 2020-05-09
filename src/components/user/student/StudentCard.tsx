@@ -19,7 +19,7 @@ const StudentCard = ({student}: StudentCardProps) => {
     const [width] = useWindowSize();
     const interestsDivRef = useRef(null);
     const interests = useMemo(() => {
-        const interestsTags = student.fields.map((field, index) => <span key={index} className="mb-1"><Tag key={index} text={field.name} bgColor="blue"/></span>);
+        const interestsTags = student.fields.map((field, index) => <span key={index} className="mb-1"><Tag key={index} text={field.name}/></span>);
         //@ts-ignore
         const showMore = interestsDivRef?.current?.offsetWidth < interestsDivRef?.current?.scrollWidth;
         if (showMore) {

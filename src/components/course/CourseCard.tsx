@@ -112,7 +112,7 @@ const CourseCard = ({course}: CourseCardProps) => {
 
                             <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer">
                                 <Popover content={<TeacherCard teacher={course.teacher}/>}>
-                                    <Avatar src={course.teacher.user_account.avatar.thumb}/>
+                                    <Avatar src={course.teacher?.user_account?.avatar.thumb}/>
                                 </Popover>
                             </AnimateHoveredComponent>
                         </div>

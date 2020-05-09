@@ -6,12 +6,12 @@ import {Course} from "../../course/types";
 
 export interface Teacher {
     __typename?: GraphqlTypeName,
-    user_account: UserAccount
-    rating: Rating
-    bio: string
-    followers: Student[]
-    private_classes: PrivateClass[]
-    courses: Course[]
-    levels: Level[]
-    fields: Field[]
+    user_account?: UserAccount
+    rating?: Rating
+    bio?: string
+    followers?: Student[]
+    private_classes?: PrivateClass[]
+    courses?: Course[]
+    levels?: Level[]
+    fields?: Field[]
 }

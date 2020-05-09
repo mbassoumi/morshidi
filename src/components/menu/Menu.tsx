@@ -21,14 +21,14 @@ const Menu = ({closeMenu, style}: MenuProps) => {
     //@ts-ignore
     const user: User = useSelector(state => state.auth.user);
 
-    const userName = user.user_account.first_name + ' ' + user.user_account.last_name;
+    const userName = user.user_account?.first_name + ' ' + user.user_account?.last_name;
 
     return (
         <div className="absolute p-2 top-0 left-0 h-full min-h-screen bg-indigo-900 overflow-scroll" style={style}>
 
             <div className="flex">
                 <div className="mx-auto mt-10">
-                    <CustomImg src={user.user_account.avatar.thumb} alt="Profile"/>
+                    <CustomImg src={user.user_account?.avatar.thumb} alt="Profile"/>
                 </div>
                 <button onClick={closeMenu} className="focus:outline-none h-full">
                     <FontAwesomeIcon size="lg" icon={faTimes} className="hover:text-white text-gray-600"/>

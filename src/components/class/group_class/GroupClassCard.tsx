@@ -67,7 +67,7 @@ const GroupClassCard = ({groupClass}: ClassCardProps) => {
                 <div className="flex justify-end">
                     <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer mx-2">
                         <Popover content={<TeacherCard teacher={groupClass.course.teacher}/>}>
-                            <Avatar src={groupClass.course.teacher.user_account.avatar.thumb}/>
+                            <Avatar src={groupClass.course.teacher?.user_account?.avatar.thumb}/>
                         </Popover>
                     </AnimateHoveredComponent>
                     <AnimateHoveredComponent animation='heartBeat infinite' className="cursor-pointer mx-2">

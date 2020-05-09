@@ -12,7 +12,7 @@ const CourseHeader = ({course}: CourseHeaderProps) => {
         <div>
             <div className="bg-indigo-800 w-full justify-center text-center">
                 <div className="text-white font-bold tracking-wide text-2xl pt-4">{course.title}</div>
-                <div className="text-white tracking-wide text-lg">By: {course.teacher.user_account.first_name}</div>
+                <div className="text-white tracking-wide text-lg">By: {course.teacher?.user_account?.first_name}</div>
                 <div className="text-white tracking-wide text-lg whitespace-no-wrap pt-10">ID: {course.id}</div>
                 <div className="flex mt-3 pb-6">
                     <div className="flex mx-auto justify-between items-center sm:w-1/3">
@@ -28,7 +28,7 @@ const CourseHeader = ({course}: CourseHeaderProps) => {
                 </div>
             </div>
             <div className="-mt-4">
-                <Rating average={course.rating.average} count={course.rating.count} readonly={true}/>
+                <Rating initialRating={course.rating.average} readonly={true}/>
             </div>
         </div>
     );

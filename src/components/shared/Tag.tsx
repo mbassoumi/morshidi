@@ -4,20 +4,13 @@ import classNames from "classnames";
 
 interface TagProps extends HTMLProps<HTMLSpanElement> {
     text: string
-    bgColor?: string
-    textColor?: string
 }
 
-const Tag = ({text, bgColor, textColor, ...props}: TagProps) => {
-
-    const bgClassColor = bgColor ? `bg-${bgColor}-600` : 'bg-indigo-600';
-    const textClassColor = textColor ? `bg-${textColor}-300` : 'text-white';
+const Tag = ({text, className, children, ...props}: TagProps) => {
 
     const componentClassName = classNames(
-        'mx-1 px-2 py-1 inline-block  tracking-wider text-xs  uppercase whitespace-no-wrap',
-        bgClassColor,
-        textClassColor,
-        props.className
+        'uppercase whitespace-no-wrap text-xs sm:text-1x p-1',
+        className
     );
 
     return (
@@ -26,7 +19,7 @@ const Tag = ({text, bgColor, textColor, ...props}: TagProps) => {
             {...props}
         >
             {text}
-            {props.children}
+            {children}
         </span>
     );
 };

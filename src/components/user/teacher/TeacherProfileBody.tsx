@@ -11,8 +11,8 @@ interface TeacherProfileBodyProps {
 
 const TeacherProfileBody = ({teacher}: TeacherProfileBodyProps) => {
 
-    const fields = teacher.fields.map((field, index) => <Tag text={field.name} key={field.id}/>);
-    const levels = teacher.levels.map((level, index) => <Tag text={level.name} key={level.id}/>);
+    const fields = teacher.fields?.map((field, index) => <Tag text={field.name} key={field.id}/>);
+    const levels = teacher.levels?.map((level, index) => <Tag text={level.name} key={level.id}/>);
 
     return (
         <div>

@@ -47,7 +47,7 @@ const TEACHERS: Teacher[] = [
             FIELDS[3],
             FIELDS[4],
         ]
-    }
+    },
 ];
 
 export default TEACHERS;
