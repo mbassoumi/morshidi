@@ -47,7 +47,7 @@ const CoursesList = ({courses}: CoursesListProps) => {
             accessor: 'rating.average',
             Filter: RatingFilter,
             filter: 'graterThan',
-            Cell: ({cell: {value}}: CellProps<any>) => <Rating count={undefined} average={value} readonly={true}/>,
+            Cell: ({cell: {value}}: CellProps<any>) => <Rating initialRating={value} readonly={true}/>,
         },
         {
             Header: 'Fields',

@@ -42,13 +42,13 @@ export default {
         },
         //@ts-ignore
         student(parent, args, {client}) {
-            return STUDENTS.find(student => student.user_account.id === args.id)
+            return STUDENTS.find(student => student.user_account?.id === args.id)
         },
 
 
         //@ts-ignore
         teacher(parent, args, {client}) {
-            return TEACHERS.find(teacher => teacher.user_account.id === args.id)
+            return TEACHERS.find(teacher => teacher.user_account?.id === args.id)
         },
 
 

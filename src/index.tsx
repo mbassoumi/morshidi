@@ -30,6 +30,8 @@ const Index: React.FC = () => {
         </ApolloProvider>
     );
 };
+//@ts-ignore
+window.__APOLLO_CLIENT__ = client
 
 ReactDOM.render(<Index/>, document.getElementById('root'));
 
